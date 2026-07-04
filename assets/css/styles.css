@@ -296,11 +296,7 @@ a { color: inherit; }
   text-decoration: none; color: var(--ink); display: inline-flex; align-items: center; gap: 0.4em; padding-top: 0.6rem;
 }
 .card__link span { position: relative; }
-.card__link span::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1.5px; background: var(--red);
-  transform: scaleX(0); transform-origin: left; transition: transform 0.25s var(--ease);
-}
-.card:hover .card__link span::after { transform: scaleX(1); }
+.card:hover .card__link { color: var(--red); }
 
 /* Standalone card block (not in hairline grid) */
 .card--block { border: 1px solid var(--rule); border-radius: var(--radius); }
@@ -346,6 +342,33 @@ a { color: inherit; }
 .stat__num { font-family: var(--serif); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.4rem); color: var(--red); line-height: 1; }
 .stat__label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.5rem; }
 .stat__note { font-size: 0.85rem; color: var(--ink-faint); margin: 0.3rem 0 0; }
+
+/* --------------------------------------------------------------------------
+   Results: tabbed toppers (student photo + score cards)
+   -------------------------------------------------------------------------- */
+.result-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+.result-tab {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.55em 1.15em; border: 1px solid var(--rule-strong); border-radius: 100px;
+  background: transparent; color: var(--ink-soft); cursor: pointer; transition: background 0.18s var(--ease), color 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.result-tab:hover { border-color: var(--ink); }
+.result-tab.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.result-panel[hidden] { display: none; }
+
+.toppers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .toppers { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .toppers { grid-template-columns: 1fr; } }
+.topper { margin: 0; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper-card); overflow: hidden; }
+.topper__photo {
+  aspect-ratio: 3 / 4; border: 0; border-radius: 0; border-bottom: 1px solid var(--rule);
+  background: var(--paper-2); display: grid; place-items: center; text-align: center; padding: 1rem;
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+}
+.topper figcaption { padding: 0.95rem 1.05rem 1.15rem; }
+.topper figcaption b { display: block; font-size: 1.05rem; line-height: 1.2; }
+.topper__score { display: inline-block; font-family: var(--mono); font-weight: 600; color: var(--red); font-size: 1.2rem; margin-top: 0.35rem; }
+.topper__meta { display: block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.35rem; }
 
 /* --------------------------------------------------------------------------
    Video testimonials + written testimonials

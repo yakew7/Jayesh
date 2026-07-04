@@ -153,6 +153,27 @@
     });
   }
 
+  /* ---- Results tabs (choose which board's results to see) ------------- */
+  function wireResultTabs() {
+    document.querySelectorAll("[data-result-tabs]").forEach(function (tablist) {
+      var panels = tablist.parentNode.querySelector(".result-panels");
+      if (!panels) return;
+      tablist.addEventListener("click", function (e) {
+        var btn = e.target.closest(".result-tab");
+        if (!btn) return;
+        var name = btn.getAttribute("data-tab");
+        tablist.querySelectorAll(".result-tab").forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        panels.querySelectorAll(".result-panel").forEach(function (p) {
+          p.hidden = p.getAttribute("data-panel") !== name;
+        });
+      });
+    });
+  }
+
   /* ---- Footer year ----------------------------------------------------- */
   function setYear() {
     var el = document.querySelector("[data-year]");
@@ -168,6 +189,7 @@
     wireNav();
     wireParallax();
     wireEnquiryForm();
+    wireResultTabs();
     setYear();
   });
 })();
