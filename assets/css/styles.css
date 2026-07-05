@@ -153,8 +153,8 @@ a { color: inherit; }
 }
 .brand__mark b { color: var(--red); }
 .brand__sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-faint); }
-/* JLC logo image in the header — multiply blend drops the white jpeg background onto the cream */
-.brand__logo { height: 42px; width: auto; display: block; mix-blend-mode: multiply; }
+/* JLC logo image in the header (transparent PNG, reads cleanly in both themes) */
+.brand__logo { height: 42px; width: auto; display: block; }
 @media (max-width: 600px) { .brand__logo { height: 34px; } }
 
 .nav__links { display: flex; align-items: center; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
@@ -581,8 +581,7 @@ a { color: inherit; }
 :root[data-theme="dark"] .section--ink .btn--ghost:hover { background: #ece7db; color: #131a28; }
 :root[data-theme="dark"] .site-footer { background: #0b1018; }
 :root[data-theme="dark"] .card:hover { background: #1d2537; }
-/* Header JLC logo is on white: multiply blend would erase it on dark, so switch off. */
-:root[data-theme="dark"] .brand__logo { mix-blend-mode: normal; }
-/* Club logos are transparent PNGs (navy/red blocks): give them a light chip on
-   dark surfaces so the navy blocks stay visible. */
+/* Transparent logos include navy/dark elements that would vanish on the dark
+   header/cards, so give them a light chip in dark mode. */
+:root[data-theme="dark"] .brand__logo { background: #f1ece0; padding: 5px 10px; border-radius: 6px; }
 :root[data-theme="dark"] .club-logo { background: #f1ece0; padding: 10px 12px; border-radius: 8px; }
