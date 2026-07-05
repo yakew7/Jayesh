@@ -174,26 +174,6 @@
     });
   }
 
-  /* ---- Light / dark theme toggle -------------------------------------- */
-  function wireThemeToggle() {
-    var root = document.documentElement;
-    function current() { return root.getAttribute("data-theme") === "dark" ? "dark" : "light"; }
-    function syncLabels() {
-      // label shows the mode you'll switch TO
-      var next = current() === "dark" ? "Light" : "Dark";
-      document.querySelectorAll("[data-theme-label]").forEach(function (el) { el.textContent = next; });
-    }
-    syncLabels();
-    document.querySelectorAll(".theme-toggle").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var next = current() === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        try { localStorage.setItem("theme", next); } catch (e) {}
-        syncLabels();
-      });
-    });
-  }
-
   /* ---- Footer year ----------------------------------------------------- */
   function setYear() {
     var el = document.querySelector("[data-year]");
@@ -210,7 +190,6 @@
     wireParallax();
     wireEnquiryForm();
     wireResultTabs();
-    wireThemeToggle();
     setYear();
   });
 })();
