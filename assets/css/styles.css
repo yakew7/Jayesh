@@ -153,6 +153,9 @@ a { color: inherit; }
 }
 .brand__mark b { color: var(--red); }
 .brand__sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-faint); }
+/* JLC logo image in the header — multiply blend drops the white jpeg background onto the cream */
+.brand__logo { height: 42px; width: auto; display: block; mix-blend-mode: multiply; }
+@media (max-width: 600px) { .brand__logo { height: 34px; } }
 
 .nav__links { display: flex; align-items: center; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
 .nav__links a {
@@ -300,6 +303,11 @@ a { color: inherit; }
 
 /* Standalone card block (not in hairline grid) */
 .card--block { border: 1px solid var(--rule); border-radius: var(--radius); }
+
+/* Club logo images (ransom-note block logos) inside club cards.
+   multiply blend removes the light jpeg background so the letters sit on the card. */
+.card__title--logo { margin: 0 0 0.35rem; }
+.club-logo { max-height: 96px; width: auto; display: block; mix-blend-mode: multiply; }
 
 /* --------------------------------------------------------------------------
    Programme detail (courses page)
