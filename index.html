@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/jpeg" href="assets/img/jlc-mark.jpeg" />
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -27,6 +28,7 @@
         <li><a href="results.html">Results</a></li>
         <li><a href="contact.html">Visit</a></li>
         <li><a class="btn btn--primary" data-wa="Hi, I'd like to book a free demo class at Jayesh Learning Centre." href="#">Book a demo</a></li>
+        <li class="nav__theme"><button class="theme-toggle" type="button" aria-label="Toggle light or dark theme"><span class="theme-toggle__icon" aria-hidden="true">◐</span><span data-theme-label>Dark</span></button></li>
       </ul>
     </div>
   </header>
@@ -236,19 +238,19 @@
         </div>
         <div class="grid grid--3 reveal">
           <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/math-club.jpeg" alt="Math Club" /></h3>
+            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/math-club.png" alt="Math Club" /></h3>
             <span class="card__meta">Olympiads · IPM</span>
             <p class="card__body">Olympiad-style problem solving and preparation for the IPM (Institute for Promotion of Mathematics) scholarship exam. The logical reasoning that school maths rarely reaches.</p>
             <a class="card__link" data-wa="Hi, I'd like to know more about the Math Club (olympiads and IPM) at Jayesh Learning Centre." href="#"><span>Enquire</span> &rarr;</a>
           </div>
           <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/science-club.jpeg" alt="Science Club" /></h3>
+            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/science-club.png" alt="Science Club" /></h3>
             <span class="card__meta">Olympiads · Experiments · Homi Bhabha</span>
             <p class="card__body">Hands-on experiments, science olympiads, and coaching for the Homi Bhabha Bal Vaidnyanik Competition, across the theory, practical and interview rounds.</p>
             <a class="card__link" data-wa="Hi, I'd like to know more about the Science Club (olympiads, experiments and Homi Bhabha) at Jayesh Learning Centre." href="#"><span>Enquire</span> &rarr;</a>
           </div>
           <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/english-club.jpeg" alt="English Club" /></h3>
+            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/english-club.png" alt="English Club" /></h3>
             <span class="card__meta">Ages 8-10 · 11-15</span>
             <p class="card__body">Building reading habits, conversational skills, and grammar and writing skills. Run in two age groups: 8 to 10 years and 11 to 15 years.</p>
             <a class="card__link" data-wa="Hi, I'd like to know more about the English Club at Jayesh Learning Centre." href="#"><span>Enquire</span> &rarr;</a>
