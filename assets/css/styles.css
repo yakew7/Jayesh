@@ -306,8 +306,8 @@ a { color: inherit; }
 
 /* Club logo images (ransom-note block logos) inside club cards.
    multiply blend removes the light jpeg background so the letters sit on the card. */
-.card__title--logo { margin: 0 0 0.35rem; }
-.club-logo { max-height: 96px; width: auto; display: block; mix-blend-mode: multiply; }
+.card__title--logo { margin: 0 0 0.6rem; }
+.club-logo { max-height: 108px; max-width: 100%; width: auto; display: block; }
 
 /* --------------------------------------------------------------------------
    Programme detail (courses page)
@@ -533,4 +533,41 @@ a { color: inherit; }
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
   .grade-slip { transform: rotate(-2.4deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Dark mode (automatic — follows the visitor's system preference)
+   Base theme is the light "exam paper" look; these overrides invert it to an
+   ink-dark palette while keeping the red-pen accent and the paper motifs.
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink:        #ece7db;   /* now the light text / ink colour */
+    --ink-soft:   #b7c0d2;
+    --ink-faint:  #8791a6;
+    --paper:      #0f1421;   /* page background */
+    --paper-2:    #161d2c;   /* deeper panels */
+    --paper-card: #18202f;   /* card stock */
+    --red:        #e15a4f;   /* slightly brighter pen so it reads on dark */
+    --red-dark:   #c0362c;
+    --rule:       rgba(236, 231, 219, 0.14);
+    --rule-strong:rgba(236, 231, 219, 0.30);
+  }
+  /* ruled-paper texture: switch the hairlines from dark ink to faint light */
+  body {
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 31px,
+      rgba(236, 231, 219, 0.05) 31px, rgba(236, 231, 219, 0.05) 32px);
+  }
+  .site-header { background: rgba(15, 20, 33, 0.9); }
+  /* section--ink is a dark feature panel: keep it dark (the variable flip would
+     otherwise invert it and hide its hardcoded light text) */
+  .section--ink { background: #131a28; color: #ece7db; }
+  .section--ink .btn { color: #ece7db; }
+  .section--ink .btn--ghost:hover { background: #ece7db; color: #131a28; }
+  .site-footer { background: #0b1018; }
+  .card:hover { background: #1d2537; }
+  /* Logos sit on a light JPEG background, so on dark surfaces they read as clean
+     light chips. Multiply blend would erase the header logo on dark, so disable it. */
+  .brand__logo { mix-blend-mode: normal; }
 }
