@@ -7,7 +7,7 @@
   <meta name="description" content="One-to-one and small-batch tutoring in Mulund West, Mumbai for grades 6 to 12 across IB MYP, IB Diploma, Cambridge IGCSE, A/AS Level and ICSE. We close the gap between the grade and the target grade." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="assets/img/jlc-mark.png" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -16,7 +16,7 @@
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="index.html">
-        <img class="brand__logo" src="assets/img/jlc-logo.png" alt="Jayesh Learning Centre LLP" />
+        <img class="brand__icon" src="assets/img/jlc-mark.png" alt="JLC" /><span class="brand__name">Jayesh<br />Learning Centre</span>
       </a>
       <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <ul class="nav__links" id="nav-links">
@@ -38,7 +38,7 @@
         <div class="reveal">
           <p class="label">One-to-one &amp; small-batch tutoring, Mulund West</p>
           <h1>We close the gap between the <span class="em">grade</span> and the <span class="em">target grade</span>.</h1>
-          <p class="hero__lead">Serious, exam-focused coaching for grades 6 to 12 across IB MYP, IB Diploma, Cambridge IGCSE, A Level / AS Level and ICSE, taught by subject specialists rather than generalists.</p>
+          <p class="hero__lead">Serious, exam-focused coaching for grades 6 to 12 across IB, Cambridge IGCSE and ICSE, taught by subject specialists rather than generalists.</p>
           <div class="cta-row mt-lg">
             <a class="btn btn--primary" data-wa="Hi, I'd like to book a free demo class at Jayesh Learning Centre for my child." data-stamp="Sent" href="#">
               <svg class="btn__wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
@@ -118,30 +118,49 @@
             <button class="result-tab" role="tab" aria-selected="false" data-tab="icse">ICSE</button>
           </div>
           <div class="result-panels">
-            <!-- PLACEHOLDER-RESULTS: swap each .topper__photo for the student's photo and edit name + score. -->
+            <!-- PLACEHOLDER-RESULTS: swap each .topper__photo for the student's photo and edit name + score.
+                 Each board's cards are listed TWICE so the marquee loops seamlessly. -->
             <div class="result-panel" data-panel="ib">
-              <div class="toppers">
+              <div class="marquee"><div class="marquee__track">
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">44/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">43/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Maths</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Physics</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-              </div>
+                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · MYP</span><span class="topper__meta">IB MYP</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">44/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">43/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Maths</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Physics</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · MYP</span><span class="topper__meta">IB MYP</span></figcaption></figure>
+              </div></div>
             </div>
             <div class="result-panel" data-panel="igcse" hidden>
-              <div class="toppers">
+              <div class="marquee"><div class="marquee__track">
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · 9 subjects</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 A*s</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · Maths</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · Sciences</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-              </div>
+                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · English</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · 9 subjects</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 A*s</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · Maths</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · Sciences</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · English</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
+              </div></div>
             </div>
             <div class="result-panel" data-panel="icse" hidden>
-              <div class="toppers">
+              <div class="marquee"><div class="marquee__track">
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">98%</span><span class="topper__meta">ICSE</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">96%</span><span class="topper__meta">ICSE</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">99 · Maths</span><span class="topper__meta">ICSE</span></figcaption></figure>
                 <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">97 · Science</span><span class="topper__meta">ICSE</span></figcaption></figure>
-              </div>
+                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">95 · English</span><span class="topper__meta">ICSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">98%</span><span class="topper__meta">ICSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">96%</span><span class="topper__meta">ICSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">99 · Maths</span><span class="topper__meta">ICSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">97 · Science</span><span class="topper__meta">ICSE</span></figcaption></figure>
+                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">95 · English</span><span class="topper__meta">ICSE</span></figcaption></figure>
+              </div></div>
             </div>
           </div>
         </div>
@@ -160,12 +179,11 @@
     <div class="trust">
       <div class="wrap trust__inner">
         <span class="rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5.0</b> rating on Google</span>
-        <div class="badges" aria-label="Programmes we coach">
-          <span class="badge">IB MYP</span>
-          <span class="badge">IB Diploma</span>
+        <div class="badges" aria-label="Boards and clubs we coach">
+          <span class="badge">IB</span>
           <span class="badge">Cambridge IGCSE</span>
-          <span class="badge">A Level / AS Level</span>
           <span class="badge">ICSE</span>
+          <span class="badge">Math · Science · English clubs</span>
         </div>
       </div>
     </div>
@@ -179,48 +197,39 @@
           <p>Every student starts with a diagnostic, gets an individual study plan, and is coached toward a specific target grade rather than a generic syllabus run-through.</p>
         </div>
 
-        <div class="grid grid--3 reveal">
-          <a class="card" href="courses.html#igcse">
-            <span class="card__no">01</span>
-            <span class="card__meta">Grades 9 to 10</span>
-            <h3 class="card__title">Cambridge IGCSE</h3>
-            <p class="card__body">Subject-wise coaching to secure strong IGCSE grades and a clean run into A Levels or the IB Diploma.</p>
-            <span class="card__link"><span>View course</span> &rarr;</span>
+        <div class="col-grid reveal">
+          <a class="col-card" href="courses.html#ib">
+            <span class="col-card__badge">Grades 6 to 12</span>
+            <h3 class="col-card__title">IB (MYP &amp; Diploma)</h3>
+            <ul class="col-card__list">
+              <li>MYP coaching aligned to the MYP criteria</li>
+              <li>IB Diploma HL &amp; SL subject coaching</li>
+              <li>IA and extended-essay support</li>
+              <li>Mocks marked to the IB grade descriptors</li>
+            </ul>
+            <span class="col-card__cta">Know more &rarr;</span>
           </a>
-          <a class="card" href="courses.html#alevel">
-            <span class="card__no">02</span>
-            <span class="card__meta">Grades 11 to 12</span>
-            <h3 class="card__title">CIE A / AS Level</h3>
-            <p class="card__body">Cambridge International A Level and AS Level coaching with practice under real exam conditions.</p>
-            <span class="card__link"><span>View course</span> &rarr;</span>
+          <a class="col-card" href="courses.html#igcse">
+            <span class="col-card__badge">Grades 9 to 10</span>
+            <h3 class="col-card__title">Cambridge IGCSE</h3>
+            <ul class="col-card__list">
+              <li>Core &amp; Extended across Maths, Sciences, English</li>
+              <li>Taught to the Cambridge assessment objectives</li>
+              <li>Past-paper practice marked to the scheme</li>
+              <li>Clean run into A Levels or the IB Diploma</li>
+            </ul>
+            <span class="col-card__cta">Know more &rarr;</span>
           </a>
-          <a class="card" href="courses.html#icse">
-            <span class="card__no">03</span>
-            <span class="card__meta">Grades 6 to 10</span>
-            <h3 class="card__title">ICSE</h3>
-            <p class="card__body">Board-aligned coaching that builds fundamentals and keeps internal and board marks moving up.</p>
-            <span class="card__link"><span>View course</span> &rarr;</span>
-          </a>
-          <a class="card" href="courses.html#ibdp">
-            <span class="card__no">04</span>
-            <span class="card__meta">Grades 11 to 12</span>
-            <h3 class="card__title">IB Diploma (IBDP)</h3>
-            <p class="card__body">HL and SL subject coaching, internal assessment support, and mock exams built around the IB grade descriptors.</p>
-            <span class="card__link"><span>View course</span> &rarr;</span>
-          </a>
-          <a class="card" href="courses.html#myp">
-            <span class="card__no">05</span>
-            <span class="card__meta">Grades 6 to 10</span>
-            <h3 class="card__title">IB MYP</h3>
-            <p class="card__body">Middle Years Programme coaching that builds the habits and subject depth the Diploma will demand later.</p>
-            <span class="card__link"><span>View course</span> &rarr;</span>
-          </a>
-          <a class="card" href="courses.html">
-            <span class="card__no">06</span>
-            <span class="card__meta">Before you enrol</span>
-            <h3 class="card__title">Diagnostic &amp; Planning</h3>
-            <p class="card__body">A free diagnostic session to find the real gap, before any student is booked into a plan.</p>
-            <span class="card__link"><span>See all courses</span> &rarr;</span>
+          <a class="col-card" href="courses.html#icse">
+            <span class="col-card__badge">Grades 6 to 10</span>
+            <h3 class="col-card__title">ICSE</h3>
+            <ul class="col-card__list">
+              <li>Subject-wise coaching across the curriculum</li>
+              <li>Strong fundamentals plus high-weightage topics</li>
+              <li>Answer-writing and presentation for board marks</li>
+              <li>Regular tests on the board pattern</li>
+            </ul>
+            <span class="col-card__cta">Know more &rarr;</span>
           </a>
         </div>
       </div>
@@ -234,25 +243,37 @@
           <h2>Clubs, olympiads &amp; competition prep.</h2>
           <p>Beyond the boards, our clubs stretch students well past the school syllabus and look strong on any application.</p>
         </div>
-        <div class="grid grid--3 reveal">
-          <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/math-club.png" alt="Math Club" /></h3>
-            <span class="card__meta">Olympiads · IPM</span>
-            <p class="card__body">Olympiad-style problem solving and preparation for the IPM (Institute for Promotion of Mathematics) scholarship exam. The logical reasoning that school maths rarely reaches.</p>
-            <a class="card__link" data-wa="Hi, I'd like to know more about the Math Club (olympiads and IPM) at Jayesh Learning Centre." href="#"><span>Enquire</span> &rarr;</a>
-          </div>
-          <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/science-club.png" alt="Science Club" /></h3>
-            <span class="card__meta">Olympiads · Experiments · Homi Bhabha</span>
-            <p class="card__body">Hands-on experiments, science olympiads, and coaching for the Homi Bhabha Bal Vaidnyanik Competition, across the theory, practical and interview rounds.</p>
-            <a class="card__link" data-wa="Hi, I'd like to know more about the Science Club (olympiads, experiments and Homi Bhabha) at Jayesh Learning Centre." href="#"><span>Enquire</span> &rarr;</a>
-          </div>
-          <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/english-club.png" alt="English Club" /></h3>
-            <span class="card__meta">Ages 8-10 · 11-15</span>
-            <p class="card__body">Building reading habits, conversational skills, and grammar and writing skills. Run in two age groups: 8 to 10 years and 11 to 15 years.</p>
-            <a class="card__link" data-wa="Hi, I'd like to know more about the English Club at Jayesh Learning Centre." href="#"><span>Enquire</span> &rarr;</a>
-          </div>
+        <div class="col-grid reveal">
+          <a class="col-card col-card--club" href="courses.html#math-club">
+            <img class="col-card__logo club-logo" src="assets/img/math-club.png" alt="Math Club" />
+            <span class="col-card__badge">Olympiads · IPM</span>
+            <ul class="col-card__list">
+              <li>Olympiad-style problem solving</li>
+              <li>IPM scholarship exam prep</li>
+              <li>Reasoning beyond the school syllabus</li>
+            </ul>
+            <span class="col-card__cta">Know more &rarr;</span>
+          </a>
+          <a class="col-card col-card--club" href="courses.html#science-club">
+            <img class="col-card__logo club-logo" src="assets/img/science-club.png" alt="Science Club" />
+            <span class="col-card__badge">Homi Bhabha · Olympiads</span>
+            <ul class="col-card__list">
+              <li>Homi Bhabha Bal Vaidnyanik Competition</li>
+              <li>Hands-on experiments</li>
+              <li>Science olympiads</li>
+            </ul>
+            <span class="col-card__cta">Know more &rarr;</span>
+          </a>
+          <a class="col-card col-card--club" href="courses.html#english-club">
+            <img class="col-card__logo club-logo" src="assets/img/english-club.png" alt="English Club" />
+            <span class="col-card__badge">Ages 8-10 · 11-15</span>
+            <ul class="col-card__list">
+              <li>Reading habits</li>
+              <li>Conversational skills</li>
+              <li>Grammar &amp; writing skills</li>
+            </ul>
+            <span class="col-card__cta">Know more &rarr;</span>
+          </a>
         </div>
       </div>
     </section>
@@ -329,30 +350,30 @@
           <h2>More than tuition hours.</h2>
           <p>The parts of the year students actually remember: workshops, sport, trips and tech.</p>
         </div>
-        <div class="grid grid--2 reveal">
-          <a class="card" href="enrichment.html#finance">
-            <span class="card__meta">Workshop</span>
-            <h3 class="card__title">Finance Workshop</h3>
-            <p class="card__body">A hands-on workshop teaching students how money, budgeting and investing actually work.</p>
-            <span class="card__link"><span>Learn more</span> &rarr;</span>
+        <div class="col-grid col-grid--2 reveal">
+          <a class="col-card" href="enrichment.html#finance">
+            <span class="col-card__badge">Workshop</span>
+            <h3 class="col-card__title">Finance Workshop</h3>
+            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">A hands-on workshop teaching students how money, budgeting and investing actually work.</p>
+            <span class="col-card__cta">Know more &rarr;</span>
           </a>
-          <a class="card" href="enrichment.html#sports">
-            <span class="card__meta">Annual event</span>
-            <h3 class="card__title">Ethos Sports Tournament</h3>
-            <p class="card__body">Our annual sports tournament, the one fixture on the calendar nobody wants to miss.</p>
-            <span class="card__link"><span>Learn more</span> &rarr;</span>
+          <a class="col-card" href="enrichment.html#sports">
+            <span class="col-card__badge">Annual event</span>
+            <h3 class="col-card__title">Ethos Sports Tournament</h3>
+            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">Our annual sports tournament, the one fixture on the calendar nobody wants to miss.</p>
+            <span class="col-card__cta">Know more &rarr;</span>
           </a>
-          <a class="card" href="enrichment.html#trips">
-            <span class="card__meta">Picnics &amp; trips</span>
-            <h3 class="card__title">Picnics &amp; Educational Trips</h3>
-            <p class="card__body">Magical, well-planned picnics and educational trips that make learning feel like something.</p>
-            <span class="card__link"><span>Learn more</span> &rarr;</span>
+          <a class="col-card" href="enrichment.html#trips">
+            <span class="col-card__badge">Picnics &amp; trips</span>
+            <h3 class="col-card__title">Picnics &amp; Educational Trips</h3>
+            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">Magical, well-planned picnics and educational trips that make learning feel like something.</p>
+            <span class="col-card__cta">Know more &rarr;</span>
           </a>
-          <a class="card" href="enrichment.html#techfest">
-            <span class="card__meta">IIT Bombay</span>
-            <h3 class="card__title">Techfest Trip</h3>
-            <p class="card__body">A visit to Techfest, IIT Bombay, Asia's largest science and technology festival.</p>
-            <span class="card__link"><span>Learn more</span> &rarr;</span>
+          <a class="col-card" href="enrichment.html#techfest">
+            <span class="col-card__badge">IIT Bombay</span>
+            <h3 class="col-card__title">Techfest Trip</h3>
+            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">A visit to Techfest, IIT Bombay, Asia's largest science and technology festival.</p>
+            <span class="col-card__cta">Know more &rarr;</span>
           </a>
         </div>
       </div>

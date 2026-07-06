@@ -7,14 +7,14 @@
   <meta name="description" content="Full detail on every course at Jayesh Learning Centre, Mulund West: Cambridge IGCSE, A/AS Level, ICSE, IB Diploma, IB MYP, the diagnostic session, and our Math, Science and English clubs." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="assets/img/jlc-mark.png" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="index.html"><img class="brand__logo" src="assets/img/jlc-logo.png" alt="Jayesh Learning Centre LLP" /></a>
+      <a class="brand" href="index.html"><img class="brand__icon" src="assets/img/jlc-mark.png" alt="JLC" /><span class="brand__name">Jayesh<br />Learning Centre</span></a>
       <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <ul class="nav__links" id="nav-links">
         <li><a href="index.html">Home</a></li><li><a href="courses.html" aria-current="page">Courses</a></li>
@@ -36,124 +36,55 @@
       </div>
     </section>
 
-    <!-- ============================ BOARD PROGRAMMES ============================ -->
+    <!-- ============================ BOARDS (3 columns) ============================ -->
     <section class="section">
       <div class="wrap">
-
-        <!-- Diagnostic -->
-        <article class="programme reveal" id="diagnostic">
-          <div class="programme__aside">
-            <p class="label">Before enrolment</p>
-            <p class="programme__grades">Free · all boards</p>
-          </div>
-          <div>
-            <h2>Diagnostic &amp; Planning Session</h2>
-            <p>Before a single class is booked, we run a free diagnostic to find the real gap between where a student is and the grade they're aiming for. The output is an honest read and an individual study plan, not a sales pitch.</p>
-            <ul class="programme__list">
-              <li>A subject-wise assessment of current standing</li>
-              <li>A clear target grade and the path to it</li>
-              <li>Tutor-student matching by board and subject</li>
-              <li>No commitment until you've seen the plan</li>
+        <div class="section-head reveal">
+          <p class="label">The boards</p>
+          <h2>Three boards, taught by specialists.</h2>
+          <p>Here's what we cover for each board and how we coach it. Every student starts with a free diagnostic before any plan begins.</p>
+        </div>
+        <div class="col-grid reveal">
+          <div class="col-card" id="ib">
+            <span class="col-card__badge">Grades 6 to 12</span>
+            <h3 class="col-card__title">IB (MYP &amp; Diploma)</h3>
+            <ul class="col-card__list">
+              <li>MYP coaching (grades 6 to 10) aligned to the MYP criteria</li>
+              <li>IB Diploma HL &amp; SL subject coaching (grades 11 to 12)</li>
+              <li>Internal Assessment (IA) and extended-essay support</li>
+              <li>Mock exams marked to the IB grade descriptors</li>
+              <li>A smooth bridge from MYP into the Diploma</li>
             </ul>
-            <a class="btn btn--primary" data-wa="Hi, I'd like to book a free diagnostic & planning session for my child at Jayesh Learning Centre." href="#">Book the free diagnostic</a>
+            <a class="btn btn--primary" data-wa="Hi, I'm interested in IB (MYP / Diploma) coaching for my child at Jayesh Learning Centre." href="#">Enquire about IB</a>
           </div>
-        </article>
-
-        <!-- IGCSE (feature, own anchor, easy to split into its own page later) -->
-        <article class="programme programme--feature reveal" id="igcse">
-          <div class="programme__aside">
-            <p class="label">Cambridge</p>
-            <p class="programme__grades">Grades 9-10</p>
-            <div class="ph-img" style="margin-top:1rem;">PLACEHOLDER-IMG · IGCSE class</div>
-          </div>
-          <div>
-            <h2>Cambridge IGCSE</h2>
-            <p>Subject-by-subject IGCSE coaching that secures strong grades and sets up a clean transition into A Levels or the IB Diploma. We teach to the Cambridge assessment objectives, not just the textbook, so students know exactly how marks are won and lost.</p>
-            <ul class="programme__list">
+          <div class="col-card" id="igcse">
+            <span class="col-card__badge">Grades 9 to 10</span>
+            <h3 class="col-card__title">Cambridge IGCSE</h3>
+            <ul class="col-card__list">
               <li>Core &amp; Extended coaching across Maths, Sciences, English and more</li>
+              <li>Taught to the Cambridge assessment objectives, not just the textbook</li>
               <li>Past-paper practice marked to the Cambridge scheme</li>
               <li>Focused support on the topics that most often cost grades</li>
-              <li>Regular assessments with parent reporting after each one</li>
+              <li>Sets up a clean transition into A Levels or the IB Diploma</li>
             </ul>
             <a class="btn btn--primary" data-wa="Hi, I'm interested in Cambridge IGCSE coaching for my child at Jayesh Learning Centre." href="#">Enquire about IGCSE</a>
           </div>
-        </article>
-
-        <!-- A / AS Level -->
-        <article class="programme reveal" id="alevel">
-          <div class="programme__aside">
-            <p class="label">Cambridge (CIE)</p>
-            <p class="programme__grades">Grades 11-12</p>
-          </div>
-          <div>
-            <h2>A Level / AS Level</h2>
-            <p>Cambridge International A Level and AS Level coaching for students heading into university applications, where every grade band counts. We drill exam technique under real timing so the marks on the day match the understanding in the room.</p>
-            <ul class="programme__list">
-              <li>Specialist subject tutors for Sciences, Maths, Economics and more</li>
-              <li>AS and full A Level pathways</li>
-              <li>Mock exams run to real board conditions</li>
-              <li>Guidance on subject combinations for target courses</li>
-            </ul>
-            <a class="btn btn--primary" data-wa="Hi, I'm interested in A Level / AS Level coaching for my child at Jayesh Learning Centre." href="#">Enquire about A / AS Level</a>
-          </div>
-        </article>
-
-        <!-- IB Diploma -->
-        <article class="programme reveal" id="ibdp">
-          <div class="programme__aside">
-            <p class="label">IB</p>
-            <p class="programme__grades">Grades 11-12</p>
-          </div>
-          <div>
-            <h2>IB Diploma Programme (IBDP)</h2>
-            <p>HL and SL subject coaching built around the IB grade descriptors, with real support for the parts of the Diploma that trip students up, internal assessments, the extended essay workload, and exam-standard problem solving.</p>
-            <ul class="programme__list">
-              <li>Higher Level and Standard Level subject coaching</li>
-              <li>Internal Assessment (IA) structure and feedback</li>
-              <li>Mock exams and grade-boundary-aware marking</li>
-              <li>Support balancing the full Diploma workload</li>
-            </ul>
-            <a class="btn btn--primary" data-wa="Hi, I'm interested in IB Diploma Programme coaching for my child at Jayesh Learning Centre." href="#">Enquire about IB Diploma</a>
-          </div>
-        </article>
-
-        <!-- IB MYP -->
-        <article class="programme reveal" id="myp">
-          <div class="programme__aside">
-            <p class="label">IB</p>
-            <p class="programme__grades">Grades 6-10</p>
-          </div>
-          <div>
-            <h2>IB MYP (Middle Years Programme)</h2>
-            <p>MYP coaching that builds genuine subject depth and the study habits the Diploma will later demand, so students arrive at IBDP ready, not scrambling.</p>
-            <ul class="programme__list">
-              <li>Subject coaching aligned to MYP criteria</li>
-              <li>Concept-based understanding, not rote learning</li>
-              <li>A smooth bridge toward IB Diploma or IGCSE</li>
-              <li>Regular assessment and parent updates</li>
-            </ul>
-            <a class="btn btn--primary" data-wa="Hi, I'm interested in IB MYP coaching for my child at Jayesh Learning Centre." href="#">Enquire about IB MYP</a>
-          </div>
-        </article>
-
-        <!-- ICSE -->
-        <article class="programme reveal" id="icse">
-          <div class="programme__aside">
-            <p class="label">Indian board</p>
-            <p class="programme__grades">Grades 6-10</p>
-          </div>
-          <div>
-            <h2>ICSE</h2>
-            <p>Board-aligned ICSE coaching that builds strong fundamentals and keeps both internal and board marks moving in the right direction, with a clear focus on the high-weightage topics.</p>
-            <ul class="programme__list">
+          <div class="col-card" id="icse">
+            <span class="col-card__badge">Grades 6 to 10</span>
+            <h3 class="col-card__title">ICSE</h3>
+            <ul class="col-card__list">
               <li>Subject-wise coaching across the ICSE curriculum</li>
+              <li>Strong fundamentals plus a focus on high-weightage topics</li>
               <li>Answer-writing and presentation for board marks</li>
               <li>Regular tests modelled on the board pattern</li>
               <li>Parent reporting after every assessment</li>
             </ul>
             <a class="btn btn--primary" data-wa="Hi, I'm interested in ICSE coaching for my child at Jayesh Learning Centre." href="#">Enquire about ICSE</a>
           </div>
-        </article>
+        </div>
+        <div class="next-note reveal" style="margin-top:1.6rem;" id="diagnostic">
+          <b>Before any plan:</b> a free Diagnostic &amp; Planning session finds the real gap and sets a target grade, with no commitment until you've seen the plan. <a class="mark-link" data-wa="Hi, I'd like to book a free diagnostic & planning session for my child at Jayesh Learning Centre." href="#">Book the free diagnostic</a>.
+        </div>
       </div>
     </section>
 
@@ -165,24 +96,39 @@
           <h2>Clubs, for students who want more.</h2>
           <p>Competition prep and enrichment that sharpen reasoning well beyond the board syllabus.</p>
         </div>
-        <div class="grid grid--3 reveal">
-          <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/math-club.png" alt="Math Club" /></h3>
-            <span class="card__meta">Olympiads · IPM</span>
-            <p class="card__body">Weekly olympiad-style problem solving and preparation for the IPM (Institute for Promotion of Mathematics) scholarship exam. The logical reasoning, proof and lateral thinking that standard maths rarely reaches.</p>
-            <a class="card__link" data-wa="Hi, I'd like to know more about the Math Club (olympiads and IPM) at Jayesh Learning Centre." href="#"><span>Enquire</span> →</a>
+        <div class="col-grid reveal">
+          <div class="col-card col-card--club" id="math-club">
+            <img class="col-card__logo club-logo" src="assets/img/math-club.png" alt="Math Club" />
+            <span class="col-card__badge">Olympiads · IPM</span>
+            <ul class="col-card__list">
+              <li>Weekly olympiad-style problem solving</li>
+              <li>IPM (Institute for Promotion of Mathematics) scholarship prep</li>
+              <li>Logical reasoning, proof and lateral thinking</li>
+              <li>Goes beyond what standard school maths reaches</li>
+            </ul>
+            <a class="btn btn--primary" data-wa="Hi, I'd like to know more about the Math Club (olympiads and IPM) at Jayesh Learning Centre." href="#">Enquire about Math Club</a>
           </div>
-          <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/science-club.png" alt="Science Club" /></h3>
-            <span class="card__meta">Olympiads · Experiments · Homi Bhabha</span>
-            <p class="card__body">Hands-on experiments, science olympiads, and coaching for the Homi Bhabha Bal Vaidnyanik Competition (Std 6 &amp; 9), across the theory, practical and interview rounds.</p>
-            <a class="card__link" data-wa="Hi, I'd like to know more about the Science Club (olympiads, experiments and Homi Bhabha) at Jayesh Learning Centre." href="#"><span>Enquire</span> →</a>
+          <div class="col-card col-card--club" id="science-club">
+            <img class="col-card__logo club-logo" src="assets/img/science-club.png" alt="Science Club" />
+            <span class="col-card__badge">Homi Bhabha · Olympiads</span>
+            <ul class="col-card__list">
+              <li>Homi Bhabha Bal Vaidnyanik Competition (Std 6 &amp; 9)</li>
+              <li>Hands-on experiments and practical training</li>
+              <li>Science olympiads</li>
+              <li>Theory, practical and interview rounds</li>
+            </ul>
+            <a class="btn btn--primary" data-wa="Hi, I'd like to know more about the Science Club (olympiads, experiments and Homi Bhabha) at Jayesh Learning Centre." href="#">Enquire about Science Club</a>
           </div>
-          <div class="card">
-            <h3 class="card__title card__title--logo"><img class="club-logo" src="assets/img/english-club.png" alt="English Club" /></h3>
-            <span class="card__meta">Ages 8-10 · 11-15</span>
-            <p class="card__body">Building reading habits, conversational skills, and grammar and writing skills. Run in two age groups: 8 to 10 years and 11 to 15 years.</p>
-            <a class="card__link" data-wa="Hi, I'd like to know more about the English Club at Jayesh Learning Centre." href="#"><span>Enquire</span> →</a>
+          <div class="col-card col-card--club" id="english-club">
+            <img class="col-card__logo club-logo" src="assets/img/english-club.png" alt="English Club" />
+            <span class="col-card__badge">Ages 8-10 · 11-15</span>
+            <ul class="col-card__list">
+              <li>Inculcating reading habits</li>
+              <li>Improving conversational skills</li>
+              <li>Grammar and writing skills</li>
+              <li>Two age groups: 8 to 10 and 11 to 15 years</li>
+            </ul>
+            <a class="btn btn--primary" data-wa="Hi, I'd like to know more about the English Club at Jayesh Learning Centre." href="#">Enquire about English Club</a>
           </div>
         </div>
       </div>
