@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Free Counselling | Jayesh Learning Centre</title>
+  <meta name="description" content="Book a free counselling session with the experts at Jayesh Learning Centre (JLC). Expert guidance, personalized advice and flexible scheduling — take the first step towards a brighter future." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* page-local layout tweaks for the counselling page */
+    .coun-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+    @media (max-width: 900px) { .coun-hero { grid-template-columns: 1fr; } }
+    .coun-hero__media { position: relative; }
+    .coun-badge {
+      position: absolute; left: -1.2rem; bottom: 1.4rem;
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      background: var(--grad-blue); color: #fff;
+      padding: 0.85rem 1.2rem; border-radius: 14px;
+      box-shadow: 0 16px 34px rgba(112, 72, 232, 0.35);
+    }
+    .coun-badge__ic { width: 34px; height: 34px; flex: 0 0 auto; }
+    .coun-badge__ic svg { width: 34px; height: 34px; }
+    .coun-badge b { display: block; font-size: 1.35rem; font-weight: 800; line-height: 1; }
+    .coun-badge span { font-size: 0.78rem; color: rgba(255,255,255,0.85); }
+    @media (max-width: 900px) { .coun-badge { left: 1rem; } }
+
+    .coun-split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(1.5rem, 4vw, 2.5rem); align-items: start; }
+    @media (max-width: 900px) { .coun-split { grid-template-columns: 1fr; } }
+
+    .radio-row { display: flex; flex-wrap: wrap; gap: 1.4rem; padding-top: 0.15rem; }
+    .radio-opt { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--ink); cursor: pointer; }
+    .radio-opt input { width: auto; accent-color: var(--blue); }
+    .check-line { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); }
+    .check-line input { width: auto; margin-top: 0.15rem; accent-color: var(--blue); }
+    .form-note { text-align: center; font-size: 0.8rem; color: var(--ink-faint); display: inline-flex; align-items: center; gap: 0.4rem; justify-content: center; width: 100%; }
+
+    .coun-help { display: flex; gap: 1rem; align-items: center; background: var(--blue-soft); border: 1px solid var(--line); border-radius: var(--r); padding: 1.1rem 1.2rem; margin-top: 1.2rem; }
+    .coun-help__ic { width: 46px; height: 46px; flex: 0 0 auto; color: var(--blue); }
+    .coun-help__ic svg { width: 46px; height: 46px; }
+    .coun-help b { display: block; font-size: 1rem; margin-bottom: 0.15rem; }
+    .coun-help p { margin: 0; font-size: 0.86rem; color: var(--ink-soft); }
+
+    .coun-bottom { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; justify-content: space-between; background: var(--blue-soft); border: 1px solid var(--line); border-radius: var(--r); padding: clamp(1.2rem, 3vw, 1.6rem) clamp(1.4rem, 3vw, 2rem); }
+    .coun-bottom__left { display: flex; gap: 1rem; align-items: center; }
+    .coun-bottom__ic { width: 52px; height: 52px; flex: 0 0 auto; color: var(--blue); }
+    .coun-bottom__ic svg { width: 52px; height: 52px; }
+    .coun-bottom h3 { margin: 0 0 0.2rem; font-size: 1.15rem; }
+    .coun-bottom p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+  </style>
+</head>
+<body>
+  <!-- ============================ HEADER (canonical — reused on every page) ============================ -->
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Primary">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="brand nav__brand" href="index.html" aria-label="Jayesh Learning Centre home">
+        <span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span>
+        <span class="brand__text"><b>JAYESH</b><span class="line2">LEARNING CENTRE <em>LLP</em></span><small>where learning is larger than life…</small></span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown"><a href="courses.html">Courses</a>
+          <ul class="dropdown">
+            <li><a href="courses.html#icse">ICSE</a></li>
+            <li><a href="courses.html#igcse">IGCSE</a></li>
+            <li><a href="courses.html#ib">IB</a></li>
+            <li><a href="olympiads.html">Olympiads</a></li>
+          </ul>
+        </li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="olympiads.html">Olympiads</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+      <a class="nav__phone" href="tel:+918591877127" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================ HERO ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="coun-hero reveal">
+          <div>
+            <p class="eyebrow eyebrow--dash eyebrow--orange">Book Free Counselling</p>
+            <h1 class="mt-1">Your Future. Our Guidance.<br /><span class="t-orange">Let's Plan It</span> Together.</h1>
+            <p class="lead mt-1">Book a free counselling session with our experts and take the first step towards a brighter future.</p>
+          </div>
+          <div class="coun-hero__media">
+            <div class="ph ph--4x3">PLACEHOLDER — counselling session photo: expert guiding a student across a desk</div>
+            <div class="coun-badge">
+              <span class="coun-badge__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+              <span><b>10,000+</b><span>Students Counselled</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURE STRIP ============================ -->
+    <section class="section" style="padding-top:0;">
+      <div class="wrap">
+        <div class="card-soft reveal">
+          <div class="grid grid--4">
+            <div class="feature"><div class="feature__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Expert Guidance</h3><p>Connect with experienced counselors &amp; subject experts.</p></div>
+            <div class="feature"><div class="feature__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div><h3>Personalized Advice</h3><p>Get personalized guidance based on your goals.</p></div>
+            <div class="feature"><div class="feature__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Flexible Scheduling</h3><p>Choose a time slot that suits you best.</p></div>
+            <div class="feature"><div class="feature__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>100% Confidential</h3><p>Your information is safe and secure with us.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FORM + WHAT HAPPENS NEXT ============================ -->
+    <section class="section" style="padding-top:0;">
+      <div class="wrap">
+        <div class="coun-split reveal">
+          <!-- LEFT: Booking form -->
+          <div class="form-card">
+            <h2 style="margin-top:0;">Book Your Free Counselling Session</h2>
+            <form data-wa-form>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="c-name">Your Name*</label>
+                  <input type="text" id="c-name" name="Name" placeholder="Your Name*" required />
+                </div>
+                <div class="field">
+                  <label for="c-email">Your Email*</label>
+                  <input type="email" id="c-email" name="Email" placeholder="Your Email*" required />
+                </div>
+                <div class="field">
+                  <label for="c-phone">Your Phone Number*</label>
+                  <input type="tel" id="c-phone" name="Phone" placeholder="Your Phone Number*" required />
+                </div>
+                <div class="field">
+                  <label for="c-grade">Class / Grade*</label>
+                  <select id="c-grade" name="Class / Grade" required>
+                    <option value="" selected disabled>Class / Grade*</option>
+                    <option>Grade 3</option>
+                    <option>Grade 4</option>
+                    <option>Grade 5</option>
+                    <option>Grade 6</option>
+                    <option>Grade 7</option>
+                    <option>Grade 8</option>
+                    <option>Grade 9</option>
+                    <option>Grade 10</option>
+                    <option>Grade 11</option>
+                    <option>Grade 12</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="c-course">Preferred Course / Stream</label>
+                  <select id="c-course" name="Preferred Course / Stream">
+                    <option value="" selected disabled>Preferred Course / Stream</option>
+                    <option>ICSE</option>
+                    <option>IGCSE</option>
+                    <option>IB (MYP / IBDP)</option>
+                    <option>Olympiads</option>
+                    <option>Not Sure Yet</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Preferred Mode*</label>
+                  <div class="radio-row">
+                    <label class="radio-opt"><input type="radio" name="Preferred Mode" value="Offline (At Centre)" checked required /> Offline (At Centre)</label>
+                    <label class="radio-opt"><input type="radio" name="Preferred Mode" value="Online (Virtual)" /> Online (Virtual)</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="c-date">Preferred Date*</label>
+                  <input type="date" id="c-date" name="Preferred Date" required />
+                </div>
+                <div class="field">
+                  <label for="c-slot">Preferred Time Slot*</label>
+                  <select id="c-slot" name="Preferred Time Slot" required>
+                    <option value="" selected disabled>Preferred Time Slot*</option>
+                    <option>11:30 AM – 1:00 PM</option>
+                    <option>1:00 PM – 2:30 PM</option>
+                    <option>2:30 PM – 4:00 PM</option>
+                    <option>4:00 PM – 5:30 PM</option>
+                    <option>5:30 PM – 7:00 PM</option>
+                  </select>
+                </div>
+                <div class="field field--full">
+                  <label for="c-info">Additional Information (Optional)</label>
+                  <textarea id="c-info" name="Additional Information" placeholder="Additional Information (Optional)"></textarea>
+                </div>
+                <div class="field field--full">
+                  <label class="check-line"><input type="checkbox" name="Agreed to Privacy Policy" required /> <span>I agree to the <a href="terms.html">Privacy Policy</a> and <a href="terms.html">Terms &amp; Conditions</a>.</span></label>
+                </div>
+                <div class="field field--full">
+                  <button class="btn btn--grad-blue btn--block" type="submit">Book Free Counselling
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                </div>
+                <div class="field field--full">
+                  <p class="form-note"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Your information is safe with us. We respect your privacy.</p>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- RIGHT: What Happens Next -->
+          <div>
+            <div class="card-soft">
+              <h2 style="margin-top:0;">What Happens Next?</h2>
+              <ol class="vtimeline">
+                <li>
+                  <span class="vtimeline__num" style="background:var(--blue)">1</span>
+                  <div><h4>Submit Your Details</h4><p>Fill out the form with your basic information.</p></div>
+                </li>
+                <li>
+                  <span class="vtimeline__num" style="background:var(--green)">2</span>
+                  <div><h4>Schedule Confirmation</h4><p>Our team will contact you to confirm your slot.</p></div>
+                </li>
+                <li>
+                  <span class="vtimeline__num" style="background:var(--orange)">3</span>
+                  <div><h4>Expert Counselling</h4><p>Get one-on-one guidance from our experts.</p></div>
+                </li>
+                <li>
+                  <span class="vtimeline__num" style="background:var(--purple)">4</span>
+                  <div><h4>Plan Your Success</h4><p>Receive personalized advice &amp; start your journey.</p></div>
+                </li>
+              </ol>
+
+              <div class="coun-help">
+                <span class="coun-help__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
+                <div>
+                  <b>Need Help?</b>
+                  <p>Call us at <a href="tel:+918591877127"><b>+91 85918 77127</b></a><br />Mon – Sat: 11:30 AM – 7:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CAN'T FIND A TIME BAR ============================ -->
+    <section class="section" style="padding-top:0;">
+      <div class="wrap">
+        <div class="coun-bottom reveal">
+          <div class="coun-bottom__left">
+            <span class="coun-bottom__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><circle cx="16" cy="16" r="3.2"/><path d="M16 14.6V16l1 0.9"/></svg></span>
+            <div>
+              <h3>Can't find a suitable time?</h3>
+              <p>No worries! Our team will help you find the perfect time.</p>
+            </div>
+          </div>
+          <a class="btn btn--outline-blue" data-wa="Hi, I'd like to book a free counselling session at Jayesh Learning Centre but need help finding a suitable time." href="#">Talk to Our Team
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER (canonical — reused on every page) ============================ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <!-- newsletter + rating -->
+      <div class="footer-news">
+        <div>
+          <h3>Stay Inspired. Stay Ahead.</h3>
+          <p>Subscribe to our newsletter for study tips, exam updates, event invites and more.</p>
+        </div>
+        <form class="newsletter" data-wa-form>
+          <input type="email" name="Newsletter email" placeholder="Enter your email address" aria-label="Email address" />
+          <button class="btn btn--blue btn--sm" type="submit">Subscribe</button>
+        </form>
+        <div class="google-rating">
+          <span class="g">G</span>
+          <div><b style="color:#fff">Google Rating</b><div class="stars">★★★★★ <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;">5.0 · Based on Google reviews</span></div></div>
+        </div>
+      </div>
+
+      <!-- link columns -->
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand brand--light" href="index.html"><span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span></a>
+          <p class="small" style="margin-top:1rem;color:rgba(255,255,255,0.6)">Premium coaching for ICSE, IGCSE, IB and Olympiads. Building thinkers, not just toppers.</p>
+          <div class="socials mt-1">
+            <a class="fb" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H17V1.4C16.6 1.3 15.5 1.2 14.3 1.2 11.7 1.2 10 2.7 10 5.2V7H7v3h3v9h3z"/></svg></a>
+            <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a class="yt" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M23 12s0-3.5-.4-5.1a2.6 2.6 0 0 0-1.8-1.8C19.1 4.7 12 4.7 12 4.7s-7.1 0-8.8.4A2.6 2.6 0 0 0 1.4 6.9C1 8.5 1 12 1 12s0 3.5.4 5.1a2.6 2.6 0 0 0 1.8 1.8c1.7.4 8.8.4 8.8.4s7.1 0 8.8-.4a2.6 2.6 0 0 0 1.8-1.8C23 15.5 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg></a>
+            <a class="li" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Our Programs</h4><ul class="footer-links"><li><a href="courses.html#icse">ICSE Programs</a></li><li><a href="courses.html#igcse">IGCSE Programs</a></li><li><a href="courses.html#ib">IB Programs</a></li><li><a href="olympiads.html">Olympiad Preparation</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="facilities.html">Facilities</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="learning-hub.html">Learning Hub</a></li><li><a href="learning-hub.html">Worksheets</a></li><li><a href="learning-hub.html">Olympiad Questions</a></li><li><a href="learning-hub.html">Previous Papers</a></li><li><a href="recommend.html">Find My Program</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li>Avior Corporate Park, A-132, near Salpa Devi Mandir, Mulund West, Mumbai 400080</li>
+            <li><a href="tel:+918591877127">+91 85918 77127</a></li>
+            <li><a href="mailto:info@jlclearning.com">info@jlclearning.com</a></li>
+            <li>Mon – Sat: 11:30 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Jayesh Learning Centre LLP. All Rights Reserved.</span>
+        <span class="row"><a href="terms.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="faqs.html">FAQs</a></span>
+        <span>❤ Proudly Indian. Committed to Excellence.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

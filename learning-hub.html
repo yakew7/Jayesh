@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Hub | Jayesh Learning Centre — Worksheets, Olympiad Questions, Papers &amp; Blogs</title>
+  <meta name="description" content="JLC Learning Hub — high-quality study materials, worksheets, olympiad questions, previous papers, video lessons and expert blogs curated by JLC faculty for ICSE, IGCSE and IB learners." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* ---- Learning Hub page-local layout ---- */
+    .hub-hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+    .hub-hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); margin-bottom: 0.5em; }
+    .hub-hero .lead { max-width: 44ch; }
+    .hub-hero__media { position: relative; }
+    @media (max-width: 860px) { .hub-hero { grid-template-columns: 1fr; } }
+
+    .hub-search { display: flex; gap: 0.6rem; margin-top: 1.6rem; max-width: 560px; }
+    .hub-search .field-wrap { position: relative; flex: 1 1 auto; }
+    .hub-search .field-wrap svg { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--ink-faint); }
+    .hub-search input { width: 100%; padding: 0.85rem 1rem 0.85rem 2.7rem; border: 1px solid var(--line-strong); border-radius: 12px; background: #fff; font: inherit; color: var(--ink); }
+    .hub-search input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+
+    .hub-layout { display: grid; grid-template-columns: 1fr 330px; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
+    @media (max-width: 980px) { .hub-layout { grid-template-columns: 1fr; } }
+
+    .res-card { display: flex; flex-direction: column; }
+    .res-card p { flex: 1 1 auto; }
+    .res-count { font-weight: 800; font-size: 1.35rem; margin-top: 0.7rem; }
+
+    .hub-side { display: grid; gap: 1.25rem; }
+
+    /* Student portal card */
+    .portal-card { background: var(--blue-soft); border: 1px solid #d6e4ff; border-radius: var(--r); padding: clamp(1.3rem, 3vw, 1.7rem); }
+    .portal-card__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.8rem; }
+    .portal-card__head .chip { width: 44px; height: 44px; }
+    .portal-card__head h3 { margin: 0; font-size: 1.2rem; }
+    .portal-card > p { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 1rem; }
+    .checklist { list-style: none; padding: 0; margin: 0 0 1.2rem; display: grid; gap: 0.6rem; }
+    .checklist li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; color: var(--ink); }
+    .checklist li svg { width: 18px; height: 18px; color: var(--green); flex: 0 0 auto; }
+    .portal-card .register { text-align: center; margin: 0.8rem 0 0; font-size: 0.9rem; color: var(--ink-soft); }
+
+    /* Free downloads card */
+    .downloads-card { background: #fff8f1; border: 1px solid #fbe3c9; border-radius: var(--r); padding: clamp(1.3rem, 3vw, 1.7rem); }
+    .downloads-card__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+    .downloads-card__head .chip { width: 44px; height: 44px; }
+    .downloads-card__head h3 { margin: 0; font-size: 1.2rem; }
+    .dl-list { list-style: none; padding: 0; margin: 0 0 1.2rem; display: grid; gap: 0.7rem; }
+    .dl-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0.85rem; background: #fff; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); }
+    .dl-item:hover { border-color: var(--orange); }
+    .dl-item svg.doc { width: 20px; height: 20px; color: var(--orange); flex: 0 0 auto; }
+    .dl-item .dl-meta { flex: 1 1 auto; }
+    .dl-item .dl-meta b { display: block; font-size: 0.9rem; font-weight: 600; }
+    .dl-item .dl-meta span { font-size: 0.72rem; color: var(--ink-faint); }
+    .dl-item svg.chev { width: 16px; height: 16px; color: var(--ink-faint); flex: 0 0 auto; }
+
+    /* Blog cards */
+    .grid--5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
+    @media (max-width: 1100px) { .grid--5 { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 720px) { .grid--5 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 460px) { .grid--5 { grid-template-columns: 1fr; } }
+    .blog-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease); }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .blog-card__media { position: relative; }
+    .blog-card__media .ph { border-radius: 0; }
+    .blog-card__tag { position: absolute; top: 0.7rem; left: 0.7rem; }
+    .blog-card__body { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; flex: 1 1 auto; }
+    .blog-card__body h3 { font-size: 1rem; margin: 0 0 0.4rem; }
+    .blog-card__body p { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 1rem; flex: 1 1 auto; }
+    .blog-card__meta { font-size: 0.75rem; color: var(--ink-faint); display: flex; align-items: center; gap: 0.4rem; }
+    .section-head--row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: clamp(1.5rem, 3vw, 2.2rem); }
+
+    /* Newsletter checklist (dark) */
+    .news-check { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.5rem; }
+    .news-check li { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.9); font-size: 0.92rem; }
+    .news-check li svg { width: 16px; height: 16px; color: var(--orange); flex: 0 0 auto; }
+    .news-form { display: flex; gap: 0.6rem; margin-top: 0.4rem; }
+    .news-form input { flex: 1 1 auto; padding: 0.8rem 1rem; border: 0; border-radius: 12px; font: inherit; }
+    .news-form input:focus { outline: 2px solid var(--orange); }
+    .news-fine { color: rgba(255,255,255,0.7); font-size: 0.82rem; margin: 0.7rem 0 0; }
+  </style>
+</head>
+<body>
+  <!-- ============================ HEADER (canonical — reused on every page) ============================ -->
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Primary">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="brand nav__brand" href="index.html" aria-label="Jayesh Learning Centre home">
+        <span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span>
+        <span class="brand__text"><b>JAYESH</b><span class="line2">LEARNING CENTRE <em>LLP</em></span><small>where learning is larger than life…</small></span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown"><a href="courses.html">Courses</a>
+          <ul class="dropdown">
+            <li><a href="courses.html#icse">ICSE</a></li>
+            <li><a href="courses.html#igcse">IGCSE</a></li>
+            <li><a href="courses.html#ib">IB</a></li>
+            <li><a href="olympiads.html">Olympiads</a></li>
+          </ul>
+        </li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="olympiads.html">Olympiads</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+      <a class="nav__phone" href="tel:+918591877127" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================ HERO ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="hub-hero reveal">
+          <div>
+            <p class="eyebrow eyebrow--dash">Learning Hub</p>
+            <h1>Resources That <span class="t-blue">Inspire.</span><br />Learning That <span class="t-orange">Empowers.</span></h1>
+            <p class="lead">Explore high-quality study materials, expert blogs, practice papers and more — curated by JLC faculty to support every learner's journey.</p>
+            <form class="hub-search" data-wa-form>
+              <div class="field-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                <input type="search" name="Search query" placeholder="Search for notes, worksheets, blogs and more…" aria-label="Search the Learning Hub" />
+              </div>
+              <button class="btn btn--blue" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="hub-hero__media">
+            <div class="ph ph--4x3">PLACEHOLDER — student studying at a laptop with books</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ RESOURCE CATEGORIES + SIDEBAR ============================ -->
+    <section class="section" style="padding-top:0;">
+      <div class="wrap">
+        <div class="hub-layout">
+          <!-- MAIN: resource category cards -->
+          <div class="hub-main">
+            <div class="grid grid--3 reveal">
+              <div class="feature res-card">
+                <div class="feature__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M8 9h2"/></svg></div>
+                <h3>Worksheets</h3>
+                <p>Chapter-wise practice worksheets</p>
+                <span class="res-count t-blue">1500+</span>
+              </div>
+              <div class="feature res-card">
+                <div class="feature__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></div>
+                <h3>Olympiad Questions</h3>
+                <p>Curated questions for various Olympiads</p>
+                <span class="res-count t-orange">2500+</span>
+              </div>
+              <div class="feature res-card">
+                <div class="feature__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
+                <h3>Previous Papers</h3>
+                <p>ICSE, IGCSE &amp; IB Previous Year Papers</p>
+                <span class="res-count" style="color:var(--green)">800+</span>
+              </div>
+              <div class="feature res-card">
+                <div class="feature__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+                <h3>Study Planners</h3>
+                <p>Weekly &amp; Monthly study planners</p>
+                <span class="res-count" style="color:var(--purple)">100+</span>
+              </div>
+              <div class="feature res-card">
+                <div class="feature__ic chip chip--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="currentColor" stroke="none"/></svg></div>
+                <h3>Video Lessons</h3>
+                <p>Concept videos by expert faculty</p>
+                <span class="res-count" style="color:var(--red)">500+</span>
+              </div>
+              <div class="feature res-card">
+                <div class="feature__ic chip chip--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                <h3>Important Notes</h3>
+                <p>Quick revision notes by JLC Faculty</p>
+                <span class="res-count" style="color:var(--teal)">1200+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIDEBAR: student portal + free downloads -->
+          <aside class="hub-side reveal">
+            <div class="portal-card">
+              <div class="portal-card__head">
+                <span class="chip chip--blue chip--round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span>
+                <h3>Student Portal</h3>
+              </div>
+              <p>Your personalised space to learn, practice and grow.</p>
+              <ul class="checklist">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Access study materials</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Attempt tests &amp; quizzes</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Track your performance</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Get faculty feedback</li>
+              </ul>
+              <a class="btn btn--blue btn--block" href="#">Login to Student Portal
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <p class="register">New student? <a class="link-arrow" href="#" style="display:inline">Register now</a></p>
+            </div>
+
+            <div class="downloads-card">
+              <div class="downloads-card__head">
+                <span class="chip chip--orange chip--round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></span>
+                <h3>Free Downloads</h3>
+              </div>
+              <ul class="dl-list">
+                <li><a class="dl-item" href="#"><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span class="dl-meta"><b>ICSE Math Formula Sheet</b><span>PDF</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></li>
+                <li><a class="dl-item" href="#"><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span class="dl-meta"><b>IGCSE Biology Quick Notes</b><span>PDF</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></li>
+                <li><a class="dl-item" href="#"><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span class="dl-meta"><b>IB Physics Data Booklet</b><span>PDF</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></li>
+                <li><a class="dl-item" href="#"><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span class="dl-meta"><b>Olympiad Preparation Checklist</b><span>PDF</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></li>
+              </ul>
+              <a class="btn btn--outline-blue btn--block" href="#" style="border-color:var(--orange);color:var(--orange)">View All Downloads
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ LATEST FROM THE LEARNING HUB ============================ -->
+    <section class="section section--tint">
+      <div class="wrap">
+        <div class="section-head--row reveal">
+          <h2 style="margin:0">Latest from the Learning Hub</h2>
+          <a class="link-arrow" href="#">View All
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="grid--5 reveal">
+          <article class="blog-card">
+            <div class="blog-card__media"><span class="tag tag--orange blog-card__tag">BLOG</span><div class="ph ph--16x9">PLACEHOLDER — hand drawing a lightbulb idea</div></div>
+            <div class="blog-card__body">
+              <h3>How to Improve Problem Solving Skills?</h3>
+              <p>Proven strategies to think better and score higher.</p>
+              <div class="blog-card__meta">May 18, 2024 • 5 min read</div>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__media"><span class="tag tag--blue blog-card__tag">OLYMPIAD</span><div class="ph ph--16x9">PLACEHOLDER — student solving problems at a desk</div></div>
+            <div class="blog-card__body">
+              <h3>Top 20 Math Olympiad Questions for Practice</h3>
+              <p>Challenge yourself with these hand-picked questions.</p>
+              <div class="blog-card__meta">May 16, 2024 • 10 min read</div>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__media"><span class="tag tag--green blog-card__tag">STUDY TIPS</span><div class="ph ph--16x9">PLACEHOLDER — study planner and clock on desk</div></div>
+            <div class="blog-card__body">
+              <h3>Effective Study Plan for ICSE Students</h3>
+              <p>Make the most of your time with a smart plan.</p>
+              <div class="blog-card__meta">May 14, 2024 • 6 min read</div>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__media"><span class="tag tag--purple blog-card__tag">RESOURCE</span><div class="ph ph--16x9">PLACEHOLDER — open books with formula notes</div></div>
+            <div class="blog-card__body">
+              <h3>Physics Formula Sheet for Quick Revision</h3>
+              <p>Download this handy formula sheet for quick revision.</p>
+              <div class="blog-card__meta"><a class="link-arrow" href="#" style="font-size:0.8rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Download PDF</a></div>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__media"><span class="tag tag--red blog-card__tag">NOTICE</span><div class="ph ph--16x9">PLACEHOLDER — golden trophy on books</div></div>
+            <div class="blog-card__body">
+              <h3>JLC Students Shine at SOF IMO 2024</h3>
+              <p>Congratulations to our achievers on their outstanding performance!</p>
+              <div class="blog-card__meta">May 10, 2024 • 3 min read</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ NEWSLETTER BANNER ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-banner reveal">
+          <div class="cta-banner__body">
+            <h2>Stay Ahead. Stay Inspired.</h2>
+            <p>Subscribe to our Learning Hub Newsletter.</p>
+            <ul class="news-check">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Latest resources</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Study tips &amp; strategies</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Important updates &amp; more</li>
+            </ul>
+          </div>
+          <div class="cta-banner__actions" style="flex:1 1 320px;flex-direction:column;align-items:stretch">
+            <form class="news-form" data-wa-form>
+              <input type="email" name="Newsletter email" placeholder="Enter your email address" aria-label="Email address" />
+              <button class="btn btn--blue" type="submit">Subscribe</button>
+            </form>
+            <p class="news-fine">We respect your privacy. Unsubscribe anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STAT BAR ============================ -->
+    <section class="section" style="padding-top:0;">
+      <div class="wrap">
+        <div class="statbar statbar--4 reveal">
+          <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="50000" data-suffix="+">50,000+</span></div><div class="statbar__label">Students Benefited</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg></div><div class="statbar__num"><span data-count="1000" data-suffix="+">1000+</span></div><div class="statbar__label">Olympiad Medals</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="statbar__num"><span data-count="23" data-suffix="+">23+</span></div><div class="statbar__label">Years of Excellence</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><div class="statbar__num"><span data-count="98" data-suffix="%">98%</span></div><div class="statbar__label">Board Success Rate</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER (canonical — reused on every page) ============================ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <!-- newsletter + rating -->
+      <div class="footer-news">
+        <div>
+          <h3>Stay Inspired. Stay Ahead.</h3>
+          <p>Subscribe to our newsletter for study tips, exam updates, event invites and more.</p>
+        </div>
+        <form class="newsletter" data-wa-form>
+          <input type="email" name="Newsletter email" placeholder="Enter your email address" aria-label="Email address" />
+          <button class="btn btn--blue btn--sm" type="submit">Subscribe</button>
+        </form>
+        <div class="google-rating">
+          <span class="g">G</span>
+          <div><b style="color:#fff">Google Rating</b><div class="stars">★★★★★ <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;">5.0 · Based on Google reviews</span></div></div>
+        </div>
+      </div>
+
+      <!-- link columns -->
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand brand--light" href="index.html"><span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span></a>
+          <p class="small" style="margin-top:1rem;color:rgba(255,255,255,0.6)">Premium coaching for ICSE, IGCSE, IB and Olympiads. Building thinkers, not just toppers.</p>
+          <div class="socials mt-1">
+            <a class="fb" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H17V1.4C16.6 1.3 15.5 1.2 14.3 1.2 11.7 1.2 10 2.7 10 5.2V7H7v3h3v9h3z"/></svg></a>
+            <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a class="yt" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M23 12s0-3.5-.4-5.1a2.6 2.6 0 0 0-1.8-1.8C19.1 4.7 12 4.7 12 4.7s-7.1 0-8.8.4A2.6 2.6 0 0 0 1.4 6.9C1 8.5 1 12 1 12s0 3.5.4 5.1a2.6 2.6 0 0 0 1.8 1.8c1.7.4 8.8.4 8.8.4s7.1 0 8.8-.4a2.6 2.6 0 0 0 1.8-1.8C23 15.5 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg></a>
+            <a class="li" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Our Programs</h4><ul class="footer-links"><li><a href="courses.html#icse">ICSE Programs</a></li><li><a href="courses.html#igcse">IGCSE Programs</a></li><li><a href="courses.html#ib">IB Programs</a></li><li><a href="olympiads.html">Olympiad Preparation</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="facilities.html">Facilities</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="learning-hub.html">Learning Hub</a></li><li><a href="learning-hub.html">Worksheets</a></li><li><a href="learning-hub.html">Olympiad Questions</a></li><li><a href="learning-hub.html">Previous Papers</a></li><li><a href="recommend.html">Find My Program</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li>Avior Corporate Park, A-132, near Salpa Devi Mandir, Mulund West, Mumbai 400080</li>
+            <li><a href="tel:+918591877127">+91 85918 77127</a></li>
+            <li><a href="mailto:info@jlclearning.com">info@jlclearning.com</a></li>
+            <li>Mon – Sat: 11:30 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Jayesh Learning Centre LLP. All Rights Reserved.</span>
+        <span class="row"><a href="terms.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="faqs.html">FAQs</a></span>
+        <span>❤ Proudly Indian. Committed to Excellence.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

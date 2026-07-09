@@ -1,65 +1,50 @@
 /* ==========================================================================
-   Jayesh Learning Centre — interactions
-   WhatsApp deep-links, grade-slip mark, scroll reveals, ink-stamp handoff,
-   rubric number tick, mobile nav, hero parallax.
+   Jayesh Learning Centre (JLC) — interactions
+   Mobile nav, dropdowns, scroll reveals, counters, filter tabs, FAQ,
+   testimonial slider, multi-step recommender quiz, forms, footer, year.
    All motion respects prefers-reduced-motion.
    ========================================================================== */
 (function () {
   "use strict";
 
-  var WA_NUMBER = "918591877127"; // wa.me/918591877127 — single source of truth
+  var WA_NUMBER = "918591877127"; // wa.me — single source of truth
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- WhatsApp deep-link helper -------------------------------------- */
-  function waLink(message) {
-    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(message || "Hi, I'd like to know more about coaching at Jayesh Learning Centre.");
+  function waLink(msg) {
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(
+      msg || "Hi, I'd like to know more about Jayesh Learning Centre.");
   }
 
-  // Any element with [data-wa="message"] becomes a WhatsApp deep-link + stamp.
+  /* ---- WhatsApp deep links -------------------------------------------- */
   function wireWhatsApp() {
-    var nodes = document.querySelectorAll("[data-wa]");
-    nodes.forEach(function (el) {
-      var msg = el.getAttribute("data-wa");
-      var href = waLink(msg);
+    document.querySelectorAll("[data-wa]").forEach(function (el) {
+      var href = waLink(el.getAttribute("data-wa"));
       if (el.tagName === "A") el.setAttribute("href", href);
-      el.addEventListener("click", function (e) {
-        e.preventDefault();
-        stampThen(el.getAttribute("data-stamp") || "Sent", function () {
-          window.open(href, "_blank", "noopener");
-        });
-      });
     });
   }
 
-  /* ---- Ink-stamp confirmation ----------------------------------------- */
-  var overlay, stampEl;
-  function ensureOverlay() {
-    if (overlay) return;
-    overlay = document.createElement("div");
-    overlay.className = "stamp-overlay";
-    overlay.setAttribute("aria-hidden", "true");
-    stampEl = document.createElement("div");
-    stampEl.className = "stamp";
-    overlay.appendChild(stampEl);
-    document.body.appendChild(overlay);
-  }
-  function stampThen(word, done) {
-    if (reduceMotion) { done(); return; }
-    ensureOverlay();
-    stampEl.textContent = word;
-    overlay.classList.add("is-on");
-    window.setTimeout(function () {
-      overlay.classList.remove("is-on");
-      done();
-    }, 650);
-  }
-
-  /* ---- Grade slip mark-in --------------------------------------------- */
-  function markGradeSlip() {
-    var slip = document.querySelector(".grade-slip");
-    if (!slip) return;
-    if (reduceMotion) { slip.classList.add("is-marked"); return; }
-    window.setTimeout(function () { slip.classList.add("is-marked"); }, 550);
+  /* ---- Mobile nav ------------------------------------------------------ */
+  function wireNav() {
+    var toggle = document.querySelector(".nav__toggle");
+    var links = document.querySelector(".nav__links");
+    if (!toggle || !links) return;
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    // On mobile, tapping a dropdown parent toggles it; tapping a leaf closes menu.
+    links.addEventListener("click", function (e) {
+      var parentToggle = e.target.closest(".has-dropdown > a");
+      if (parentToggle && window.matchMedia("(max-width: 1024px)").matches) {
+        var dd = parentToggle.parentNode.querySelector(".dropdown");
+        if (dd && !e.target.closest(".dropdown")) {
+          e.preventDefault();
+          dd.style.display = (dd.style.display === "none" || !dd.style.display) ? "block" : "none";
+          return;
+        }
+      }
+      if (e.target.closest("a") && !parentToggle) links.classList.remove("is-open");
+    });
   }
 
   /* ---- Scroll reveals -------------------------------------------------- */
@@ -71,29 +56,27 @@
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add("is-visible"); io.unobserve(entry.target); }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     els.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---- Rubric / stat number tick -------------------------------------- */
+  /* ---- Number counters ([data-count]) --------------------------------- */
   function tickNumber(el) {
     var target = parseFloat(el.getAttribute("data-count"));
+    var prefix = el.getAttribute("data-prefix") || "";
     var suffix = el.getAttribute("data-suffix") || "";
     var decimals = (String(target).split(".")[1] || "").length;
-    if (reduceMotion || isNaN(target)) { el.textContent = target + suffix; return; }
-    var start = null, dur = 1100;
+    if (reduceMotion || isNaN(target)) { el.textContent = prefix + target + suffix; return; }
+    var start = null, dur = 1200;
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = (target * eased).toFixed(decimals) + suffix;
+      el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
       if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target.toFixed(decimals) + suffix;
+      else el.textContent = prefix + target.toFixed(decimals) + suffix;
     }
     requestAnimationFrame(step);
   }
@@ -108,88 +91,97 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---- Mobile nav ------------------------------------------------------ */
-  function wireNav() {
-    var toggle = document.querySelector(".nav__toggle");
-    var links = document.querySelector(".nav__links");
-    if (!toggle || !links) return;
-    toggle.addEventListener("click", function () {
-      var open = links.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    links.addEventListener("click", function (e) {
-      if (e.target.closest("a")) links.classList.remove("is-open");
-    });
-  }
-
-  /* ---- Hero ruled-paper parallax -------------------------------------- */
-  function wireParallax() {
-    var hero = document.querySelector(".hero");
-    if (!hero || reduceMotion) return;
-    window.addEventListener("scroll", function () {
-      var y = window.scrollY;
-      if (y < window.innerHeight) hero.style.backgroundPositionY = (y * 0.25) + "px";
-    }, { passive: true });
-  }
-
-  /* ---- Enquiry form -> WhatsApp --------------------------------------- */
-  function wireEnquiryForm() {
-    var form = document.getElementById("enquiry-form");
-    if (!form) return;
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var d = new FormData(form);
-      var lines = [
-        "Hi Jayesh Learning Centre, I'd like to enquire about coaching.",
-        "",
-        "Name: " + (d.get("name") || "-"),
-        "Phone: " + (d.get("phone") || "-"),
-        "Grade / Year: " + (d.get("grade") || "-"),
-        "Curriculum: " + (d.get("curriculum") || "-"),
-        "Subjects / notes: " + (d.get("notes") || "-")
-      ];
-      var href = waLink(lines.join("\n"));
-      stampThen("Sent", function () { window.open(href, "_blank", "noopener"); });
-    });
-  }
-
-  /* ---- Results tabs (choose which board's results to see) ------------- */
-  function wireResultTabs() {
-    document.querySelectorAll("[data-result-tabs]").forEach(function (tablist) {
-      var panels = tablist.parentNode.querySelector(".result-panels");
-      if (!panels) return;
-      tablist.addEventListener("click", function (e) {
-        var btn = e.target.closest(".result-tab");
+  /* ---- Filter tabs ([data-tabs]) --------------------------------------- */
+  function wireTabs() {
+    document.querySelectorAll("[data-tabs]").forEach(function (group) {
+      var scope = group.getAttribute("data-tabs-scope");
+      var panelsRoot = scope ? document.querySelector(scope) : group.parentNode;
+      group.addEventListener("click", function (e) {
+        var btn = e.target.closest(".tab");
         if (!btn) return;
         var name = btn.getAttribute("data-tab");
-        tablist.querySelectorAll(".result-tab").forEach(function (b) {
-          var on = b === btn;
-          b.classList.toggle("is-active", on);
-          b.setAttribute("aria-selected", on ? "true" : "false");
+        group.querySelectorAll(".tab").forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+        if (!panelsRoot) return;
+        panelsRoot.querySelectorAll(".tab-panel").forEach(function (p) {
+          p.hidden = p.getAttribute("data-panel") !== name && name !== "all" ?
+            (p.getAttribute("data-panel") !== name) : p.getAttribute("data-panel") !== name;
         });
-        panels.querySelectorAll(".result-panel").forEach(function (p) {
-          p.hidden = p.getAttribute("data-panel") !== name;
+        // "all" panel support: items carry data-cat; show/hide instead of panels
+        var items = panelsRoot.querySelectorAll("[data-cat]");
+        if (items.length) {
+          items.forEach(function (it) {
+            it.style.display = (name === "all" || it.getAttribute("data-cat") === name) ? "" : "none";
+          });
+        }
+      });
+    });
+  }
+
+  /* ---- Testimonial / any slider arrows ([data-slider]) ----------------- */
+  function wireSliders() {
+    document.querySelectorAll("[data-slider]").forEach(function (wrap) {
+      var track = wrap.querySelector(".slider");
+      if (!track) return;
+      wrap.querySelectorAll("[data-slide]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var dir = btn.getAttribute("data-slide") === "next" ? 1 : -1;
+          track.scrollBy({ left: dir * (track.clientWidth * 0.8), behavior: "smooth" });
         });
+      });
+    });
+  }
+
+  /* ---- Multi-step recommender quiz ([data-quiz]) ----------------------- */
+  function wireQuiz() {
+    var quiz = document.querySelector("[data-quiz]");
+    if (!quiz) return;
+    var steps = Array.prototype.slice.call(quiz.querySelectorAll(".quiz-step"));
+    var dots = quiz.querySelectorAll(".quiz-dot");
+    var i = 0;
+    function show(n) {
+      i = Math.max(0, Math.min(steps.length - 1, n));
+      steps.forEach(function (s, k) { s.hidden = k !== i; });
+      dots.forEach(function (d, k) { d.classList.toggle("is-active", k <= i); });
+    }
+    quiz.addEventListener("click", function (e) {
+      if (e.target.closest("[data-next]")) show(i + 1);
+      if (e.target.closest("[data-prev]")) show(i - 1);
+      var opt = e.target.closest(".quiz-opt");
+      if (opt) {
+        opt.parentNode.querySelectorAll(".quiz-opt").forEach(function (o) { o.classList.remove("is-selected"); });
+        opt.classList.add("is-selected");
+      }
+    });
+    show(0);
+  }
+
+  /* ---- Booking / contact forms → WhatsApp ------------------------------ */
+  function wireForms() {
+    document.querySelectorAll("form[data-wa-form]").forEach(function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var d = new FormData(form);
+        var lines = ["Hi Jayesh Learning Centre,", ""];
+        d.forEach(function (v, k) { if (v) lines.push(k + ": " + v); });
+        window.open(waLink(lines.join("\n")), "_blank", "noopener");
       });
     });
   }
 
   /* ---- Footer year ----------------------------------------------------- */
   function setYear() {
-    var el = document.querySelector("[data-year]");
-    if (el) el.textContent = new Date().getFullYear();
+    document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
   }
 
-  /* ---- Init ------------------------------------------------------------ */
   document.addEventListener("DOMContentLoaded", function () {
     wireWhatsApp();
-    markGradeSlip();
+    wireNav();
     wireReveals();
     wireCounters();
-    wireNav();
-    wireParallax();
-    wireEnquiryForm();
-    wireResultTabs();
+    wireTabs();
+    wireSliders();
+    wireQuiz();
+    wireForms();
     setYear();
   });
 })();

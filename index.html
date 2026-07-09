@@ -3,447 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jayesh Learning Centre | IB, IGCSE, A Level &amp; ICSE Tutoring in Mulund West</title>
-  <meta name="description" content="One-to-one and small-batch tutoring in Mulund West, Mumbai for grades 6 to 12 across IB MYP, IB Diploma, Cambridge IGCSE, A/AS Level and ICSE. We close the gap between the grade and the target grade." />
+  <title>Jayesh Learning Centre | Premium Coaching for ICSE, IGCSE, IB &amp; Olympiads</title>
+  <meta name="description" content="Jayesh Learning Centre (JLC) — premium coaching for ICSE, IGCSE, IB and Olympiads. Small batches, personal attention and exceptional results. Building thinkers, not just toppers." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="assets/img/jlc-mark.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <!-- ============================ HEADER ============================ -->
+  <!-- ============================ HEADER (canonical — reused on every page) ============================ -->
   <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="index.html">
-        <img class="brand__icon" src="assets/img/jlc-mark.png" alt="JLC" /><span class="brand__name">Jayesh<br />Learning Centre</span>
+    <nav class="wrap nav" aria-label="Primary">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="brand nav__brand" href="index.html" aria-label="Jayesh Learning Centre home">
+        <span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span>
+        <span class="brand__text"><b>JAYESH</b><span class="line2">LEARNING CENTRE <em>LLP</em></span><small>where learning is larger than life…</small></span>
       </a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <ul class="nav__links" id="nav-links">
         <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="approach.html">Approach</a></li>
-        <li><a href="enrichment.html">Beyond Class</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown"><a href="courses.html">Courses</a>
+          <ul class="dropdown">
+            <li><a href="courses.html#icse">ICSE</a></li>
+            <li><a href="courses.html#igcse">IGCSE</a></li>
+            <li><a href="courses.html#ib">IB</a></li>
+            <li><a href="olympiads.html">Olympiads</a></li>
+          </ul>
+        </li>
         <li><a href="results.html">Results</a></li>
-        <li><a href="contact.html">Visit</a></li>
-        <li><a class="btn btn--primary" data-wa="Hi, I'd like to book a free demo class at Jayesh Learning Centre." href="#">Book a demo</a></li>
+        <li><a href="olympiads.html">Olympiads</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
       </ul>
-    </div>
+      <a class="nav__phone" href="tel:+918591877127" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </nav>
   </header>
 
   <main>
     <!-- ============================ HERO ============================ -->
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="reveal">
-          <p class="label">One-to-one &amp; small-batch tutoring, Mulund West</p>
-          <h1>We close the gap between the <span class="em">grade</span> and the <span class="em">target grade</span>.</h1>
-          <p class="hero__lead">Serious, exam-focused coaching for grades 6 to 12 across IB, Cambridge IGCSE and ICSE, taught by subject specialists rather than generalists.</p>
-          <div class="cta-row mt-lg">
-            <a class="btn btn--primary" data-wa="Hi, I'd like to book a free demo class at Jayesh Learning Centre for my child." data-stamp="Sent" href="#">
-              <svg class="btn__wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-1.9-.9-.3-.1-.5-.2-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-              Book a free demo class
-            </a>
-            <a class="btn btn--ghost" href="tel:+918591877127">Call 08591 877127</a>
-          </div>
-          <p class="hero__meta">5.0 &#9733; on Google · Mon to Sat, opens 11:30 AM</p>
-        </div>
-
-        <!-- Signature grade-slip motif -->
-        <div class="reveal" data-delay="1">
-          <div class="grade-slip" aria-label="Sample report showing grades improving">
-            <div class="grade-slip__head">
-              <span class="grade-slip__title">Progress Report</span>
-              <span class="grade-slip__title">Term II</span>
+    <section class="wrap">
+      <div class="hero-panel reveal">
+        <div class="hero-home">
+          <div>
+            <span class="pill-eyebrow">Premium Coaching for ICSE • IGCSE • IB • Olympiads</span>
+            <h1 class="mt-1">Building Thinkers.<span class="dot">.</span><br />Not Just Toppers.<span class="dot-blue">.</span></h1>
+            <p class="lead">Personal Attention. Small Batches. Exceptional Results.<br />A learning experience that <b class="t-orange">transforms your child's future.</b></p>
+            <div class="cta-row mt-2">
+              <a class="btn btn--primary" href="counselling.html">Book Free Counselling
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="#story">Watch Our Story
+                <span class="btn__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></a>
             </div>
-            <div class="grade-slip__row">
-              <span class="grade-slip__subject">Mathematics HL</span>
-              <span class="grade-slip__grades">
-                <span class="grade-was">4<span class="strike"></span></span>
-                <span class="grade-arrow">&rarr;</span>
-                <span class="grade-now">7</span>
+            <div class="avatars">
+              <span class="avatars__stack">
+                <span>A</span><span>R</span><span>S</span><span>K</span><span class="more">1K+</span>
               </span>
+              <p>Students Mentored<br />Across Boards</p>
             </div>
-            <div class="grade-slip__row">
-              <span class="grade-slip__subject">Physics</span>
-              <span class="grade-slip__grades">
-                <span class="grade-was">B</span>
-                <span class="grade-arrow">&rarr;</span>
-                <span class="grade-now" style="font-size:1.2rem;">A*</span>
-              </span>
+          </div>
+          <div class="hero-home__figure">
+            <div class="hero-figurebox">
+              <div class="ph ph--fill ph--dark">PLACEHOLDER — Founder / hero portrait</div>
             </div>
-            <div class="grade-slip__row">
-              <span class="grade-slip__subject">Chemistry SL</span>
-              <span class="grade-slip__grades">
-                <span class="grade-was">5</span>
-                <span class="grade-arrow">&rarr;</span>
-                <span class="grade-now">7</span>
-              </span>
+            <div class="float-stats">
+              <div class="float-stat"><span class="float-stat__ic chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></span><span><b>99%</b><span>Highest ICSE Score</span></span></div>
+              <div class="float-stat"><span class="float-stat__ic chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span><span><b>100+</b><span>Subject Toppers</span></span></div>
+              <div class="float-stat"><span class="float-stat__ic chip--yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg></span><span><b>Olympiad</b><span>Gold Medalists</span></span></div>
+              <div class="float-stat"><span class="float-stat__ic chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span><span><b>IB</b><span>Specialists</span></span></div>
             </div>
-            <div class="grade-slip__row">
-              <span class="grade-slip__subject">English</span>
-              <span class="grade-slip__grades">
-                <span class="grade-was">C</span>
-                <span class="grade-arrow">&rarr;</span>
-                <span class="grade-now" style="font-size:1.2rem;">A</span>
-              </span>
-            </div>
-            <div class="grade-slip__row">
-              <span class="grade-slip__subject">Economics</span>
-              <span class="grade-slip__grades">
-                <span class="grade-was">6</span>
-                <span class="grade-arrow">&rarr;</span>
-                <span class="grade-now">7</span>
-              </span>
-            </div>
-            <div class="grade-slip__foot">Marked in red · Reviewed with parent</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================ RESULTS (right after hero) ============================ -->
-    <section class="section section--tint" id="results">
+    <!-- ============================ STAT BAR ============================ -->
+    <section class="wrap">
+      <div class="statbar reveal">
+        <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="1000" data-suffix="+">1000+</span></div><div class="statbar__label">Students Mentored</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><div class="statbar__num"><span data-count="15" data-suffix="+">15+</span></div><div class="statbar__label">Years of Excellence</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div class="statbar__num"><span data-count="100" data-suffix="+">100+</span></div><div class="statbar__label">Subject Toppers</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg></div><div class="statbar__num"><span data-count="50" data-suffix="+">50+</span></div><div class="statbar__label">Olympiad Medals</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div class="statbar__num"><span data-count="99" data-suffix="%">99%</span></div><div class="statbar__label">Board Success Rate</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div><div class="statbar__num">1:10</div><div class="statbar__label">Student Teacher Ratio</div></div>
+      </div>
+    </section>
+
+    <!-- ============================ THE JLC DIFFERENCE (Why Parents Trust JLC) ============================ -->
+    <section class="section" id="story">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">Results</p>
-          <h2>The students, and the grades they earned.</h2>
-          <p>Choose a board to see recent results. Every photo is a real student who moved up with us.</p>
-        </div>
-
-        <div class="results-tabbed reveal">
-          <div class="result-tabs" role="tablist" aria-label="Choose which results to view" data-result-tabs>
-            <button class="result-tab is-active" role="tab" aria-selected="true" data-tab="ib">IB</button>
-            <button class="result-tab" role="tab" aria-selected="false" data-tab="igcse">IGCSE</button>
-            <button class="result-tab" role="tab" aria-selected="false" data-tab="icse">ICSE</button>
+        <div class="split mb-2 reveal">
+          <div>
+            <p class="eyebrow eyebrow--dash">The JLC Difference</p>
+            <h2>Why Parents<br />Trust <span class="t-orange">JLC</span></h2>
+            <p class="lead">At JLC, we go beyond coaching. We build a strong academic foundation with a nurturing environment that brings out the best in every child.</p>
+            <p class="script">We don't just teach, we transform.</p>
           </div>
-          <div class="result-panels">
-            <!-- PLACEHOLDER-RESULTS: swap each .topper__photo for the student's photo and edit name + score.
-                 Each board's cards are listed TWICE so the marquee loops seamlessly. -->
-            <div class="result-panel" data-panel="ib">
-              <div class="marquee"><div class="marquee__track">
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">44/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">43/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Maths</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Physics</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · MYP</span><span class="topper__meta">IB MYP</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">44/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">43/45</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Maths</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · HL Physics</span><span class="topper__meta">IB Diploma</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 · MYP</span><span class="topper__meta">IB MYP</span></figcaption></figure>
-              </div></div>
-            </div>
-            <div class="result-panel" data-panel="igcse" hidden>
-              <div class="marquee"><div class="marquee__track">
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · 9 subjects</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 A*s</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · Maths</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · Sciences</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · English</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · 9 subjects</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">7 A*s</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A* · Maths</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · Sciences</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">A · English</span><span class="topper__meta">Cambridge IGCSE</span></figcaption></figure>
-              </div></div>
-            </div>
-            <div class="result-panel" data-panel="icse" hidden>
-              <div class="marquee"><div class="marquee__track">
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">98%</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">96%</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">99 · Maths</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">97 · Science</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">95 · English</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">98%</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">96%</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">99 · Maths</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">97 · Science</span><span class="topper__meta">ICSE</span></figcaption></figure>
-                <figure class="topper" aria-hidden="true"><div class="topper__photo">PLACEHOLDER-IMG · Student photo</div><figcaption><b>Student Name</b><span class="topper__score">95 · English</span><span class="topper__meta">ICSE</span></figcaption></figure>
-              </div></div>
+          <div class="split__media" style="position:relative;">
+            <div class="ph ph--4x3">PLACEHOLDER — Students studying in classroom</div>
+            <div class="quote-card">
+              <b>“</b>
+              <p>Every child has potential. We help them discover it.</p>
+              <div class="feature__bar"></div>
             </div>
           </div>
         </div>
 
-        <div class="cta-row mt-lg reveal">
-          <a class="btn btn--primary" href="results.html#testimonials">
-            <svg class="btn__wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            Click here for video testimonials
-          </a>
-          <a class="btn btn--ghost" href="results.html">See all results &amp; testimonials &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ TRUST STRIP ============================ -->
-    <div class="trust">
-      <div class="wrap trust__inner">
-        <span class="rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5.0</b> rating on Google</span>
-        <div class="badges" aria-label="Boards and clubs we coach">
-          <span class="badge">IB</span>
-          <span class="badge">Cambridge IGCSE</span>
-          <span class="badge">ICSE</span>
-          <span class="badge">Math · Science · English clubs</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================ CLASSROOM COURSES ============================ -->
-    <section class="section" id="courses">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">Classroom courses</p>
-          <h2>The boards we coach, taught by specialists.</h2>
-          <p>Every student starts with a diagnostic, gets an individual study plan, and is coached toward a specific target grade rather than a generic syllabus run-through.</p>
+        <div class="grid grid--4 reveal">
+          <div class="feature"><div class="feature__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div><h3>Small Batch Size</h3><p>Limited students per batch to ensure every child gets individual attention.</p><div class="feature__bar" style="background:var(--blue)"></div></div>
+          <div class="feature"><div class="feature__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg></div><h3>Personal Attention</h3><p>Every student is known, understood and guided personally by teachers.</p><div class="feature__bar" style="background:var(--orange)"></div></div>
+          <div class="feature"><div class="feature__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h3>Conceptual Learning</h3><p>We focus on building strong concepts for better understanding and retention.</p><div class="feature__bar" style="background:var(--green)"></div></div>
+          <div class="feature"><div class="feature__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Regular Assessments</h3><p>Weekly tests and analysis to track progress and improve consistently.</p><div class="feature__bar" style="background:var(--purple)"></div></div>
+          <div class="feature"><div class="feature__ic chip chip--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h3>Parent Updates</h3><p>Transparent communication and regular reports to keep you informed.</p><div class="feature__bar" style="background:var(--pink)"></div></div>
+          <div class="feature"><div class="feature__ic chip chip--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Result Oriented</h3><p>Proven strategies and structured preparation for exceptional results.</p><div class="feature__bar" style="background:var(--teal)"></div></div>
+          <div class="feature"><div class="feature__ic chip chip--yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div><h3>Experiential Learning</h3><p>Hands-on activities, experiments and real-life application for deeper learning.</p><div class="feature__bar" style="background:var(--yellow)"></div></div>
+          <div class="feature"><div class="feature__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3>Holistic Development</h3><p>We nurture academic, emotional and social growth for all-round development.</p><div class="feature__bar" style="background:var(--blue)"></div></div>
         </div>
 
-        <div class="col-grid reveal">
-          <a class="col-card" href="courses.html#ib">
-            <span class="col-card__badge">Grades 6 to 12</span>
-            <h3 class="col-card__title">IB (MYP &amp; Diploma)</h3>
-            <ul class="col-card__list">
-              <li>MYP coaching aligned to the MYP criteria</li>
-              <li>IB Diploma HL &amp; SL subject coaching</li>
-              <li>IA and extended-essay support</li>
-              <li>Mocks marked to the IB grade descriptors</li>
-            </ul>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-          <a class="col-card" href="courses.html#igcse">
-            <span class="col-card__badge">Grades 9 to 10</span>
-            <h3 class="col-card__title">Cambridge IGCSE</h3>
-            <ul class="col-card__list">
-              <li>Core &amp; Extended across Maths, Sciences, English</li>
-              <li>Taught to the Cambridge assessment objectives</li>
-              <li>Past-paper practice marked to the scheme</li>
-              <li>Clean run into A Levels or the IB Diploma</li>
-            </ul>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-          <a class="col-card" href="courses.html#icse">
-            <span class="col-card__badge">Grades 6 to 10</span>
-            <h3 class="col-card__title">ICSE</h3>
-            <ul class="col-card__list">
-              <li>Subject-wise coaching across the curriculum</li>
-              <li>Strong fundamentals plus high-weightage topics</li>
-              <li>Answer-writing and presentation for board marks</li>
-              <li>Regular tests on the board pattern</li>
-            </ul>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ CLUBS / OTHER COURSES ============================ -->
-    <section class="section section--tint" id="clubs">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">Our clubs</p>
-          <h2>Clubs, olympiads &amp; competition prep.</h2>
-          <p>Beyond the boards, our clubs stretch students well past the school syllabus and look strong on any application.</p>
-        </div>
-        <div class="col-grid reveal">
-          <a class="col-card col-card--club" href="courses.html#math-club">
-            <img class="col-card__logo club-logo" src="assets/img/math-club.png" alt="Math Club" />
-            <span class="col-card__badge">Olympiads · IPM</span>
-            <ul class="col-card__list">
-              <li>Olympiad-style problem solving</li>
-              <li>IPM scholarship exam prep</li>
-              <li>Reasoning beyond the school syllabus</li>
-            </ul>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-          <a class="col-card col-card--club" href="courses.html#science-club">
-            <img class="col-card__logo club-logo" src="assets/img/science-club.png" alt="Science Club" />
-            <span class="col-card__badge">Homi Bhabha · Olympiads</span>
-            <ul class="col-card__list">
-              <li>Homi Bhabha Bal Vaidnyanik Competition</li>
-              <li>Hands-on experiments</li>
-              <li>Science olympiads</li>
-            </ul>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-          <a class="col-card col-card--club" href="courses.html#english-club">
-            <img class="col-card__logo club-logo" src="assets/img/english-club.png" alt="English Club" />
-            <span class="col-card__badge">Ages 8-10 · 11-15</span>
-            <ul class="col-card__list">
-              <li>Reading habits</li>
-              <li>Conversational skills</li>
-              <li>Grammar &amp; writing skills</li>
-            </ul>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ APPROACH / RUBRIC ============================ -->
-    <section class="section section--ink" id="approach">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">Our approach</p>
-          <h2>How we mark our own work.</h2>
-          <p>We hold ourselves to the same standard we hold a student's exam script to. Four rules we don't break.</p>
-        </div>
-        <div class="rubric reveal">
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="1">1</div>
-            <h3 class="rubric__title">Diagnose before teaching</h3>
-            <p class="rubric__body">No student is booked into a plan until a diagnostic session shows exactly where the gap is.</p>
+        <!-- dark stat strip with watch video -->
+        <div class="cta-banner mt-3 reveal">
+          <div class="statbar statbar--dark statbar--5" style="flex:1 1 500px;background:transparent;border:0;box-shadow:none;">
+            <div class="statbar__item"><div class="statbar__num" data-count="1000" data-suffix="+">1000+</div><div class="statbar__label">Students Mentored</div></div>
+            <div class="statbar__item"><div class="statbar__num" data-count="15" data-suffix="+">15+</div><div class="statbar__label">Years of Excellence</div></div>
+            <div class="statbar__item"><div class="statbar__num" data-count="100" data-suffix="+">100+</div><div class="statbar__label">Subject Toppers</div></div>
+            <div class="statbar__item"><div class="statbar__num" data-count="50" data-suffix="+">50+</div><div class="statbar__label">Olympiad Medals</div></div>
+            <div class="statbar__item"><div class="statbar__num" data-count="99" data-suffix="%">99%</div><div class="statbar__label">Board Success Rate</div></div>
           </div>
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="2">2</div>
-            <h3 class="rubric__title">Specialists, not generalists</h3>
-            <p class="rubric__body">A tutor is matched to the student's board and subject, not handed whatever is free.</p>
-          </div>
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="3">3</div>
-            <h3 class="rubric__title">Practice under real conditions</h3>
-            <p class="rubric__body">Regular assessments and mock exams run to real board timing and marking, not soft practice.</p>
-          </div>
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="4">4</div>
-            <h3 class="rubric__title">Direct parent reporting</h3>
-            <p class="rubric__body">You hear from us after every assessment: where the grade is, and what we're doing next.</p>
+          <div class="cta-banner__actions">
+            <a class="btn btn--light" href="#story"><span class="btn__play" style="background:var(--grad-orange)"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span> Watch Video</a>
           </div>
         </div>
-        <div class="cta-row mt-lg reveal">
-          <a class="btn btn--ghost" href="approach.html">Read the full approach &rarr;</a>
-        </div>
       </div>
     </section>
 
-    <!-- ============================ VIDEO TESTIMONIALS ============================ -->
-    <section class="section" id="testimonials">
+    <!-- ============================ COURSES TEASER ============================ -->
+    <section class="section section--tint">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">In their words</p>
-          <h2>Video testimonials from parents &amp; students.</h2>
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow eyebrow--center eyebrow--orange">Our Programs</p>
+          <h2>Courses Designed for Every Learner</h2>
+          <p>From a strong academic foundation to global curriculum and olympiad excellence — we have the right program for every goal.</p>
         </div>
-        <!-- PLACEHOLDER-VIDEO: swap each anchor's href for the real video link or embed. -->
-        <div class="videos reveal">
-          <a class="video" href="#" aria-label="Video testimonial (placeholder)">
-            <span class="video__ph"><span class="video__play"></span></span>
-            <span class="video__cap"><b>Parent · IB Diploma</b><span>Video testimonial to be added</span></span>
-          </a>
-          <a class="video" href="#" aria-label="Video testimonial (placeholder)">
-            <span class="video__ph"><span class="video__play"></span></span>
-            <span class="video__cap"><b>Student · IGCSE</b><span>Video testimonial to be added</span></span>
-          </a>
-          <a class="video" href="#" aria-label="Video testimonial (placeholder)">
-            <span class="video__ph"><span class="video__play"></span></span>
-            <span class="video__cap"><b>Parent · ICSE</b><span>Video testimonial to be added</span></span>
-          </a>
+        <div class="grid grid--4 reveal">
+          <div class="program"><span class="tag tag--soft-blue">Grades 6 – 10</span><h3 class="program__title program__title--blue">ICSE</h3><p class="program__sub">Strong concepts. Strong foundation. Strong results.</p><a class="link-arrow program__cta" href="courses.html#icse">Explore Program →</a></div>
+          <div class="program"><span class="tag tag--soft-blue" style="background:#fff0e2;color:var(--orange)">Grades 6 – 10</span><h3 class="program__title program__title--orange">IGCSE</h3><p class="program__sub">Global approach. In-depth learning. Future ready.</p><a class="link-arrow link-arrow--orange program__cta" href="courses.html#igcse">Explore Program →</a></div>
+          <div class="program"><span class="tag tag--soft-blue" style="background:#f1e9fe;color:var(--purple)">MYP 1 – MYP 5 | IBDP</span><h3 class="program__title program__title--purple">IB</h3><p class="program__sub">Think globally. Learn deeply. Lead boldly.</p><a class="link-arrow program__cta" style="color:var(--purple)" href="courses.html#ib">Explore Program →</a></div>
+          <div class="program"><span class="tag tag--soft-blue" style="background:#e3f9ee;color:var(--green)">Grades 3 – 10</span><h3 class="program__title program__title--green">Olympiads</h3><p class="program__sub">Challenge today. Excel tomorrow.</p><a class="link-arrow program__cta" style="color:var(--green)" href="olympiads.html">Explore Program →</a></div>
         </div>
-        <div class="cta-row mt-lg reveal">
-          <a class="btn btn--ghost" href="results.html#testimonials">See all testimonials &rarr;</a>
-        </div>
+        <div class="center mt-2 reveal"><a class="btn btn--outline-blue" href="courses.html">View All Courses</a></div>
       </div>
     </section>
 
-    <!-- ============================ BEYOND THE CLASSROOM ============================ -->
-    <section class="section section--tint" id="beyond">
+    <!-- ============================ FINAL CTA ============================ -->
+    <section class="section">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">Beyond the classroom</p>
-          <h2>More than tuition hours.</h2>
-          <p>The parts of the year students actually remember: workshops, sport, trips and tech.</p>
-        </div>
-        <div class="col-grid col-grid--2 reveal">
-          <a class="col-card" href="enrichment.html#finance">
-            <span class="col-card__badge">Workshop</span>
-            <h3 class="col-card__title">Finance Workshop</h3>
-            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">A hands-on workshop teaching students how money, budgeting and investing actually work.</p>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-          <a class="col-card" href="enrichment.html#sports">
-            <span class="col-card__badge">Annual event</span>
-            <h3 class="col-card__title">Ethos Sports Tournament</h3>
-            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">Our annual sports tournament, the one fixture on the calendar nobody wants to miss.</p>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-          <a class="col-card" href="enrichment.html#trips">
-            <span class="col-card__badge">Picnics &amp; trips</span>
-            <h3 class="col-card__title">Picnics &amp; Educational Trips</h3>
-            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">Magical, well-planned picnics and educational trips that make learning feel like something.</p>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-          <a class="col-card" href="enrichment.html#techfest">
-            <span class="col-card__badge">IIT Bombay</span>
-            <h3 class="col-card__title">Techfest Trip</h3>
-            <p style="color:var(--ink-soft);margin:0;font-size:0.96rem;">A visit to Techfest, IIT Bombay, Asia's largest science and technology festival.</p>
-            <span class="col-card__cta">Know more &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ FIND US ============================ -->
-    <section class="section section--ink" id="find-us">
-      <div class="wrap findus">
-        <div class="reveal">
-          <p class="label">Find us</p>
-          <h2>Mulund West, Mumbai.</h2>
-          <ul class="info-list">
-            <li><span class="k">Address</span>Avior Corporate Park, A-132, near Salpa Devi Mandir, P&amp;T Staff Colony, Mulund West, Mumbai 400080.</li>
-            <li><span class="k">Hours</span>Monday to Saturday, opens 11:30 AM. Please call ahead to confirm class timings.</li>
-            <li><span class="k">Phone &amp; WhatsApp</span>08591 877127</li>
-          </ul>
-          <div class="cta-row">
-            <a class="btn btn--primary" data-wa="Hi, I'd like to visit Jayesh Learning Centre. Could you share directions and a good time?" href="#">Message on WhatsApp</a>
-            <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Jayesh+Learning+Centre+Avior+Corporate+Park+Mulund+West" target="_blank" rel="noopener">Get directions</a>
+        <div class="cta-banner cta-banner--orange reveal">
+          <div class="cta-banner__body">
+            <h2>Every Great Future Begins With One Right Decision.</h2>
+            <p>Join thousands of achievers who chose JLC and turned their dreams into reality.</p>
           </div>
-        </div>
-        <div class="reveal" data-delay="1">
-          <div class="map-embed">
-            <iframe title="Map to Jayesh Learning Centre, Mulund West" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Avior%20Corporate%20Park%20Mulund%20West%20Mumbai&output=embed"></iframe>
+          <div class="cta-banner__actions">
+            <a class="btn btn--light" href="counselling.html">Book Free Counselling
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" data-wa="Hi, I'd like to talk to an expert at Jayesh Learning Centre." href="#">Talk to Our Experts</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============================ FOOTER ============================ -->
+  <!-- ============================ FOOTER (canonical — reused on every page) ============================ -->
   <footer class="site-footer">
     <div class="wrap">
+      <!-- newsletter + rating -->
+      <div class="footer-news">
+        <div>
+          <h3>Stay Inspired. Stay Ahead.</h3>
+          <p>Subscribe to our newsletter for study tips, exam updates, event invites and more.</p>
+        </div>
+        <form class="newsletter" data-wa-form>
+          <input type="email" name="Newsletter email" placeholder="Enter your email address" aria-label="Email address" />
+          <button class="btn btn--blue btn--sm" type="submit">Subscribe</button>
+        </form>
+        <div class="google-rating">
+          <span class="g">G</span>
+          <div><b style="color:#fff">Google Rating</b><div class="stars">★★★★★ <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;">5.0 · Based on Google reviews</span></div></div>
+        </div>
+      </div>
+
+      <!-- link columns -->
       <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="brand__mark">Jayesh<b style="color:var(--red)">.</b></span>
-          <p style="margin-top:1rem;color:rgba(244,239,228,0.7);">One-to-one and small-batch tutoring for grades 6 to 12 in Mulund West, Mumbai. We close the gap between the grade and the target grade.</p>
+        <div class="footer-col">
+          <a class="brand brand--light" href="index.html"><span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span></a>
+          <p class="small" style="margin-top:1rem;color:rgba(255,255,255,0.6)">Premium coaching for ICSE, IGCSE, IB and Olympiads. Building thinkers, not just toppers.</p>
+          <div class="socials mt-1">
+            <a class="fb" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H17V1.4C16.6 1.3 15.5 1.2 14.3 1.2 11.7 1.2 10 2.7 10 5.2V7H7v3h3v9h3z"/></svg></a>
+            <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a class="yt" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M23 12s0-3.5-.4-5.1a2.6 2.6 0 0 0-1.8-1.8C19.1 4.7 12 4.7 12 4.7s-7.1 0-8.8.4A2.6 2.6 0 0 0 1.4 6.9C1 8.5 1 12 1 12s0 3.5.4 5.1a2.6 2.6 0 0 0 1.8 1.8c1.7.4 8.8.4 8.8.4s7.1 0 8.8-.4a2.6 2.6 0 0 0 1.8-1.8C23 15.5 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg></a>
+            <a class="li" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+          </div>
         </div>
-        <div>
-          <h4>Explore</h4>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Our Programs</h4><ul class="footer-links"><li><a href="courses.html#icse">ICSE Programs</a></li><li><a href="courses.html#igcse">IGCSE Programs</a></li><li><a href="courses.html#ib">IB Programs</a></li><li><a href="olympiads.html">Olympiad Preparation</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="facilities.html">Facilities</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="learning-hub.html">Learning Hub</a></li><li><a href="learning-hub.html">Worksheets</a></li><li><a href="learning-hub.html">Olympiad Questions</a></li><li><a href="learning-hub.html">Previous Papers</a></li><li><a href="recommend.html">Find My Program</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="approach.html">Approach</a></li>
-            <li><a href="enrichment.html">Beyond the Classroom</a></li>
-            <li><a href="results.html">Results</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Enquire</h4>
-          <ul class="footer-links">
-            <li><a href="enquire.html">Enquire</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="terms.html">Terms &amp; Conditions</a></li>
-            <li><a href="contact.html">Visit us</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul class="footer-links">
-            <li><a href="tel:+918591877127">08591 877127</a></li>
-            <li><a data-wa="Hi, I'd like to know more about coaching at Jayesh Learning Centre." href="#">WhatsApp us</a></li>
-            <li style="color:rgba(244,239,228,0.7)">Avior Corporate Park, A-132, Mulund West, Mumbai 400080</li>
+            <li>Avior Corporate Park, A-132, near Salpa Devi Mandir, Mulund West, Mumbai 400080</li>
+            <li><a href="tel:+918591877127">+91 85918 77127</a></li>
+            <li><a href="mailto:info@jlclearning.com">info@jlclearning.com</a></li>
+            <li>Mon – Sat: 11:30 AM – 7:00 PM</li>
           </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Jayesh Learning Centre LLP. All rights reserved.</span>
-        <span>5.0 &#9733; on Google · Mon to Sat, opens 11:30 AM</span>
+        <span>© <span data-year>2026</span> Jayesh Learning Centre LLP. All Rights Reserved.</span>
+        <span class="row"><a href="terms.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="faqs.html">FAQs</a></span>
+        <span>❤ Proudly Indian. Committed to Excellence.</span>
       </div>
     </div>
   </footer>

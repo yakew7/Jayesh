@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions | Jayesh Learning Centre — ICSE, IGCSE, IB &amp; Olympiads</title>
+  <meta name="description" content="Admissions at Jayesh Learning Centre (JLC) — a simple, transparent and student-friendly admission process for Grade 5 to 12 across ICSE, IGCSE and IB. Limited seats, personalised attention, proven results." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* page-local layout for admissions */
+    .adm-note { display:flex; gap:0.9rem; align-items:flex-start; background:#fff; border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:var(--r-sm); padding:1rem 1.15rem; box-shadow:var(--shadow-sm); max-width:30rem; }
+    .adm-note b { display:block; font-size:0.95rem; margin-bottom:0.2rem; }
+    .adm-note p { font-size:0.86rem; color:var(--ink-soft); margin:0; }
+    .adm-split { display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(1.5rem,4vw,3rem); align-items:start; }
+    @media (max-width:820px){ .adm-split { grid-template-columns:1fr; } }
+    .info-panel { background:linear-gradient(150deg, var(--navy), var(--navy-2)); border-radius:var(--r); padding:0; overflow:hidden; box-shadow:var(--shadow); color:#fff; }
+    .info-panel__head { background:var(--blue); padding:1rem 1.4rem; font-weight:700; font-size:1.05rem; }
+    .info-panel__body { padding:1.4rem; display:grid; gap:1.1rem; }
+    .info-row { display:flex; gap:0.9rem; align-items:flex-start; }
+    .info-row .chip { width:40px; height:40px; }
+    .info-row b { display:block; font-size:0.9rem; color:#fff; }
+    .info-row span { font-size:0.82rem; color:rgba(255,255,255,0.72); }
+    .info-help { margin:0 1.4rem 1.4rem; display:flex; gap:0.9rem; align-items:center; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:var(--r-sm); padding:0.9rem 1.1rem; }
+    .info-help b { display:block; font-size:0.9rem; color:#fff; }
+    .info-help span { font-size:0.82rem; color:rgba(255,255,255,0.72); }
+    .info-help a { color:#fff; font-weight:700; font-size:1.02rem; }
+    .adm-cards { display:grid; gap:1rem; }
+    .adm-card { background:#fff; border:1px solid var(--line); border-radius:var(--r); padding:1.4rem; box-shadow:var(--shadow-sm); display:flex; gap:1rem; align-items:flex-start; }
+    .adm-card h3 { font-size:1.05rem; margin:0 0 0.5rem; }
+    .adm-card p { font-size:0.88rem; color:var(--ink-soft); margin:0 0 0.9rem; }
+    .adm-card ul { list-style:none; margin:0; padding:0; display:grid; gap:0.5rem; }
+    .adm-card li { font-size:0.88rem; color:var(--ink-soft); display:flex; gap:0.5rem; align-items:flex-start; }
+    .adm-card li svg { width:16px; height:16px; color:var(--green); flex:0 0 auto; margin-top:2px; }
+    .help-strip { display:flex; flex-wrap:wrap; gap:1.5rem 2rem; align-items:center; }
+    .help-strip__col { display:flex; gap:0.9rem; align-items:center; }
+    .help-strip__col b { display:block; color:#fff; font-size:1rem; }
+    .help-strip__col span, .help-strip__col a { color:rgba(255,255,255,0.75); font-size:0.85rem; }
+    .help-strip__col a.big { color:#fff; font-size:1.05rem; font-weight:700; }
+  </style>
+</head>
+<body>
+  <!-- ============================ HEADER (canonical — reused on every page) ============================ -->
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Primary">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="brand nav__brand" href="index.html" aria-label="Jayesh Learning Centre home">
+        <span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span>
+        <span class="brand__text"><b>JAYESH</b><span class="line2">LEARNING CENTRE <em>LLP</em></span><small>where learning is larger than life…</small></span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown"><a href="courses.html">Courses</a>
+          <ul class="dropdown">
+            <li><a href="courses.html#icse">ICSE</a></li>
+            <li><a href="courses.html#igcse">IGCSE</a></li>
+            <li><a href="courses.html#ib">IB</a></li>
+            <li><a href="olympiads.html">Olympiads</a></li>
+          </ul>
+        </li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="olympiads.html">Olympiads</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+      <a class="nav__phone" href="tel:+918591877127" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================ HERO ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="split reveal">
+          <div>
+            <p class="eyebrow eyebrow--dash eyebrow--orange">Admissions</p>
+            <h1 class="mt-1">Your Child's Success<br />Journey <span class="t-orange">Starts Here</span></h1>
+            <p class="lead mt-1">A simple, transparent and student-friendly admission process designed to welcome your child to the JLC family.</p>
+            <div class="adm-note mt-2">
+              <span class="chip chip--blue" style="width:44px;height:44px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span>
+                <b>Limited Seats. Personalized Attention. Proven Results.</b>
+                <p>Enroll early to secure your child's spot in our next batch.</p>
+              </span>
+            </div>
+          </div>
+          <div class="split__media">
+            <div class="ph ph--4x3">PLACEHOLDER — students in JLC uniform studying together around a laptop</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ ADMISSION PROCESS ============================ -->
+    <section class="section section--tint">
+      <div class="wrap">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow eyebrow--center eyebrow--dash">Step by Step</p>
+          <h2>Our Admission Process</h2>
+        </div>
+        <div class="timeline reveal">
+          <div class="tl-step"><span class="tl-step__num">01</span><div class="tl-step__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><h4>Enquire</h4><p>Submit an inquiry form or call us to know more about JLC programs.</p></div>
+          <div class="tl-step"><span class="tl-step__num">02</span><div class="tl-step__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Counselling</h4><p>Our experts understand your child's goals and suggest the right program.</p></div>
+          <div class="tl-step"><span class="tl-step__num">03</span><div class="tl-step__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>Assessment</h4><p>A small assessment to evaluate current level and learning needs.</p></div>
+          <div class="tl-step"><span class="tl-step__num">04</span><div class="tl-step__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div><h4>Programme Recommendation</h4><p>We recommend the most suitable batch and learning plan.</p></div>
+          <div class="tl-step"><span class="tl-step__num">05</span><div class="tl-step__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h4>Enrollment</h4><p>Complete the admission formality and secure your child's seat.</p></div>
+          <div class="tl-step"><span class="tl-step__num">06</span><div class="tl-step__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/></svg></div><h4>Begin Your Journey</h4><p>Orientation and onboarding to kickstart the JLC experience!</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ ELIGIBILITY + INFORMATION ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="adm-split reveal">
+          <!-- LEFT: info cards -->
+          <div class="adm-cards">
+            <div class="adm-card">
+              <span class="chip chip--blue chip--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span>
+              <div>
+                <h3>Eligibility</h3>
+                <ul>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Students must be currently studying in Grade 5 to 12.</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Open to ICSE, IGCSE and IB board students.</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Assessment is mandatory for all new admissions.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="adm-card">
+              <span class="chip chip--orange chip--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+              <div>
+                <h3>Fees Enquiry</h3>
+                <p>Want to know the fee structure? Our counsellors will share complete details based on the program.</p>
+                <a class="btn btn--primary btn--sm" data-wa="Hi JLC, I'd like to know the fee structure for admissions.">Enquire Now
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+            <div class="adm-card">
+              <span class="chip chip--green chip--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+              <div>
+                <h3>Batch Availability</h3>
+                <p>Check the availability of seats in your preferred grade, board and stream.</p>
+                <a class="btn btn--outline-blue btn--sm" data-wa="Hi JLC, I'd like to check batch availability for admissions.">Check Availability
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: admission information panel -->
+          <div class="info-panel">
+            <div class="info-panel__head">Admission Information</div>
+            <div class="info-panel__body">
+              <div class="info-row"><span class="chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span><div><b>Grades</b><span>Grade 5 to 12 (ICSE, IGCSE &amp; IB)</span></div></div>
+              <div class="info-row"><span class="chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><div><b>Boards</b><span>ICSE | IGCSE | IB</span></div></div>
+              <div class="info-row"><span class="chip chip--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2zM9 18h6M10 22h4"/></svg></span><div><b>Streams</b><span>Science | Commerce | Humanities</span></div></div>
+              <div class="info-row"><span class="chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><b>Batch Starts</b><span>April | June | August | October</span></div></div>
+              <div class="info-row"><span class="chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14H2z"/><path d="M8 21h8M12 17v4"/></svg></span><div><b>Mode</b><span>Offline (Classroom)</span></div></div>
+              <div class="info-row"><span class="chip chip--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><b>Batch Size</b><span>Limited students per batch for personal attention</span></div></div>
+            </div>
+            <div class="info-help">
+              <span class="chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div>
+                <b>Need Help?</b>
+                <span>Talk to our admission experts</span>
+                <a href="tel:+918591877127">+91 85918 77127</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section section--tint">
+      <div class="wrap">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow eyebrow--center eyebrow--dash">Got Questions?</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq reveal" style="max-width:60rem;margin-inline:auto;">
+          <details>
+            <summary>What is the admission process?</summary>
+            <div class="faq__a"><p>It is a simple five-step journey — enquire, counselling, a short assessment, a programme recommendation and enrollment. Once enrolled, we begin with an orientation to welcome your child to JLC.</p></div>
+          </details>
+          <details>
+            <summary>Is the assessment difficult?</summary>
+            <div class="faq__a"><p>Not at all. The assessment is a friendly evaluation to understand your child's current level and learning needs so we can place them in the right batch — it is not a pass or fail test.</p></div>
+          </details>
+          <details>
+            <summary>Can I change batch later?</summary>
+            <div class="faq__a"><p>Yes. If a different batch or timing suits your child better, our team will help you switch subject to seat availability in the preferred batch.</p></div>
+          </details>
+          <details>
+            <summary>Are scholarships available?</summary>
+            <div class="faq__a"><p>We offer merit-based support for deserving students. Speak to our admission team during counselling to learn about the current scholarship options.</p></div>
+          </details>
+          <details>
+            <summary>What documents are required?</summary>
+            <div class="faq__a"><p>Typically the previous year's report card, a copy of your child's school ID and basic contact details. Our team will share the exact checklist during enrollment.</p></div>
+          </details>
+          <details>
+            <summary>Do you offer sibling discounts?</summary>
+            <div class="faq__a"><p>Yes, families enrolling more than one child are eligible for a sibling benefit. Please ask our admission team for the current details.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT STRIP ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-banner reveal" style="background:linear-gradient(120deg, var(--navy), var(--navy-2));">
+          <div class="help-strip">
+            <div class="help-strip__col">
+              <span class="chip chip--blue chip--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><path d="M18 19a2 2 0 0 1-2 2h-1M20 15v2a2 2 0 0 1-2 2M4 15a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2zM20 15a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2z"/></svg></span>
+              <div>
+                <b>We're Here to Help!</b>
+                <span>Have questions or need guidance? Our admission team is just a call away.</span>
+              </div>
+            </div>
+            <div class="help-strip__col">
+              <span class="chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div>
+                <a class="big" href="tel:+918591877127">+91 85918 77127</a>
+                <span>Mon – Sat: 11:30 AM – 7:00 PM</span>
+              </div>
+            </div>
+            <div class="help-strip__col">
+              <span class="chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+              <div>
+                <a class="big" href="mailto:admissions@jlclearning.com">admissions@jlclearning.com</a>
+                <span>We reply within 24 hours</span>
+              </div>
+            </div>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary" href="counselling.html">Book Free Counselling
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STAT BAR ============================ -->
+    <section class="section" style="padding-top:0;">
+      <div class="wrap">
+        <div class="statbar statbar--5 reveal">
+          <div class="statbar__item"><div class="statbar__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></div><div class="statbar__num"><span data-count="23" data-suffix="+">23+</span></div><div class="statbar__label">Years of Legacy</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="50000" data-suffix="+">50,000+</span></div><div class="statbar__label">Students Mentored</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg></div><div class="statbar__num"><span data-count="1000" data-suffix="+">1000+</span></div><div class="statbar__label">Olympiad Medals</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div class="statbar__num"><span data-count="98" data-suffix="%">98%</span></div><div class="statbar__label">Board Success Rate</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 0 12 0V3H6z"/><path d="M6 5H3a3 3 0 0 0 3 5M18 5h3a3 3 0 0 1-3 5M9 21h6M12 15v6"/></svg></div><div class="statbar__num" style="font-size:1rem;">India's Leading</div><div class="statbar__label">ICSE, IGCSE, IB &amp; Olympiad Institute</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER (canonical — reused on every page) ============================ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <!-- newsletter + rating -->
+      <div class="footer-news">
+        <div>
+          <h3>Stay Inspired. Stay Ahead.</h3>
+          <p>Subscribe to our newsletter for study tips, exam updates, event invites and more.</p>
+        </div>
+        <form class="newsletter" data-wa-form>
+          <input type="email" name="Newsletter email" placeholder="Enter your email address" aria-label="Email address" />
+          <button class="btn btn--blue btn--sm" type="submit">Subscribe</button>
+        </form>
+        <div class="google-rating">
+          <span class="g">G</span>
+          <div><b style="color:#fff">Google Rating</b><div class="stars">★★★★★ <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;">5.0 · Based on Google reviews</span></div></div>
+        </div>
+      </div>
+
+      <!-- link columns -->
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand brand--light" href="index.html"><span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span></a>
+          <p class="small" style="margin-top:1rem;color:rgba(255,255,255,0.6)">Premium coaching for ICSE, IGCSE, IB and Olympiads. Building thinkers, not just toppers.</p>
+          <div class="socials mt-1">
+            <a class="fb" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H17V1.4C16.6 1.3 15.5 1.2 14.3 1.2 11.7 1.2 10 2.7 10 5.2V7H7v3h3v9h3z"/></svg></a>
+            <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a class="yt" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M23 12s0-3.5-.4-5.1a2.6 2.6 0 0 0-1.8-1.8C19.1 4.7 12 4.7 12 4.7s-7.1 0-8.8.4A2.6 2.6 0 0 0 1.4 6.9C1 8.5 1 12 1 12s0 3.5.4 5.1a2.6 2.6 0 0 0 1.8 1.8c1.7.4 8.8.4 8.8.4s7.1 0 8.8-.4a2.6 2.6 0 0 0 1.8-1.8C23 15.5 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg></a>
+            <a class="li" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Our Programs</h4><ul class="footer-links"><li><a href="courses.html#icse">ICSE Programs</a></li><li><a href="courses.html#igcse">IGCSE Programs</a></li><li><a href="courses.html#ib">IB Programs</a></li><li><a href="olympiads.html">Olympiad Preparation</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="facilities.html">Facilities</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="learning-hub.html">Learning Hub</a></li><li><a href="learning-hub.html">Worksheets</a></li><li><a href="learning-hub.html">Olympiad Questions</a></li><li><a href="learning-hub.html">Previous Papers</a></li><li><a href="recommend.html">Find My Program</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li>Avior Corporate Park, A-132, near Salpa Devi Mandir, Mulund West, Mumbai 400080</li>
+            <li><a href="tel:+918591877127">+91 85918 77127</a></li>
+            <li><a href="mailto:info@jlclearning.com">info@jlclearning.com</a></li>
+            <li>Mon – Sat: 11:30 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Jayesh Learning Centre LLP. All Rights Reserved.</span>
+        <span class="row"><a href="terms.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="faqs.html">FAQs</a></span>
+        <span>❤ Proudly Indian. Committed to Excellence.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

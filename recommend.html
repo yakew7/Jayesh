@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Course Recommendation | Jayesh Learning Centre</title>
+  <meta name="description" content="Answer a few simple questions and let JLC's AI engine recommend the best ICSE, IGCSE, IB or Olympiad program for your child. 100% free and completely personalised." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* ---- page-local: AI recommendation layout ---- */
+    .rec-hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+    @media (max-width: 860px) { .rec-hero { grid-template-columns: 1fr; } }
+    .rec-figure { position: relative; border-radius: var(--r); overflow: hidden; }
+    .mini-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.8rem; }
+    @media (max-width: 560px) { .mini-features { grid-template-columns: 1fr; } }
+    .mini-feature { display: flex; align-items: center; gap: 0.7rem; }
+    .mini-feature .chip { width: 40px; height: 40px; border-radius: 11px; }
+    .mini-feature .chip svg { width: 20px; height: 20px; }
+    .mini-feature b { font-size: 0.9rem; font-weight: 600; color: var(--ink); line-height: 1.25; }
+
+    /* two-column recommender area */
+    .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    @media (max-width: 940px) { .rec-grid { grid-template-columns: 1fr; } }
+
+    /* quiz card */
+    .quiz-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
+    .quiz-head h3 { color: var(--blue); margin: 0; }
+    .quiz-head .step-count { font-size: 0.82rem; color: var(--ink-faint); font-weight: 600; white-space: nowrap; }
+    .quiz-body { display: grid; grid-template-columns: 170px 1fr; gap: 1.4rem; }
+    @media (max-width: 560px) { .quiz-body { grid-template-columns: 1fr; } }
+    .quiz-rail { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem; }
+    .quiz-rail li { display: flex; align-items: center; gap: 0.7rem; font-size: 0.86rem; color: var(--ink-soft); }
+    .quiz-dot { width: 30px; height: 30px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center;
+      font-size: 0.82rem; font-weight: 700; border: 1.5px solid var(--line-strong); background: #fff; color: var(--ink-faint); }
+    .quiz-dot.is-active { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .quiz-question { border-left: 1px solid var(--line); padding-left: 1.4rem; }
+    @media (max-width: 560px) { .quiz-question { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 1.2rem; } }
+    .quiz-step h4 { font-size: 1.15rem; margin: 0 0 1.1rem; }
+    .quiz-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 0.7rem; }
+    .quiz-opt { font-family: var(--ui); font-size: 0.88rem; font-weight: 600; color: var(--ink); cursor: pointer;
+      background: #fff; border: 1.5px solid var(--line-strong); border-radius: 12px; padding: 0.85em 0.6em; text-align: center;
+      transition: border-color 0.15s var(--ease), background 0.15s var(--ease), color 0.15s var(--ease); }
+    .quiz-opt:hover { border-color: var(--blue); }
+    .quiz-opt.is-selected { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
+    .quiz-nav { display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 1.4rem; }
+    .quiz-note { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1.4rem; margin-top: 1.4rem; padding-top: 1.2rem;
+      border-top: 1px solid var(--line); font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); }
+    .quiz-note span { display: inline-flex; align-items: center; gap: 0.45rem; }
+    .quiz-note svg { width: 15px; height: 15px; color: var(--green); }
+
+    /* recommended program card */
+    .rec-card h3.rec-title { color: var(--blue); margin: 0 0 1.1rem; }
+    .match-card { position: relative; overflow: hidden; color: #fff; background: var(--grad-navy);
+      border-radius: var(--r); padding: 1.5rem 1.4rem; }
+    .match-card::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(60% 70% at 90% 10%, rgba(37,99,235,0.4), transparent 60%); }
+    .match-card > * { position: relative; z-index: 1; }
+    .match-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.35em 0.9em; border-radius: 100px;
+      background: var(--blue); color: #fff; margin-bottom: 1rem; }
+    .match-ic { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+      background: rgba(255,255,255,0.12); color: #fff; margin-bottom: 0.7rem; }
+    .match-ic svg { width: 26px; height: 26px; }
+    .match-card b.match-name { font-size: 1.35rem; font-weight: 800; line-height: 1.15; display: block; }
+    .match-card .match-sub { font-size: 0.85rem; color: rgba(255,255,255,0.72); margin: 0.35rem 0 0; }
+
+    .why-title { font-size: 0.95rem; font-weight: 700; margin: 1.3rem 0 0.7rem; }
+    .why-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
+    .why-list li { display: flex; align-items: flex-start; gap: 0.55rem; font-size: 0.88rem; color: var(--ink-soft); }
+    .why-list li svg { width: 17px; height: 17px; color: var(--green); flex: 0 0 auto; margin-top: 2px; }
+
+    .rec-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-top: 1.3rem; padding: 1rem 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    @media (max-width: 480px) { .rec-stats { grid-template-columns: repeat(2, 1fr); } }
+    .rec-stat { text-align: center; }
+    .rec-stat .chip { width: 30px; height: 30px; border-radius: 8px; margin: 0 auto 0.35rem; }
+    .rec-stat .chip svg { width: 16px; height: 16px; }
+    .rec-stat b { display: block; font-size: 1.05rem; font-weight: 800; color: var(--ink); line-height: 1; }
+    .rec-stat span { font-size: 0.68rem; color: var(--ink-soft); }
+
+    .founder-quote { display: flex; gap: 0.9rem; align-items: flex-start; margin-top: 1.3rem; }
+    .founder-quote .ph { width: 66px; height: 66px; min-height: 0; border-radius: 12px; flex: 0 0 auto; }
+    .founder-quote .fq-mark { color: var(--blue); font-size: 1.6rem; font-weight: 800; line-height: 0.5; }
+    .founder-quote p { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0.3rem 0 0.5rem; }
+    .founder-quote .fq-who b { color: var(--ink); font-size: 0.9rem; font-style: normal; }
+    .founder-quote .fq-who span { display: block; font-size: 0.76rem; color: var(--ink-faint); }
+    .rec-actions { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0.7rem; margin-top: 1.3rem; }
+    @media (max-width: 400px) { .rec-actions { grid-template-columns: 1fr; } }
+
+    /* bottom proven-results banner */
+    .proven-banner { position: relative; overflow: hidden; }
+    .proven-banner .proven-head { flex: 1 1 100%; display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.4rem; }
+    .proven-banner .proven-head .trophy { font-size: 1.8rem; }
+    .proven-banner .proven-head h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin: 0; }
+    .proven-inner { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; width: 100%; }
+    .proven-inner .statbar { flex: 1 1 480px; background: transparent; border: 0; box-shadow: none; }
+    .proven-institute { flex: 1 1 220px; text-align: center; font-weight: 700; color: #fff; font-size: 1rem; line-height: 1.35;
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+    .proven-institute .laurel { font-size: 1.6rem; }
+  </style>
+</head>
+<body>
+  <!-- ============================ HEADER (canonical — reused on every page) ============================ -->
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Primary">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="brand nav__brand" href="index.html" aria-label="Jayesh Learning Centre home">
+        <span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span>
+        <span class="brand__text"><b>JAYESH</b><span class="line2">LEARNING CENTRE <em>LLP</em></span><small>where learning is larger than life…</small></span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown"><a href="courses.html">Courses</a>
+          <ul class="dropdown">
+            <li><a href="courses.html#icse">ICSE</a></li>
+            <li><a href="courses.html#igcse">IGCSE</a></li>
+            <li><a href="courses.html#ib">IB</a></li>
+            <li><a href="olympiads.html">Olympiads</a></li>
+          </ul>
+        </li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="olympiads.html">Olympiads</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+      <a class="nav__phone" href="tel:+918591877127" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================ HERO / INTRO ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="rec-hero reveal">
+          <div>
+            <p class="eyebrow eyebrow--dash">AI Course Recommendation</p>
+            <h1>Find the <span class="t-blue">Right JLC</span><br />Program for <span class="t-orange">Your Child</span></h1>
+            <p class="lead">Answer a few simple questions and our AI engine will recommend the best program customized for your child's goals.</p>
+            <div class="mini-features">
+              <div class="mini-feature">
+                <span class="chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                <b>Personalised<br />Recommendation</b>
+              </div>
+              <div class="mini-feature">
+                <span class="chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+                <b>AI-Powered<br />Matching</b>
+              </div>
+              <div class="mini-feature">
+                <span class="chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+                <b>Better Learning<br />Outcomes</b>
+              </div>
+            </div>
+          </div>
+          <div class="rec-figure">
+            <div class="ph ph--16x9">PLACEHOLDER — AI illustration of students working on a laptop</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ QUIZ + RECOMMENDATION ============================ -->
+    <section class="section section--tint">
+      <div class="wrap">
+        <div class="rec-grid reveal">
+
+          <!-- LEFT: interactive quiz -->
+          <div class="card-soft quiz-card" data-quiz>
+            <div class="quiz-head">
+              <h3>Let's understand your child better</h3>
+              <span class="step-count">Step 1 of 5</span>
+            </div>
+            <div class="quiz-body">
+              <ul class="quiz-rail">
+                <li><span class="quiz-dot">1</span> Current Grade</li>
+                <li><span class="quiz-dot">2</span> Board</li>
+                <li><span class="quiz-dot">3</span> Goal</li>
+                <li><span class="quiz-dot">4</span> Strengths</li>
+                <li><span class="quiz-dot">5</span> Learning Preference</li>
+              </ul>
+
+              <div class="quiz-question">
+                <!-- Step 1 -->
+                <div class="quiz-step">
+                  <h4>What is your child's current grade?</h4>
+                  <div class="quiz-opts">
+                    <button type="button" class="quiz-opt">5th</button>
+                    <button type="button" class="quiz-opt">6th</button>
+                    <button type="button" class="quiz-opt">7th</button>
+                    <button type="button" class="quiz-opt">8th</button>
+                    <button type="button" class="quiz-opt">9th</button>
+                    <button type="button" class="quiz-opt">10th (ICSE)</button>
+                    <button type="button" class="quiz-opt">10th (IGCSE)</button>
+                    <button type="button" class="quiz-opt">11th</button>
+                    <button type="button" class="quiz-opt">12th</button>
+                    <button type="button" class="quiz-opt">Passout</button>
+                  </div>
+                  <div class="quiz-nav">
+                    <button type="button" class="btn btn--blue" data-next>Next
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="quiz-step" hidden>
+                  <h4>Which board is your child studying?</h4>
+                  <div class="quiz-opts">
+                    <button type="button" class="quiz-opt">ICSE</button>
+                    <button type="button" class="quiz-opt">IGCSE</button>
+                    <button type="button" class="quiz-opt">IB</button>
+                    <button type="button" class="quiz-opt">Not sure</button>
+                  </div>
+                  <div class="quiz-nav">
+                    <button type="button" class="btn btn--ghost" data-prev>Back</button>
+                    <button type="button" class="btn btn--blue" data-next>Next
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="quiz-step" hidden>
+                  <h4>What is your primary goal for your child?</h4>
+                  <div class="quiz-opts">
+                    <button type="button" class="quiz-opt">Board Excellence</button>
+                    <button type="button" class="quiz-opt">Olympiads</button>
+                    <button type="button" class="quiz-opt">Foundation</button>
+                    <button type="button" class="quiz-opt">All-round</button>
+                  </div>
+                  <div class="quiz-nav">
+                    <button type="button" class="btn btn--ghost" data-prev>Back</button>
+                    <button type="button" class="btn btn--blue" data-next>Next
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="quiz-step" hidden>
+                  <h4>Where does your child shine the most?</h4>
+                  <div class="quiz-opts">
+                    <button type="button" class="quiz-opt">Maths</button>
+                    <button type="button" class="quiz-opt">Science</button>
+                    <button type="button" class="quiz-opt">Languages</button>
+                    <button type="button" class="quiz-opt">Mixed</button>
+                  </div>
+                  <div class="quiz-nav">
+                    <button type="button" class="btn btn--ghost" data-prev>Back</button>
+                    <button type="button" class="btn btn--blue" data-next>Next
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+                <!-- Step 5 -->
+                <div class="quiz-step" hidden>
+                  <h4>What learning preference suits your child?</h4>
+                  <div class="quiz-opts">
+                    <button type="button" class="quiz-opt">Classroom</button>
+                    <button type="button" class="quiz-opt">Small batch</button>
+                    <button type="button" class="quiz-opt">One-on-one</button>
+                  </div>
+                  <div class="quiz-nav">
+                    <button type="button" class="btn btn--ghost" data-prev>Back</button>
+                    <button type="button" class="btn btn--blue" data-next>See Recommendation
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="quiz-note">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 100% Free</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Takes less than 2 minutes</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Completely Personalized</span>
+            </div>
+          </div>
+
+          <!-- RIGHT: recommended program -->
+          <div class="card-soft rec-card">
+            <h3 class="rec-title">Your Recommended Program</h3>
+
+            <div class="match-card">
+              <span class="match-badge">Best Match</span>
+              <div class="match-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div>
+              <b class="match-name">JLC Premier ICSE Program</b>
+              <p class="match-sub">For Grades 9th – 10th</p>
+            </div>
+
+            <p class="why-title">Why this suits your child:</p>
+            <ul class="why-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Perfect for ICSE Board success</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Strong foundation + Concept clarity</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Proven results with 98% success rate</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Expert faculty & doubt support</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Regular tests & performance tracking</li>
+            </ul>
+
+            <div class="rec-stats">
+              <div class="rec-stat">
+                <span class="chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>
+                <b>98%</b><span>Board Success Rate</span>
+              </div>
+              <div class="rec-stat">
+                <span class="chip chip--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+                <b>23+</b><span>Years of Excellence</span>
+              </div>
+              <div class="rec-stat">
+                <span class="chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+                <b>50,000+</b><span>Students Mentored</span>
+              </div>
+              <div class="rec-stat">
+                <span class="chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></span>
+                <b>1000+</b><span>Olympiad Medals</span>
+              </div>
+            </div>
+
+            <div class="founder-quote">
+              <div class="ph ph--1x1">PLACEHOLDER — Prof. Jayesh Shethia portrait</div>
+              <div>
+                <span class="fq-mark">“</span>
+                <p>Every child is unique. The right program helps them discover their potential and achieve extraordinary results.</p>
+                <div class="fq-who"><b>— Prof. Jayesh Shethia</b><span>Founder &amp; Director, JLC</span></div>
+              </div>
+            </div>
+
+            <div class="rec-actions">
+              <button type="button" class="btn btn--ghost" data-prev>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                Retake Quiz</button>
+              <a class="btn btn--primary" href="counselling.html">Book Free Counselling
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROVEN RESULTS BANNER ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-banner proven-banner reveal">
+          <div class="proven-head">
+            <span class="trophy">🏆</span>
+            <h2>Proven Results. Trusted by Thousands.</h2>
+          </div>
+          <div class="proven-inner">
+            <div class="statbar statbar--dark statbar--4">
+              <div class="statbar__item"><div class="statbar__num" data-count="98" data-suffix="%">98%</div><div class="statbar__label">Board Success Rate</div></div>
+              <div class="statbar__item"><div class="statbar__num" data-count="50000" data-suffix="+">50,000+</div><div class="statbar__label">Students Mentored</div></div>
+              <div class="statbar__item"><div class="statbar__num" data-count="1000" data-suffix="+">1000+</div><div class="statbar__label">Olympiad Medals</div></div>
+              <div class="statbar__item"><div class="statbar__num" data-count="23" data-suffix="+">23+</div><div class="statbar__label">Years of Excellence</div></div>
+            </div>
+            <div class="proven-institute">
+              <span class="laurel">🌿</span>
+              <span>India's Leading<br />ICSE, IGCSE, IB &amp;<br />Olympiad Institute</span>
+              <span class="laurel">🌿</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER (canonical — reused on every page) ============================ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <!-- newsletter + rating -->
+      <div class="footer-news">
+        <div>
+          <h3>Stay Inspired. Stay Ahead.</h3>
+          <p>Subscribe to our newsletter for study tips, exam updates, event invites and more.</p>
+        </div>
+        <form class="newsletter" data-wa-form>
+          <input type="email" name="Newsletter email" placeholder="Enter your email address" aria-label="Email address" />
+          <button class="btn btn--blue btn--sm" type="submit">Subscribe</button>
+        </form>
+        <div class="google-rating">
+          <span class="g">G</span>
+          <div><b style="color:#fff">Google Rating</b><div class="stars">★★★★★ <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;">5.0 · Based on Google reviews</span></div></div>
+        </div>
+      </div>
+
+      <!-- link columns -->
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand brand--light" href="index.html"><span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span></a>
+          <p class="small" style="margin-top:1rem;color:rgba(255,255,255,0.6)">Premium coaching for ICSE, IGCSE, IB and Olympiads. Building thinkers, not just toppers.</p>
+          <div class="socials mt-1">
+            <a class="fb" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H17V1.4C16.6 1.3 15.5 1.2 14.3 1.2 11.7 1.2 10 2.7 10 5.2V7H7v3h3v9h3z"/></svg></a>
+            <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a class="yt" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M23 12s0-3.5-.4-5.1a2.6 2.6 0 0 0-1.8-1.8C19.1 4.7 12 4.7 12 4.7s-7.1 0-8.8.4A2.6 2.6 0 0 0 1.4 6.9C1 8.5 1 12 1 12s0 3.5.4 5.1a2.6 2.6 0 0 0 1.8 1.8c1.7.4 8.8.4 8.8.4s7.1 0 8.8-.4a2.6 2.6 0 0 0 1.8-1.8C23 15.5 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg></a>
+            <a class="li" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Our Programs</h4><ul class="footer-links"><li><a href="courses.html#icse">ICSE Programs</a></li><li><a href="courses.html#igcse">IGCSE Programs</a></li><li><a href="courses.html#ib">IB Programs</a></li><li><a href="olympiads.html">Olympiad Preparation</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="facilities.html">Facilities</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="learning-hub.html">Learning Hub</a></li><li><a href="learning-hub.html">Worksheets</a></li><li><a href="learning-hub.html">Olympiad Questions</a></li><li><a href="learning-hub.html">Previous Papers</a></li><li><a href="recommend.html">Find My Program</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li>Avior Corporate Park, A-132, near Salpa Devi Mandir, Mulund West, Mumbai 400080</li>
+            <li><a href="tel:+918591877127">+91 85918 77127</a></li>
+            <li><a href="mailto:info@jlclearning.com">info@jlclearning.com</a></li>
+            <li>Mon – Sat: 11:30 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Jayesh Learning Centre LLP. All Rights Reserved.</span>
+        <span class="row"><a href="terms.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="faqs.html">FAQs</a></span>
+        <span>❤ Proudly Indian. Committed to Excellence.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

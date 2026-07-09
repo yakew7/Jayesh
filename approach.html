@@ -3,136 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Approach, How We Mark Our Own Work | Jayesh Learning Centre</title>
-  <meta name="description" content="How coaching runs at Jayesh Learning Centre: diagnose before teaching, specialists not generalists, practice under real conditions, and direct parent reporting after every assessment." />
+  <title>Student Journey | Jayesh Learning Centre — From Admission to Board Success</title>
+  <meta name="description" content="The JLC Student Journey — a planned, guided and monitored path from admission to board success. Assessment, personalized learning, smart classes, mentorship and a 98% board success rate." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="assets/img/jlc-mark.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <!-- ============================ HEADER (canonical — reused on every page) ============================ -->
   <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="index.html"><img class="brand__icon" src="assets/img/jlc-mark.png" alt="JLC" /><span class="brand__name">Jayesh<br />Learning Centre</span></a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="wrap nav" aria-label="Primary">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="brand nav__brand" href="index.html" aria-label="Jayesh Learning Centre home">
+        <span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span>
+        <span class="brand__text"><b>JAYESH</b><span class="line2">LEARNING CENTRE <em>LLP</em></span><small>where learning is larger than life…</small></span>
+      </a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li>
-        <li><a href="approach.html" aria-current="page">Approach</a></li>
-        <li><a href="enrichment.html">Beyond Class</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown"><a href="courses.html">Courses</a>
+          <ul class="dropdown">
+            <li><a href="courses.html#icse">ICSE</a></li>
+            <li><a href="courses.html#igcse">IGCSE</a></li>
+            <li><a href="courses.html#ib">IB</a></li>
+            <li><a href="olympiads.html">Olympiads</a></li>
+          </ul>
+        </li>
         <li><a href="results.html">Results</a></li>
-        <li><a href="contact.html">Visit</a></li>
-        <li><a class="btn btn--primary" data-wa="Hi, I'd like to book a free demo class at Jayesh Learning Centre." href="#">Book a demo</a></li>
+        <li><a href="olympiads.html">Olympiads</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
       </ul>
-    </div>
+      <a class="nav__phone" href="tel:+918591877127" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </nav>
   </header>
 
   <main>
-    <section class="page-hero">
-      <div class="wrap reveal">
-        <p class="label">Our approach</p>
-        <h1>How we mark our own work.</h1>
-        <p>We hold our coaching to the same standard we hold a student's exam script to. Here's exactly how a term runs, and the four rules we don't break.</p>
-      </div>
-    </section>
-
-    <!-- Rubric -->
-    <section class="section section--ink">
-      <div class="wrap">
-        <div class="rubric reveal">
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="1">1</div>
-            <h3 class="rubric__title">Diagnose before teaching</h3>
-            <p class="rubric__body">No student is booked into a plan until a diagnostic session shows exactly where the gap is. We don't teach in the dark.</p>
-          </div>
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="2">2</div>
-            <h3 class="rubric__title">Specialists, not generalists</h3>
-            <p class="rubric__body">A tutor is matched to the student's board and subject, a specialist who knows that syllabus and its marking, not whoever happens to be free.</p>
-          </div>
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="3">3</div>
-            <h3 class="rubric__title">Practice under real conditions</h3>
-            <p class="rubric__body">Assessments and mock exams run to real board timing and marking schemes. The grade on the day should be the grade we've already seen.</p>
-          </div>
-          <div class="rubric__item">
-            <div class="rubric__num" data-count="4">4</div>
-            <h3 class="rubric__title">Direct parent reporting</h3>
-            <p class="rubric__body">You hear from us after every assessment, where the grade is now, and precisely what we're doing next to move it.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How a term runs -->
+    <!-- ============================ HERO / INTRO ============================ -->
     <section class="section">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">How a term runs</p>
-          <h2>From first session to board day.</h2>
-        </div>
-        <div class="grid grid--2 reveal">
-          <div class="card">
-            <span class="card__no">Step 01</span>
-            <h3 class="card__title">Diagnostic session</h3>
-            <p class="card__body">A free diagnostic reads the student's current standing subject by subject, and sets an honest target grade. Nobody enrols before this.</p>
+        <div class="split reveal">
+          <div>
+            <p class="eyebrow eyebrow--dash">Student Journey</p>
+            <h1 class="mt-1">From Admission<br />to <span class="t-blue">Board</span> <span class="t-orange">Success</span><span class="dot">.</span></h1>
+            <p class="lead">At JLC, every step of your child's learning journey is planned, guided and monitored for excellence.</p>
+            <div class="card-soft mt-2" style="display:flex;gap:1rem;align-items:center;max-width:26rem;">
+              <span class="chip chip--orange" style="flex:0 0 auto;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg>
+              </span>
+              <span>
+                <b style="display:block;font-size:1.05rem;color:var(--ink);">98% Board Success Rate</b>
+                <span style="color:var(--ink-soft);font-size:0.9rem;">Thousands of JLC students achieving their dreams.</span>
+              </span>
+            </div>
           </div>
-          <div class="card">
-            <span class="card__no">Step 02</span>
-            <h3 class="card__title">Individual study plan</h3>
-            <p class="card__body">We build a plan around the specific gap, which topics, in which order, at what pace, and match a subject specialist to teach it.</p>
-          </div>
-          <div class="card">
-            <span class="card__no">Step 03</span>
-            <h3 class="card__title">Regular assessments</h3>
-            <p class="card__body">Short, frequent assessments keep the plan honest and catch slippage early, before it costs marks on the board paper.</p>
-          </div>
-          <div class="card">
-            <span class="card__no">Step 04</span>
-            <h3 class="card__title">Mock exams, real conditions</h3>
-            <p class="card__body">Full mocks run to real timing and are marked to the board's own scheme, so exam-day holds no surprises.</p>
-          </div>
-          <div class="card">
-            <span class="card__no">Step 05</span>
-            <h3 class="card__title">Parent reporting</h3>
-            <p class="card__body">After every assessment you get a direct report: current grade, target grade, and the next move. No vague reassurance.</p>
-          </div>
-          <div class="card">
-            <span class="card__no">Step 06</span>
-            <h3 class="card__title">Adjust &amp; repeat</h3>
-            <p class="card__body">The plan flexes to the data. As the gap closes we raise the target, the goal is always the grade above the last one.</p>
+          <div class="split__media" style="position:relative;">
+            <div class="ph ph--4x3">PLACEHOLDER — Group of JLC students studying together at a laptop</div>
+            <div class="float-stat" style="position:absolute;top:6%;left:-4%;">
+              <span class="float-stat__ic chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+            </div>
+            <div class="float-stat" style="position:absolute;top:8%;right:-4%;">
+              <span class="float-stat__ic chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--tint center">
-      <div class="wrap reveal">
-        <p class="label">See it for yourself</p>
-        <h2>Start with a free diagnostic.</h2>
-        <p>We'll confirm a session, usually within the same day.</p>
-        <div class="cta-row mt-lg" style="justify-content:center;">
-          <a class="btn btn--primary" data-wa="Hi, I'd like to book a free diagnostic session at Jayesh Learning Centre." href="#">Book a free diagnostic</a>
-          <a class="btn btn--ghost" href="courses.html">Browse courses →</a>
+    <!-- ============================ THE JLC LEARNING JOURNEY (timeline) ============================ -->
+    <section class="section section--tint">
+      <div class="wrap">
+        <div class="section-head section-head--center reveal">
+          <h2>The <span><span style="color:var(--blue)">J</span><span style="color:var(--orange)">L</span><span style="color:var(--red)">C</span></span> Learning Journey</h2>
+        </div>
+        <div class="timeline reveal">
+          <div class="tl-step">
+            <div class="tl-step__num" style="background:var(--blue)">01</div>
+            <div class="tl-step__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2z"/><path d="M14.5 9.5l-4 4-2-2"/></svg></div>
+            <h4>Assessment</h4>
+            <p>Comprehensive academic assessment to understand strengths and improvement areas.</p>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__num" style="background:var(--orange)">02</div>
+            <div class="tl-step__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
+            <h4>Personalized<br />Learning Plan</h4>
+            <p>Customized study plan curated by subject experts.</p>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__num" style="background:var(--purple)">03</div>
+            <div class="tl-step__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></div>
+            <h4>Smart Learning<br />&amp; Regular Classes</h4>
+            <p>Concept clarity through interactive classes, smart boards and digital tools.</p>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__num" style="background:var(--blue)">04</div>
+            <div class="tl-step__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/><path d="M20 7v4h-4"/></svg></div>
+            <h4>Tests &amp; Performance<br />Tracking</h4>
+            <p>Weekly tests and detailed reports to track progress.</p>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__num" style="background:var(--green)">05</div>
+            <div class="tl-step__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/><path d="M19 8v6M22 11h-6"/></svg></div>
+            <h4>Mentorship &amp;<br />Doubt Support</h4>
+            <p>One-on-one mentorship and doubt resolution whenever needed.</p>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__num" style="background:var(--red)">06</div>
+            <div class="tl-step__ic chip chip--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div>
+            <h4>Board Success<br />&amp; Beyond</h4>
+            <p>Proven strategies, confidence building and 100% support till success.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STAT BAR ============================ -->
+    <section class="wrap">
+      <div class="statbar statbar--4 reveal">
+        <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="50000" data-suffix="+">50,000+</span></div><div class="statbar__label">Students Mentored</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="statbar__num"><span data-count="23" data-suffix="+">23+</span></div><div class="statbar__label">Years of Excellence</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></div><div class="statbar__num"><span data-count="1000" data-suffix="+">1000+</span></div><div class="statbar__label">Olympiad Medals</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><div class="statbar__num"><span data-count="98" data-suffix="%">98%</span></div><div class="statbar__label">Board Success Rate</div></div>
+      </div>
+    </section>
+
+    <!-- ============================ FOUNDER QUOTE BANNER ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-banner cta-banner--purple reveal" style="align-items:stretch;gap:1.5rem;">
+          <div style="flex:0 0 auto;width:150px;position:relative;align-self:flex-end;">
+            <div class="ph ph--3x4 ph--dark" style="min-height:0;">PLACEHOLDER — Prof. Jayesh Shethia portrait</div>
+          </div>
+          <div class="cta-banner__body" style="flex:1 1 340px;align-self:center;">
+            <p style="font-size:clamp(1.05rem,2vw,1.5rem);font-weight:700;color:#fff;line-height:1.5;margin:0;">
+              <span style="color:var(--orange);font-size:1.4em;">“</span>
+              We don't just teach, we mentor.<br />
+              We don't just prepare, we empower.<br />
+              We don't just aim for marks, we aim for a brighter future.
+              <span style="color:var(--orange);font-size:1.4em;">”</span>
+            </p>
+            <p style="margin-top:0.9rem;color:#fff;font-weight:600;">– Prof. Jayesh Shethia<br /><span style="color:rgba(255,255,255,0.7);font-weight:400;">Founder &amp; Director, JLC</span></p>
+          </div>
+          <div class="card-soft" style="flex:1 1 300px;align-self:center;">
+            <div style="display:flex;gap:0.9rem;align-items:center;">
+              <span class="chip chip--blue" style="flex:0 0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/><path d="M20 7v4h-4"/></svg></span>
+              <b style="font-size:1.15rem;color:var(--ink);">Your Child's Success<br />is Our Mission</b>
+            </div>
+            <a class="btn btn--primary btn--block mt-2" href="counselling.html">Book Free Counselling
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ============================ FOOTER (canonical — reused on every page) ============================ -->
   <footer class="site-footer">
     <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="brand__mark">Jayesh<b style="color:var(--red)">.</b></span>
-          <p style="margin-top:1rem;color:rgba(244,239,228,0.7);">One-to-one and small-batch tutoring for grades 6-12 in Mulund West, Mumbai. We close the gap between the grade and the target grade.</p>
+      <!-- newsletter + rating -->
+      <div class="footer-news">
+        <div>
+          <h3>Stay Inspired. Stay Ahead.</h3>
+          <p>Subscribe to our newsletter for study tips, exam updates, event invites and more.</p>
         </div>
-        <div><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li><li><a href="approach.html">Approach</a></li><li><a href="enrichment.html">Beyond the Classroom</a></li><li><a href="results.html">Results</a></li></ul></div>
-        <div><h4>Enquire</h4><ul class="footer-links"><li><a href="enquire.html">Enquire</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="contact.html">Visit us</a></li></ul></div>
-        <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:+918591877127">08591 877127</a></li><li><a data-wa="Hi, I'd like to know more about coaching at Jayesh Learning Centre." href="#">WhatsApp us</a></li><li style="color:rgba(244,239,228,0.7)">Avior Corporate Park, A-132, Mulund West, Mumbai 400080</li></ul></div>
+        <form class="newsletter" data-wa-form>
+          <input type="email" name="Newsletter email" placeholder="Enter your email address" aria-label="Email address" />
+          <button class="btn btn--blue btn--sm" type="submit">Subscribe</button>
+        </form>
+        <div class="google-rating">
+          <span class="g">G</span>
+          <div><b style="color:#fff">Google Rating</b><div class="stars">★★★★★ <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;">5.0 · Based on Google reviews</span></div></div>
+        </div>
       </div>
+
+      <!-- link columns -->
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand brand--light" href="index.html"><span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span></a>
+          <p class="small" style="margin-top:1rem;color:rgba(255,255,255,0.6)">Premium coaching for ICSE, IGCSE, IB and Olympiads. Building thinkers, not just toppers.</p>
+          <div class="socials mt-1">
+            <a class="fb" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H17V1.4C16.6 1.3 15.5 1.2 14.3 1.2 11.7 1.2 10 2.7 10 5.2V7H7v3h3v9h3z"/></svg></a>
+            <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a class="yt" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M23 12s0-3.5-.4-5.1a2.6 2.6 0 0 0-1.8-1.8C19.1 4.7 12 4.7 12 4.7s-7.1 0-8.8.4A2.6 2.6 0 0 0 1.4 6.9C1 8.5 1 12 1 12s0 3.5.4 5.1a2.6 2.6 0 0 0 1.8 1.8c1.7.4 8.8.4 8.8.4s7.1 0 8.8-.4a2.6 2.6 0 0 0 1.8-1.8C23 15.5 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg></a>
+            <a class="li" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Our Programs</h4><ul class="footer-links"><li><a href="courses.html#icse">ICSE Programs</a></li><li><a href="courses.html#igcse">IGCSE Programs</a></li><li><a href="courses.html#ib">IB Programs</a></li><li><a href="olympiads.html">Olympiad Preparation</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="facilities.html">Facilities</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="learning-hub.html">Learning Hub</a></li><li><a href="learning-hub.html">Worksheets</a></li><li><a href="learning-hub.html">Olympiad Questions</a></li><li><a href="learning-hub.html">Previous Papers</a></li><li><a href="recommend.html">Find My Program</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li>Avior Corporate Park, A-132, near Salpa Devi Mandir, Mulund West, Mumbai 400080</li>
+            <li><a href="tel:+918591877127">+91 85918 77127</a></li>
+            <li><a href="mailto:info@jlclearning.com">info@jlclearning.com</a></li>
+            <li>Mon – Sat: 11:30 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="footer-bottom">
-        <span>© <span data-year>2026</span> Jayesh Learning Centre LLP. All rights reserved.</span>
-        <span>5.0 ★ on Google · Mon-Sat, opens 11:30 AM</span>
+        <span>© <span data-year>2026</span> Jayesh Learning Centre LLP. All Rights Reserved.</span>
+        <span class="row"><a href="terms.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="faqs.html">FAQs</a></span>
+        <span>❤ Proudly Indian. Committed to Excellence.</span>
       </div>
     </div>
   </footer>

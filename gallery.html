@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frequently Asked Questions | Jayesh Learning Centre</title>
-  <meta name="description" content="Answers to common questions about Jayesh Learning Centre — free counselling, batch sizes, teacher matching, fees, rescheduling, parent updates, online vs in-person and refunds." />
+  <title>Gallery | Jayesh Learning Centre — Moments that Inspire, Memories that Motivate</title>
+  <meta name="description" content="Explore the JLC gallery — classroom learning, felicitation ceremonies, olympiad winners, workshops, events, campus life and educational trips. A glimpse into the vibrant life at Jayesh Learning Centre." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* page-local layout for gallery hero photo cluster + statbar overlap */
+    .gal-hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+    @media (max-width: 860px) { .gal-hero { grid-template-columns: 1fr; } }
+    .gal-cluster { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .gal-cluster .ph { min-height: 0; }
+    .gal-cluster .ph--16x9 { aspect-ratio: 16/10; }
+    .gal-statbar { margin-top: -2.5rem; position: relative; z-index: 3; }
+    @media (max-width: 860px) { .gal-statbar { margin-top: 1.25rem; } }
+    .gal-tabs-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  </style>
 </head>
 <body>
   <!-- ============================ HEADER (canonical — reused on every page) ============================ -->
@@ -35,7 +46,7 @@
         <li><a href="results.html">Results</a></li>
         <li><a href="olympiads.html">Olympiads</a></li>
         <li><a href="faculty.html">Faculty</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
@@ -50,74 +61,94 @@
     <!-- ============================ HERO ============================ -->
     <section class="wrap">
       <div class="hero-panel reveal">
-        <span class="pill-eyebrow">FAQs</span>
-        <h1 class="mt-1">Frequently Asked<br />Questions<span class="dot">.</span></h1>
-        <p class="lead">Everything parents ask us most — the free counselling, batches, fees, rescheduling and more, answered plainly. Still unsure? We're one call away.</p>
-        <div class="cta-row mt-2">
-          <a class="btn btn--primary" href="counselling.html">Book Free Counselling
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn--ghost" data-wa="Hi, I have a question about coaching at Jayesh Learning Centre." href="#">Ask on WhatsApp</a>
+        <div class="gal-hero">
+          <div>
+            <p class="eyebrow eyebrow--dash" style="color:var(--purple)">OUR GALLERY</p>
+            <h1 class="mt-1">Moments that <span class="t-purple">Inspire<span class="dot-blue">.</span></span><br />Memories that <span class="t-orange">Motivate<span class="dot">.</span></span></h1>
+            <p class="lead">A glimpse into the vibrant life at JLC — where learning, achievement and celebrations go hand in hand.</p>
+          </div>
+          <div class="gal-cluster">
+            <div class="ph ph--16x9 ph--dark">PLACEHOLDER — Event stage / large auditorium audience</div>
+            <div class="ph ph--16x9 ph--dark">PLACEHOLDER — Students holding trophies</div>
+            <div class="ph ph--16x9 ph--dark">PLACEHOLDER — Students writing in exam hall</div>
+            <div class="ph ph--16x9 ph--dark">PLACEHOLDER — Olympiad winners group photo</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================ FAQ ACCORDION ============================ -->
+    <!-- ============================ STAT BAR (overlaps hero) ============================ -->
+    <section class="wrap">
+      <div class="statbar statbar--5 gal-statbar reveal">
+        <div class="statbar__item"><div class="statbar__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="statbar__num"><span data-count="500" data-suffix="+">500+</span></div><div class="statbar__label">Events Captured</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="10000" data-suffix="+">10,000+</span></div><div class="statbar__label">Smiles</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></div><div class="statbar__num"><span data-count="100" data-suffix="+">100+</span></div><div class="statbar__label">Award Ceremonies</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-6h6v6"/></svg></div><div class="statbar__num"><span data-count="15" data-suffix="+">15+</span></div><div class="statbar__label">Years of Moments</div></div>
+        <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></div><div class="statbar__num"><span data-count="200" data-suffix="+">200+</span></div><div class="statbar__label">Video Highlights</div></div>
+      </div>
+    </section>
+
+    <!-- ============================ GALLERY (filter tabs + grid) ============================ -->
     <section class="section">
-      <div class="wrap" style="max-width:840px;">
-        <div class="section-head section-head--center reveal">
-          <p class="eyebrow eyebrow--center eyebrow--dash eyebrow--orange">Good to Know</p>
-          <h2>Answers Before You Ask</h2>
-          <p>Clear, honest answers to the questions we hear from parents every week.</p>
-        </div>
-
-        <div class="faq reveal">
-          <details open>
-            <summary>How does the free counselling / assessment work?</summary>
-            <div class="faq__a"><p>It's genuinely free and comes with no obligation to enrol. Before recommending any programme, we sit with you and your child to understand where they stand subject by subject, discuss goals, and set an honest target. You leave with a clear plan — and decide in your own time whether to join.</p></div>
-          </details>
-          <details>
-            <summary>Is coaching one-to-one or small batch, and how are batches sized?</summary>
-            <div class="faq__a"><p>Both options are available and we recommend whichever suits the student and subject best. Batches are kept deliberately small — we work to roughly a 1:10 student-to-teacher ratio — so every child is known, heard and guided personally rather than lost in a crowd.</p></div>
-          </details>
-          <details>
-            <summary>How is a teacher matched to a student's board and subject?</summary>
-            <div class="faq__a"><p>We match a subject specialist to the exact board and subject — not whoever happens to be free. A teacher handling IB Diploma Physics knows that syllabus and its marking scheme inside out, and the same care applies across ICSE, IGCSE and Olympiad preparation.</p></div>
-          </details>
-          <details>
-            <summary>What do fees look like, and how are they paid?</summary>
-            <div class="faq__a"><p>Fees depend on the programme, the number of subjects, and whether coaching is one-to-one or small batch. They're shared transparently during your free counselling session — usually payable monthly, per term or per package — with no hidden charges. Accepted payment modes are confirmed at enrolment.</p></div>
-          </details>
-          <details>
-            <summary>What is the policy if a class is rescheduled or missed?</summary>
-            <div class="faq__a"><p>If a class needs to be rescheduled, let us know in advance and we'll arrange a make-up session wherever possible, subject to teacher availability. Sessions missed without notice may not be eligible for a make-up. Full details are set out in our <a class="link-arrow" href="terms.html">Terms &amp; Conditions</a>.</p></div>
-          </details>
-          <details>
-            <summary>How often do parents get progress updates?</summary>
-            <div class="faq__a"><p>Regularly — after every assessment, not just at the end of term. You'll hear where the grade stands now and exactly what we're doing next to improve it, through report cards, parent interactions and quick informal check-ins.</p></div>
-          </details>
-          <details>
-            <summary>Do you teach online, in person, or both?</summary>
-            <div class="faq__a"><p>Primarily in person at our Mulund West centre, where small batches and personal attention work best. We can also arrange online sessions where it genuinely suits the student — for example during travel or for a specialised subject.</p></div>
-          </details>
-          <details>
-            <summary>What is the cancellation / refund policy?</summary>
-            <div class="faq__a"><p>Once a term or package begins, cancellation and refund terms apply as agreed at enrolment. Where refunds apply, they're calculated on the unused portion of a package, less sessions already delivered. Please read the full <a class="link-arrow" href="terms.html">Terms &amp; Conditions</a> before enrolling.</p></div>
-          </details>
-        </div>
-
-        <!-- Still have questions CTA -->
-        <div class="card-soft reveal mt-3" style="text-align:center;">
-          <div class="chip chip--orange" style="margin:0 auto 1rem;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <div class="wrap">
+        <div class="gal-tabs-row reveal">
+          <div class="tabs" data-tabs data-tabs-scope="#galleryGrid">
+            <button class="tab is-active" data-tab="all">All Moments</button>
+            <button class="tab" data-tab="Classroom Learning">Classroom Learning</button>
+            <button class="tab" data-tab="Achievements">Achievements</button>
+            <button class="tab" data-tab="Olympiads">Olympiads</button>
+            <button class="tab" data-tab="Events &amp; Celebrations">Events &amp; Celebrations</button>
+            <button class="tab" data-tab="Workshops">Workshops</button>
+            <button class="tab" data-tab="Campus Life">Campus Life</button>
           </div>
-          <h3>Still have questions?</h3>
-          <p class="muted" style="max-width:46ch;margin-inline:auto;">We're happy to talk it through. Call us or book a free counselling session and we'll answer everything in person.</p>
-          <div class="cta-row mt-2" style="justify-content:center;">
-            <a class="btn btn--primary" href="counselling.html">Book Free Counselling
+          <a class="btn btn--outline-blue btn--sm" href="#">
+            <span class="btn__play" style="background:var(--grad-blue)"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span> View Videos</a>
+        </div>
+
+        <div class="gallery mt-2 reveal" id="galleryGrid">
+          <div class="gtile" data-cat="Classroom Learning">
+            <div class="ph ph--fill">PLACEHOLDER — Students studying in classroom</div>
+            <span class="gtile__label">Classroom Learning</span>
+          </div>
+          <div class="gtile" data-cat="Achievements">
+            <div class="ph ph--fill">PLACEHOLDER — JLC felicitation ceremony with trophies</div>
+            <span class="gtile__label">Achievements</span>
+          </div>
+          <div class="gtile" data-cat="Workshops">
+            <div class="ph ph--fill">PLACEHOLDER — Teacher at whiteboard during workshop</div>
+            <span class="gtile__label">Workshops</span>
+          </div>
+          <div class="gtile" data-cat="Olympiads">
+            <div class="ph ph--fill">PLACEHOLDER — Olympiad medal winners with certificates</div>
+            <span class="gtile__label">Olympiads</span>
+          </div>
+          <div class="gtile" data-cat="Events &amp; Celebrations">
+            <div class="ph ph--fill">PLACEHOLDER — Celebration event with lights and crowd</div>
+            <span class="gtile__label">Events &amp; Celebrations</span>
+          </div>
+          <div class="gtile" data-cat="Campus Life">
+            <div class="ph ph--fill">PLACEHOLDER — Students collaborating on campus</div>
+            <span class="gtile__label">Campus Life</span>
+          </div>
+          <div class="gtile" data-cat="Educational Trips">
+            <div class="ph ph--fill">PLACEHOLDER — Student group on a mountain educational trip</div>
+            <span class="gtile__label">Educational Trips</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA BANNER ============================ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-banner cta-banner--orange reveal">
+          <div class="cta-banner__body">
+            <h2>🏆 Be a part of many more memorable moments.</h2>
+            <p>Your journey to excellence starts here.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--light" href="counselling.html">Book Free Counselling
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--outline-blue" href="tel:+918591877127">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              +91 85918 77127</a>
           </div>
         </div>
       </div>
