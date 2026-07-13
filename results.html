@@ -56,7 +56,7 @@
         <div class="statbar statbar--dark statbar--3 mt-3" style="text-align:center;">
           <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><div class="statbar__num"><span data-count="99" data-suffix="%">99%</span></div><div class="statbar__label">Highest ICSE Score</div></div>
           <div class="statbar__item"><div class="statbar__ic chip chip--yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><div class="statbar__num"><span data-count="100" data-suffix="+">100+</span></div><div class="statbar__label">Subject Toppers</div></div>
-          <div class="statbar__item"><div class="statbar__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="30000" data-suffix="+">30,000+</span></div><div class="statbar__label">Students Taught</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="25000" data-suffix="+">25,000+</span></div><div class="statbar__label">Students Taught</div></div>
         </div>
       </div>
     </section>
@@ -137,6 +137,38 @@
               <li><span>Maths</span><b>98/100</b></li>
             </ul>
           </div>
+
+          <div class="achiever">
+            <div class="achiever__top">
+              <div class="achiever__score" style="color:var(--green)">96.8%</div>
+              <div class="achiever__badge" style="background:#12b76a">★</div>
+            </div>
+            <div class="ph ph--1x1" style="border-radius:12px;">PLACEHOLDER — Soham Anam portrait</div>
+            <p class="achiever__name">Soham Anam</p>
+            <p class="achiever__school">Friends' Academy</p>
+            <span class="achiever__chip" style="background:#e3f9ee;color:var(--green)">Top Performer</span>
+            <ul class="achiever__marks">
+              <li><span>History &amp; Civics</span><b>100/100</b></li>
+              <li><span>Biology</span><b>100/100</b></li>
+              <li><span>Chemistry</span><b>99/100</b></li>
+            </ul>
+          </div>
+
+          <div class="achiever">
+            <div class="achiever__top">
+              <div class="achiever__score" style="color:var(--blue)">96.7%</div>
+              <div class="achiever__badge" style="background:#2563eb">★</div>
+            </div>
+            <div class="ph ph--1x1" style="border-radius:12px;">PLACEHOLDER — Divya Shah portrait</div>
+            <p class="achiever__name">Divya Shah</p>
+            <p class="achiever__school">Friends' Academy</p>
+            <span class="achiever__chip">Top Performer</span>
+            <ul class="achiever__marks">
+              <li><span>History &amp; Civics</span><b>100/100</b></li>
+              <li><span>Maths</span><b>98/100</b></li>
+              <li><span>Chemistry</span><b>97/100</b></li>
+            </ul>
+          </div>
         </div>
 
         <div class="center mt-2 reveal">
@@ -201,10 +233,7 @@
         </div>
 
         <div class="tabs reveal" data-tabs data-tabs-scope="#subjectPanels" style="margin-bottom:1.5rem;">
-          <button class="tab is-active" data-tab="all">
-            <span class="chip chip--blue" style="width:24px;height:24px;border-radius:6px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></span>
-            Mathematics
-          </button>
+          <button class="tab is-active" data-tab="maths">Mathematics</button>
           <button class="tab" data-tab="physics">Physics</button>
           <button class="tab" data-tab="chemistry">Chemistry</button>
           <button class="tab" data-tab="biology">Biology</button>
@@ -214,42 +243,251 @@
         </div>
 
         <div id="subjectPanels" class="reveal" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:stretch;">
-          <div class="topper-card" data-cat="all">
+          <div class="topper-card" data-cat="maths">
             <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
-            <div class="topper-card__meta">
-              <b>Yashvi Bhadra</b>
-              <span>Pawar Public School</span>
-            </div>
+            <div class="topper-card__meta"><b>Yashvi Bhadra</b></div>
             <div class="topper-card__score">100/100</div>
           </div>
-          <div class="topper-card" data-cat="all">
+          <div class="topper-card" data-cat="maths">
             <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
-            <div class="topper-card__meta">
-              <b>Aditya Punekar</b>
-              <span>Friends' Academy</span>
-            </div>
+            <div class="topper-card__meta"><b>Aditya Punekar</b></div>
             <div class="topper-card__score">98/100</div>
           </div>
-          <div class="topper-card" data-cat="all">
+          <div class="topper-card" data-cat="maths">
             <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
-            <div class="topper-card__meta">
-              <b>Divya Shah</b>
-              <span>SSRVM</span>
-            </div>
+            <div class="topper-card__meta"><b>Divya Shah</b></div>
             <div class="topper-card__score">98/100</div>
           </div>
-          <div class="topper-card" data-cat="all">
+          <div class="topper-card" data-cat="maths">
             <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
-            <div class="topper-card__meta">
-              <b>Samyak Vora</b>
-              <span>JK Singhania</span>
-            </div>
+            <div class="topper-card__meta"><b>Samyak Vora</b></div>
             <div class="topper-card__score">98/100</div>
           </div>
-          <a class="topper-card topper-card--link" href="#" data-cat="all">
-            View All
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <div class="topper-card" data-cat="maths">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Ritwik Pai</b></div>
+            <div class="topper-card__score">95/100</div>
+          </div>
+          <div class="topper-card" data-cat="maths">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Soham Anam</b></div>
+            <div class="topper-card__score">95/100</div>
+          </div>
+          <div class="topper-card" data-cat="physics" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Punekar</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="physics" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Nambiar</b></div>
+            <div class="topper-card__score">96/100</div>
+          </div>
+          <div class="topper-card" data-cat="physics" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Samyak Vora</b></div>
+            <div class="topper-card__score">95/100</div>
+          </div>
+          <div class="topper-card" data-cat="physics" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Yashvi Bhadra</b></div>
+            <div class="topper-card__score">94/100</div>
+          </div>
+          <div class="topper-card" data-cat="physics" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Jash Thakkar</b></div>
+            <div class="topper-card__score">92/100</div>
+          </div>
+          <div class="topper-card" data-cat="physics" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Soham Anam</b></div>
+            <div class="topper-card__score">92/100</div>
+          </div>
+          <div class="topper-card" data-cat="chemistry" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Yashvi Bhadra</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="chemistry" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Nambiar</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="chemistry" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Soham Anam</b></div>
+            <div class="topper-card__score">99/100</div>
+          </div>
+          <div class="topper-card" data-cat="chemistry" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Punekar</b></div>
+            <div class="topper-card__score">98/100</div>
+          </div>
+          <div class="topper-card" data-cat="chemistry" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Ritwik Pai</b></div>
+            <div class="topper-card__score">97/100</div>
+          </div>
+          <div class="topper-card" data-cat="chemistry" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Divya Shah</b></div>
+            <div class="topper-card__score">97/100</div>
+          </div>
+          <div class="topper-card" data-cat="biology" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Yashvi Bhadra</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="biology" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Punekar</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="biology" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Soham Anam</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="biology" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Manan B.</b></div>
+            <div class="topper-card__score">99/100</div>
+          </div>
+          <div class="topper-card" data-cat="biology" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Mitee Shah</b></div>
+            <div class="topper-card__score">99/100</div>
+          </div>
+          <div class="topper-card" data-cat="biology" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Samyak Vora</b></div>
+            <div class="topper-card__score">99/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Nambiar</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Punekar</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Arnav M.</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Divya Shah</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Jash Thakkar</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Manan B.</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Mitee Shah</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Rithwik Pai</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Samyak Vora</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Yashvi Bhadra</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="history" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Soham Anam</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="geography" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Jash Thakkar</b></div>
+            <div class="topper-card__score">100/100</div>
+          </div>
+          <div class="topper-card" data-cat="geography" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Yashvi Bhadra</b></div>
+            <div class="topper-card__score">98/100</div>
+          </div>
+          <div class="topper-card" data-cat="geography" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Divya Shah</b></div>
+            <div class="topper-card__score">98/100</div>
+          </div>
+          <div class="topper-card" data-cat="geography" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Aditya Punekar</b></div>
+            <div class="topper-card__score">97/100</div>
+          </div>
+          <div class="topper-card" data-cat="geography" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Manthan Chauhan</b></div>
+            <div class="topper-card__score">96/100</div>
+          </div>
+          <div class="topper-card" data-cat="geography" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Naman Desai</b></div>
+            <div class="topper-card__score">96/100</div>
+          </div>
+          <div class="topper-card" data-cat="geography" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Parva Salot</b></div>
+            <div class="topper-card__score">96/100</div>
+          </div>
+          <div class="topper-card" data-cat="commercial" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Dhiya Shah</b></div>
+            <div class="topper-card__score">99/100</div>
+          </div>
+          <div class="topper-card" data-cat="commercial" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Hanshil Khona</b></div>
+            <div class="topper-card__score">99/100</div>
+          </div>
+          <div class="topper-card" data-cat="commercial" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Riyansh Sheth</b></div>
+            <div class="topper-card__score">98/100</div>
+          </div>
+          <div class="topper-card" data-cat="commercial" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Priyansh Anjaria</b></div>
+            <div class="topper-card__score">98/100</div>
+          </div>
+          <div class="topper-card" data-cat="commercial" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Akshit Turakhia</b></div>
+            <div class="topper-card__score">97/100</div>
+          </div>
+          <div class="topper-card" data-cat="commercial" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Khwaish Anjaria</b></div>
+            <div class="topper-card__score">97/100</div>
+          </div>
+          <div class="topper-card" data-cat="commercial" style="display:none">
+            <div class="ph ph--round" style="width:48px;height:48px;min-height:0;flex:0 0 auto;">PH</div>
+            <div class="topper-card__meta"><b>Panth Joshi</b></div>
+            <div class="topper-card__score">97/100</div>
+          </div>
         </div>
       </div>
     </section>
@@ -328,7 +566,7 @@
         </div>
 
         <div class="statbar statbar--4 reveal">
-          <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="30000" data-suffix="+">30,000+</span></div><div class="statbar__label">Students Taught</div></div>
+          <div class="statbar__item"><div class="statbar__ic chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="statbar__num"><span data-count="25000" data-suffix="+">25,000+</span></div><div class="statbar__label">Students Taught</div></div>
           <div class="statbar__item"><div class="statbar__ic chip chip--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg></div><div class="statbar__num"><span data-count="15" data-suffix="+">15+</span></div><div class="statbar__label">National Wins</div></div>
           <div class="statbar__item"><div class="statbar__ic chip chip--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><div class="statbar__num"><span data-count="1000" data-suffix="+">1000+</span></div><div class="statbar__label">School Toppers</div></div>
           <div class="statbar__item"><div class="statbar__ic chip chip--yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4M5 9h14l1 12H4z"/><path d="M9 13h6"/></svg></div><div class="statbar__num"><span data-count="98" data-suffix="%">98%</span></div><div class="statbar__label">Parents Satisfied</div></div>
