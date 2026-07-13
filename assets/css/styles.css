@@ -111,18 +111,12 @@ ul { margin: 0; }
    Brand logo lockup (pure CSS — no image needed)
    -------------------------------------------------------------------------- */
 .brand { display: inline-flex; align-items: center; gap: 0.65rem; }
-.brand__mark { display: inline-flex; gap: 4px; }
-.brand__mark span {
-  width: 28px; height: 28px; border-radius: 7px; display: grid; place-items: center;
-  color: #fff; font-weight: 800; font-size: 1rem; line-height: 1;
-}
-.brand__mark .j { background: var(--blue); }
-.brand__mark .l { background: var(--orange); }
-.brand__mark .c { background: var(--red); }
+.brand__mark { display: inline-flex; align-items: center; }
+.brand__mark img { height: 42px; width: auto; display: block; }
 .brand__text { display: flex; flex-direction: column; line-height: 1; }
-.brand__text b { font-size: 0.86rem; font-weight: 800; letter-spacing: 0.02em; color: var(--ink); }
-.brand__text .line2 { font-size: 0.86rem; font-weight: 800; letter-spacing: 0.01em; color: var(--orange); }
-.brand__text .line2 em { font-style: normal; font-weight: 800; color: var(--orange); }
+.brand__text b { font-size: 0.86rem; font-weight: 800; letter-spacing: 0.02em; color: #111; }
+.brand__text .line2 { font-size: 0.86rem; font-weight: 800; letter-spacing: 0.01em; color: #111; }
+.brand__text .line2 em { font-style: normal; font-weight: 800; color: #111; }
 .brand__text small { font-size: 0.6rem; font-weight: 500; color: var(--ink-faint); font-style: italic; letter-spacing: 0.01em; margin-top: 2px; }
 /* on dark backgrounds */
 .on-dark .brand__text b, .brand--light .brand__text b { color: #fff; }
@@ -275,6 +269,7 @@ ul { margin: 0; }
 }
 .statbar--5 { grid-template-columns: repeat(5, 1fr); }
 .statbar--4 { grid-template-columns: repeat(4, 1fr); }
+.statbar--3 { grid-template-columns: repeat(3, 1fr); }
 .statbar__item { text-align: center; padding: 1.5rem 1rem; border-right: 1px solid var(--line); }
 .statbar__item:last-child { border-right: 0; }
 .statbar__ic { width: 40px; height: 40px; margin: 0 auto 0.5rem; }
@@ -286,7 +281,7 @@ ul { margin: 0; }
 .statbar--dark .statbar__num { color: #fff; }
 .statbar--dark .statbar__label { color: rgba(255,255,255,0.7); }
 @media (max-width: 900px) { .statbar, .statbar--5, .statbar--4 { grid-template-columns: repeat(3, 1fr); } .statbar__item:nth-child(3n) { border-right: 0; } }
-@media (max-width: 520px) { .statbar, .statbar--5, .statbar--4 { grid-template-columns: repeat(2, 1fr); } .statbar__item { border-right: 0; } }
+@media (max-width: 520px) { .statbar, .statbar--5, .statbar--4, .statbar--3 { grid-template-columns: repeat(2, 1fr); } .statbar__item { border-right: 0; } }
 
 /* --------------------------------------------------------------------------
    Icon chips (colored rounded square holding an svg/emoji)

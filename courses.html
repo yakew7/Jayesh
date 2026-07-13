@@ -10,10 +10,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* page-local: program card photo + colored subject icons + mini-feature strip */
-    .program__photo { position: relative; margin-top: 0.6rem; }
-    .program__list li svg { color: inherit; }
-    .program__list li { color: var(--ink-soft); }
+    /* page-local: full-screen program panels */
+    html { scroll-snap-type: y proximity; }
+    .prog-full { min-height: 100vh; display: flex; align-items: center; padding-block: clamp(3rem, 8vh, 5.5rem);
+      scroll-snap-align: start; scroll-margin-top: 66px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+    .prog-full--tint { background: var(--page-2); }
+    .prog-full::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.07;
+      background: radial-gradient(60% 60% at 90% 10%, var(--accent, var(--blue)), transparent 60%); }
+    .prog-full__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; width: 100%; }
+    .prog-full--reverse .prog-full__media { order: -1; }
+    .prog-index { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent, var(--blue)); }
+    .prog-index b { font-size: 1rem; }
+    .prog-full__title { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 800; line-height: 1; margin: 0.4rem 0 0.5rem; color: var(--accent, var(--blue)); }
+    .prog-full__lead { font-size: clamp(1.05rem, 1.6vw, 1.28rem); color: var(--ink-soft); max-width: 46ch; }
+    .prog-full__media .ph { border-radius: var(--r-lg); aspect-ratio: 4/5; min-height: 0; }
+    .subj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem; margin: 1.3rem 0 1.7rem; }
+    .subj { display: flex; align-items: center; gap: 0.55rem; background: #fff; border: 1px solid var(--line);
+      border-radius: 11px; padding: 0.6rem 0.9rem; font-size: 0.88rem; font-weight: 600; color: var(--ink); box-shadow: var(--shadow-sm); }
+    .subj svg { width: 15px; height: 15px; flex: 0 0 auto; color: var(--accent, var(--blue)); }
+    /* IB subjects-offered groups */
+    .subj-offer { margin-top: 1.6rem; }
+    .subj-offer__head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.9rem; }
+    .subj-offer__head h3 { margin: 0; font-size: 1.15rem; }
+    .subj-offer__head span { font-size: 0.8rem; color: var(--ink-faint); font-weight: 600; }
+    .subj-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; }
+    .subj-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1rem 1rem;
+      box-shadow: var(--shadow-sm); border-top: 3px solid var(--accent, var(--blue)); }
+    .subj-card b { display: block; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.4rem; }
+    .subj-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.22rem; }
+    .subj-card li { font-size: 0.82rem; color: var(--ink-soft); }
+    @media (max-width: 900px) {
+      .prog-full { min-height: auto; padding-block: clamp(2.5rem, 7vh, 4rem); }
+      .prog-full__grid { grid-template-columns: 1fr; }
+      .prog-full--reverse .prog-full__media { order: 0; }
+    }
+    @media (max-width: 460px) { .subj-grid { grid-template-columns: 1fr; } }
+    /* mini-feature strip */
     .mini-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.4rem;
       background: #fff; border: 1px solid var(--line, #e7ecf5);
       border-radius: var(--r); padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1.2rem, 3vw, 2rem); box-shadow: var(--shadow-sm, 0 8px 24px rgba(20,40,90,.06)); }
@@ -37,7 +70,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
       <a class="brand nav__brand" href="index.html" aria-label="Jayesh Learning Centre home">
-        <span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span>
+        <span class="brand__mark"><img src="assets/img/jlc-mark.png" alt="JLC" /></span>
         <span class="brand__text"><b>JAYESH</b><span class="line2">LEARNING CENTRE <em>LLP</em></span><small>where learning is larger than life…</small></span>
       </a>
       <ul class="nav__links" id="nav-links">
@@ -53,7 +86,6 @@
         </li>
         <li><a href="results.html">Results</a></li>
         <li><a href="olympiads.html">Olympiads</a></li>
-        <li><a href="faculty.html">Faculty</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li class="nav__cta"><a class="btn btn--primary btn--sm" href="counselling.html">Book Free Counselling
@@ -66,89 +98,129 @@
   </header>
 
   <main>
-    <!-- ============================ SECTION HEAD ============================ -->
-    <section class="section">
+    <!-- ============================ ICSE (full screen) ============================ -->
+    <section class="prog-full reveal" id="icse" style="--accent:var(--blue)">
       <div class="wrap">
-        <div class="section-head section-head--center reveal">
-          <p class="eyebrow eyebrow--center eyebrow--orange eyebrow--dash">Our Programs</p>
-          <h2>Courses Designed for Every Learner</h2>
-          <p>From a strong academic foundation to global curriculum and olympiad excellence — we have the right program for every goal.</p>
+        <div class="prog-full__grid">
+          <div>
+            <span class="prog-index"><b>01</b> · Grades 6 – 10</span>
+            <h2 class="prog-full__title">ICSE</h2>
+            <p class="prog-full__lead">Strong concepts. Strong foundation. Strong results. Our ICSE program builds deep understanding through structured teaching, regular assessments and personal attention in small batches.</p>
+            <div class="subj-grid">
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mathematics</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Physics</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Chemistry</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Biology</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>History &amp; Civics</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Geography</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Commercial Studies</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>English</span>
+            </div>
+            <a class="btn btn--blue" href="counselling.html">Enquire About ICSE
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="prog-full__media">
+            <div class="ph">PLACEHOLDER — ICSE student portrait</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ IGCSE (full screen) ============================ -->
+    <section class="prog-full prog-full--tint prog-full--reverse reveal" id="igcse" style="--accent:var(--orange)">
+      <div class="wrap">
+        <div class="prog-full__grid">
+          <div>
+            <span class="prog-index"><b>02</b> · Grades 6 – 10</span>
+            <h2 class="prog-full__title">IGCSE</h2>
+            <p class="prog-full__lead">Global approach. In-depth learning. Future ready. The IGCSE program develops analytical thinking and application skills that prepare students for international curricula and beyond.</p>
+            <div class="subj-grid">
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mathematics (Extended)</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Physics</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Chemistry</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Biology</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>English</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Coordinated Sciences</span>
+            </div>
+            <a class="btn btn--primary" href="counselling.html">Enquire About IGCSE
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="prog-full__media">
+            <div class="ph">PLACEHOLDER — IGCSE student portrait</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ IB (full screen) ============================ -->
+    <section class="prog-full reveal" id="ib" style="--accent:var(--purple)">
+      <div class="wrap">
+        <div class="prog-full__grid">
+          <div>
+            <span class="prog-index"><b>03</b> · MYP 1 – MYP 5 | IBDP</span>
+            <h2 class="prog-full__title">IB</h2>
+            <p class="prog-full__lead">Think globally. Learn deeply. Lead boldly. We coach students across the IB Middle Years Programme and the IB Diploma Programme with subject specialists and IB-aligned assessment practice.</p>
+            <a class="btn btn--grad-blue" href="counselling.html">Enquire About IB
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="prog-full__media">
+            <div class="ph">PLACEHOLDER — IB student portrait</div>
+          </div>
         </div>
 
-        <!-- ============================ PROGRAM CARDS ============================ -->
-        <div class="grid grid--4 reveal">
-
-          <!-- ICSE -->
-          <div class="program" id="icse">
-            <span class="tag tag--blue">Grades 6 – 10</span>
-            <h3 class="program__title program__title--blue">ICSE</h3>
-            <p class="program__sub">Strong concepts. Strong foundation. Strong results.</p>
-            <ul class="program__list" style="color:var(--blue)">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Mathematics</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Physics</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Chemistry</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Biology</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>History &amp; Civics</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Geography</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Commercial Studies</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>English</span></li>
-            </ul>
-            <div class="program__photo"><div class="ph ph--16x9">PLACEHOLDER — ICSE student portrait</div></div>
-            <a class="link-arrow program__cta" href="courses.html#icse">Explore Program →</a>
+        <!-- IBDP subjects offered -->
+        <div class="subj-offer reveal">
+          <div class="subj-offer__head">
+            <h3>Subjects Offered — <span class="t-purple">IBDP</span></h3>
+            <span>IB Diploma Programme</span>
           </div>
-
-          <!-- IGCSE -->
-          <div class="program" id="igcse">
-            <span class="tag tag--orange">Grades 6 – 10</span>
-            <h3 class="program__title program__title--orange">IGCSE</h3>
-            <p class="program__sub">Global approach. In-depth learning. Future ready.</p>
-            <ul class="program__list" style="color:var(--orange)">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Mathematics (Extended)</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Physics</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Chemistry</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Biology</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>English</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Coordinated Sciences</span></li>
-            </ul>
-            <div class="program__photo"><div class="ph ph--16x9">PLACEHOLDER — IGCSE student portrait</div></div>
-            <a class="link-arrow link-arrow--orange program__cta" href="courses.html#igcse">Explore Program →</a>
+          <div class="subj-cards">
+            <div class="subj-card"><b>Mathematics</b><ul><li>Math AA – HL</li><li>Math AA – SL</li><li>Math AI – HL</li><li>Math AI – SL</li></ul></div>
+            <div class="subj-card"><b>Physics</b><ul><li>Physics – HL</li><li>Physics – SL</li></ul></div>
+            <div class="subj-card"><b>Economics</b><ul><li>Economics – HL</li><li>Economics – SL</li></ul></div>
+            <div class="subj-card"><b>English</b><ul><li>English – HL</li><li>English – SL</li></ul></div>
+            <div class="subj-card"><b>Business Management</b><ul><li>BM – HL</li><li>BM – SL</li></ul></div>
           </div>
+        </div>
 
-          <!-- IB -->
-          <div class="program" id="ib">
-            <span class="tag tag--purple">MYP 1 – MYP 5 | IBDP</span>
-            <h3 class="program__title program__title--purple">IB</h3>
-            <p class="program__sub">Think globally. Learn deeply. Lead boldly.</p>
-            <ul class="program__list" style="color:var(--purple)">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Mathematics AA / AI</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Physics</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Chemistry</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Biology</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Business Management</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>English A</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Individuals &amp; Societies</span></li>
-            </ul>
-            <div class="program__photo"><div class="ph ph--16x9">PLACEHOLDER — IB student portrait</div></div>
-            <a class="link-arrow program__cta" style="color:var(--purple)" href="courses.html#ib">Explore Program →</a>
+        <!-- MYP subjects offered -->
+        <div class="subj-offer reveal">
+          <div class="subj-offer__head">
+            <h3>Subjects Offered — <span class="t-purple">MYP</span></h3>
+            <span>Middle Years Programme</span>
           </div>
-
-          <!-- Olympiads -->
-          <div class="program" id="olympiads">
-            <span class="tag tag--green">Grades 3 – 10</span>
-            <h3 class="program__title program__title--green">Olympiads</h3>
-            <p class="program__sub">Challenge today. Excel tomorrow.</p>
-            <ul class="program__list" style="color:var(--green)">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg><span>SOF</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg><span>IMO</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg><span>NSO</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg><span>IEO</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span>Homi Bhabha</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span>IPM</span></li>
-            </ul>
-            <div class="program__photo"><div class="ph ph--16x9">PLACEHOLDER — Olympiad medalist portrait</div></div>
-            <a class="link-arrow program__cta" style="color:var(--green)" href="olympiads.html">Explore Program →</a>
+          <div class="subj-cards">
+            <div class="subj-card"><b>Math</b></div>
+            <div class="subj-card"><b>English</b></div>
+            <div class="subj-card"><b>Science</b><ul><li>Physics, Chemistry, Biology or Integrated Sciences</li></ul></div>
+            <div class="subj-card"><b>Integrated Humanities</b><ul><li>Individuals &amp; Societies</li></ul></div>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ============================ OLYMPIADS (full screen) ============================ -->
+    <section class="prog-full prog-full--tint prog-full--reverse reveal" id="olympiads" style="--accent:var(--green)">
+      <div class="wrap">
+        <div class="prog-full__grid">
+          <div>
+            <span class="prog-index"><b>04</b> · Grades 3 – 10</span>
+            <h2 class="prog-full__title">Olympiads</h2>
+            <p class="prog-full__lead">Challenge today. Excel tomorrow. Our Olympiad program sharpens problem-solving and competitive aptitude, guiding students to national and international recognition.</p>
+            <div class="subj-grid">
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>SOF</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IMO</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>NSO</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IEO</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Homi Bhabha</span>
+              <span class="subj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPM</span>
+            </div>
+            <a class="btn btn--blue" style="background:var(--green);box-shadow:0 10px 24px rgba(18,183,106,.28)" href="olympiads.html">Explore Olympiads
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="prog-full__media">
+            <div class="ph">PLACEHOLDER — Olympiad medalist portrait</div>
+          </div>
         </div>
       </div>
     </section>
@@ -223,7 +295,7 @@
       <!-- link columns -->
       <div class="footer-grid">
         <div class="footer-col">
-          <a class="brand brand--light" href="index.html"><span class="brand__mark"><span class="j">J</span><span class="l">L</span><span class="c">C</span></span></a>
+          <a class="brand brand--light" href="index.html"><span class="brand__mark"><img src="assets/img/jlc-mark.png" alt="JLC" /></span></a>
           <p class="small" style="margin-top:1rem;color:rgba(255,255,255,0.6)">Premium coaching for ICSE, IGCSE, IB and Olympiads. Building thinkers, not just toppers.</p>
           <div class="socials mt-1">
             <a class="fb" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H17V1.4C16.6 1.3 15.5 1.2 14.3 1.2 11.7 1.2 10 2.7 10 5.2V7H7v3h3v9h3z"/></svg></a>
@@ -232,7 +304,7 @@
             <a class="li" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
           </div>
         </div>
-        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="results.html">Results</a></li><li><a href="olympiads.html">Olympiads</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
         <div class="footer-col"><h4>Our Programs</h4><ul class="footer-links"><li><a href="courses.html#icse">ICSE Programs</a></li><li><a href="courses.html#igcse">IGCSE Programs</a></li><li><a href="courses.html#ib">IB Programs</a></li><li><a href="olympiads.html">Olympiad Preparation</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="facilities.html">Facilities</a></li></ul></div>
         <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="learning-hub.html">Learning Hub</a></li><li><a href="learning-hub.html">Worksheets</a></li><li><a href="learning-hub.html">Olympiad Questions</a></li><li><a href="learning-hub.html">Previous Papers</a></li><li><a href="recommend.html">Find My Program</a></li><li><a href="faqs.html">FAQs</a></li></ul></div>
         <div class="footer-col"><h4>Contact Us</h4>

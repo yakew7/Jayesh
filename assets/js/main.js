@@ -68,15 +68,16 @@
     var prefix = el.getAttribute("data-prefix") || "";
     var suffix = el.getAttribute("data-suffix") || "";
     var decimals = (String(target).split(".")[1] || "").length;
-    if (reduceMotion || isNaN(target)) { el.textContent = prefix + target + suffix; return; }
+    function fmt(n) { return n.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }); }
+    if (reduceMotion || isNaN(target)) { el.textContent = prefix + fmt(target) + suffix; return; }
     var start = null, dur = 1200;
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+      el.textContent = prefix + fmt(target * eased) + suffix;
       if (p < 1) requestAnimationFrame(step);
-      else el.textContent = prefix + target.toFixed(decimals) + suffix;
+      else el.textContent = prefix + fmt(target) + suffix;
     }
     requestAnimationFrame(step);
   }
