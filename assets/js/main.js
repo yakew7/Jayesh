@@ -169,6 +169,72 @@
     });
   }
 
+  /* ---- Hero carousel ([data-carousel]) -------------------------------- */
+  function wireCarousel() {
+    document.querySelectorAll("[data-carousel]").forEach(function (root) {
+      var track = root.querySelector("[data-carousel-track]");
+      if (!track) return;
+      var slides = Array.prototype.slice.call(track.children);
+      if (slides.length < 2) return;
+      var dotsWrap = root.querySelector("[data-carousel-dots]");
+      var i = 0, timer = null, DELAY = 5500;
+
+      // build dots
+      var dots = [];
+      if (dotsWrap) {
+        slides.forEach(function (_, k) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.setAttribute("aria-label", "Go to slide " + (k + 1));
+          b.addEventListener("click", function () { go(k, true); });
+          dotsWrap.appendChild(b);
+          dots.push(b);
+        });
+      }
+      function setActive(n) {
+        i = n;
+        dots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
+      }
+      function go(n, user) {
+        n = (n + slides.length) % slides.length;
+        track.scrollTo({ left: track.clientWidth * n, behavior: reduceMotion ? "auto" : "smooth" });
+        setActive(n);
+        if (user) restart();
+      }
+      function next() { go(i + 1); }
+      function prev() { go(i - 1); }
+      function start() { if (!reduceMotion && !timer) timer = setInterval(next, DELAY); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function restart() { stop(); start(); }
+
+      var nextBtn = root.querySelector("[data-carousel-next]");
+      var prevBtn = root.querySelector("[data-carousel-prev]");
+      if (nextBtn) nextBtn.addEventListener("click", function () { go(i + 1, true); });
+      if (prevBtn) prevBtn.addEventListener("click", function () { go(i - 1, true); });
+
+      // keep dots in sync when the user swipes/scrolls
+      var scrollTick;
+      track.addEventListener("scroll", function () {
+        window.clearTimeout(scrollTick);
+        scrollTick = window.setTimeout(function () {
+          var n = Math.round(track.scrollLeft / track.clientWidth);
+          if (n !== i) setActive(n);
+        }, 90);
+      });
+
+      root.addEventListener("pointerenter", stop);
+      root.addEventListener("pointerleave", start);
+      root.addEventListener("focusin", stop);
+      root.addEventListener("focusout", start);
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) stop(); else start();
+      });
+
+      setActive(0);
+      start();
+    });
+  }
+
   /* ---- Footer year ----------------------------------------------------- */
   function setYear() {
     document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
@@ -183,6 +249,7 @@
     wireSliders();
     wireQuiz();
     wireForms();
+    wireCarousel();
     setYear();
   });
 })();
