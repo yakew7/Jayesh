@@ -35,7 +35,7 @@
     // On mobile, tapping a dropdown parent toggles it; tapping a leaf closes menu.
     links.addEventListener("click", function (e) {
       var parentToggle = e.target.closest(".has-dropdown > a");
-      if (parentToggle && window.matchMedia("(max-width: 1024px)").matches) {
+      if (parentToggle && window.matchMedia("(max-width: 1150px)").matches) {
         var dd = parentToggle.parentNode.querySelector(".dropdown");
         if (dd && !e.target.closest(".dropdown")) {
           e.preventDefault();
