@@ -241,11 +241,6 @@
     .statstrip .statbar__item { display: flex; align-items: center; gap: 0.8rem; text-align: left; justify-content: center; }
     .statstrip .statbar__ic { margin: 0; }
     .statstrip .laurel { color: var(--yellow); font-size: 1.4rem; }
-    .journey-values { display: grid; grid-template-columns: 1.55fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
-    .journey-head { display: flex; gap: 1.2rem; align-items: baseline; flex-wrap: wrap; margin-bottom: 2rem; }
-    .journey-head h2 { margin: 0; white-space: nowrap; }
-    .journey-head p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; max-width: 34ch; }
-    .tl-year { display: block; font-size: 1.35rem; font-weight: 800; line-height: 1; margin-bottom: 0.3rem; }
     .value-row { display: flex; gap: 0.9rem; align-items: flex-start; padding: 0.7rem 0; border-bottom: 1px dashed var(--line); }
     .value-row:last-child { border-bottom: 0; }
     .value-row h4 { margin: 0 0 0.2rem; font-size: 1rem; }
@@ -263,7 +258,6 @@
     @media (max-width: 980px) {
       .about-hero { grid-template-columns: 1fr; }
       .about-badge { right: 12px; }
-      .journey-values { grid-template-columns: 1fr; }
       .whyjlc { grid-template-columns: 1fr; }
     }
   </style>
@@ -311,6 +305,25 @@
               <div class="vm-underline"></div>
               <p>To deliver concept-based learning, foster analytical thinking and build future-ready individuals through innovation, mentorship and values.</p>
             </div>
+            <div class="card-soft">
+              <h2 style="font-size:1.5rem;margin:0 0 1rem;">Our <span class="t-orange">Core Values</span></h2>
+              <div class="value-row">
+                <span class="chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>
+                <div><h4>Excellence</h4><p>We strive for the highest standards in teaching and learning.</p></div>
+              </div>
+              <div class="value-row">
+                <span class="chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></span>
+                <div><h4>Integrity</h4><p>We believe in honesty, transparency and strong ethical values.</p></div>
+              </div>
+              <div class="value-row">
+                <span class="chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                <div><h4>Innovation</h4><p>We embrace new ideas and modern methods for better learning.</p></div>
+              </div>
+              <div class="value-row">
+                <span class="chip chip--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+                <div><h4>Care</h4><p>We care for every student's growth, well-being and success.</p></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -335,42 +348,6 @@
           <div class="statbar__item">
             <span class="laurel">🏆</span>
             <div><div class="statbar__num" style="font-size:0.95rem;line-height:1.25;">Leading ICSE, IGCSE,<br />IB, CBSE &amp; State<br />Board Mentor</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ OUR JOURNEY + CORE VALUES ============================ -->
-    <section class="section">
-      <div class="wrap">
-        <div class="journey-values reveal">
-          <!-- left: journey timeline -->
-          <div>
-            <div class="journey-head">
-              <h2>Our <span class="t-orange">Journey</span></h2>
-              <p>From a small classroom to a trusted name across India, here's how JLC has grown over the years.</p>
-            </div>
-          </div>
-
-          <!-- right: core values -->
-          <div class="card-soft">
-            <h2 style="font-size:1.5rem;margin:0 0 1rem;">Our <span class="t-orange">Core Values</span></h2>
-            <div class="value-row">
-              <span class="chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>
-              <div><h4>Excellence</h4><p>We strive for the highest standards in teaching and learning.</p></div>
-            </div>
-            <div class="value-row">
-              <span class="chip chip--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></span>
-              <div><h4>Integrity</h4><p>We believe in honesty, transparency and strong ethical values.</p></div>
-            </div>
-            <div class="value-row">
-              <span class="chip chip--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-              <div><h4>Innovation</h4><p>We embrace new ideas and modern methods for better learning.</p></div>
-            </div>
-            <div class="value-row">
-              <span class="chip chip--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
-              <div><h4>Care</h4><p>We care for every student's growth, well-being and success.</p></div>
-            </div>
           </div>
         </div>
       </div>
