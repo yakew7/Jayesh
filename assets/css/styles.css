@@ -130,11 +130,11 @@ ul { margin: 0; }
 .brand { display: inline-flex; align-items: center; gap: 0.65rem; }
 .brand__mark { display: inline-flex; align-items: center; }
 .brand__mark img { height: 42px; width: auto; display: block; }
-.brand__text { display: flex; flex-direction: column; line-height: 1; }
-.brand__text b { font-size: 0.86rem; font-weight: 800; letter-spacing: 0.02em; color: #111; white-space: nowrap; }
-.brand__text .line2 { font-size: 0.86rem; font-weight: 800; letter-spacing: 0.01em; color: #111; white-space: nowrap; }
+.brand__text { display: block; line-height: 1.1; }
+.brand__text b { display: inline; font-size: 0.86rem; font-weight: 800; letter-spacing: 0.02em; color: #111; white-space: nowrap; }
+.brand__text .line2 { display: inline; margin-left: 0.3em; font-size: 0.86rem; font-weight: 800; letter-spacing: 0.01em; color: #111; white-space: nowrap; }
 .brand__text .line2 em { font-style: normal; font-weight: 800; color: #111; }
-.brand__text small { font-size: 0.6rem; font-weight: 500; color: var(--ink-faint); font-style: italic; letter-spacing: 0.01em; margin-top: 2px; white-space: nowrap; }
+.brand__text small { display: block; font-size: 0.6rem; font-weight: 500; color: var(--ink-faint); font-style: italic; letter-spacing: 0.01em; margin-top: 2px; white-space: nowrap; }
 /* on dark backgrounds */
 .on-dark .brand__text b, .brand--light .brand__text b { color: #fff; }
 .on-dark .brand__text small, .brand--light .brand__text small { color: rgba(255,255,255,0.6); }
@@ -671,3 +671,5 @@ ul { margin: 0; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+@media (max-width: 520px) { .brand__text b, .brand__text .line2 { font-size: 0.7rem; } .brand__text small { font-size: 0.52rem; } }
